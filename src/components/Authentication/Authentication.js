@@ -2,7 +2,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 import HeaderButton from '../HeaderButton/HeaderButton';
 
-const Authentication = () => {
+const Authentication = ({ style }) => {
   const { error, isLoading, isAuthenticated, user, loginWithRedirect, logout } =
     useAuth0();
 
@@ -18,12 +18,13 @@ const Authentication = () => {
   return (
     <div>
       <HeaderButton
-        icon="line-md:account"
         onClick={() => {
           !isAuthenticated
             ? loginWithRedirect()
             : logout({ returnTo: window.location.origin });
         }}
+        icon="line-md:account"
+        style={style}
       />
     </div>
   );
