@@ -8,7 +8,6 @@ const Language = () => {
 
   const handleChange = () => {
     return (
-      console.log(intl)
     )
   }
 
