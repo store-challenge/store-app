@@ -12,7 +12,6 @@ const Authentication = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  console.log(user)
 
   return (
     <div>
