@@ -5,7 +5,7 @@ const CatalogPage = () => {
   return (
     <LangProvider>
       <Header />
-      {/* Main component */}
+
       {/* Footer */}
     </LangProvider>
   );
