@@ -1,4 +1,4 @@
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from '@auth0/auth0-react';
 
 import HeaderButton from '../HeaderButton/HeaderButton';
 
@@ -16,15 +16,16 @@ const Authentication = () => {
   return (
     <div>
       <HeaderButton
-        icon="line-md:account"
         onClick={() => {
           !isAuthenticated
             ? loginWithRedirect()
             : logout({ returnTo: window.location.origin });
         }}
+        icon="line-md:account"
+        style={style}
       />
     </div>
   );
-}
+};
 
 export default Authentication;
