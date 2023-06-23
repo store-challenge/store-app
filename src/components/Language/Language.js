@@ -7,7 +7,7 @@ const Language = ({ style }) => {
   const iconFlag = intl.messages.flag;
 
   const handleChange = () => {
-    return console.log(intl);
+    return
   };
 
   return (
