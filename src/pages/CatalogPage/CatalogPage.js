@@ -1,15 +1,3 @@
-<<<<<<< Updated upstream
-import LangProvider from "../../components/LangProvider/LangProvider";
-import Header from "../../components/Header/Header";
-
-const CatalogPage = () => {
-  return (
-    <LangProvider>
-      <Header />
-
-      {/* Footer */}
-    </LangProvider>
-=======
 import styles from "./CatalogPage.module.css";
 import Card from "../../components/Card/Card";
 
@@ -107,7 +95,6 @@ const CatalogPage = () => {
         </div>
       </div>
     </div>
->>>>>>> Stashed changes
   );
 }
 export default CatalogPage;

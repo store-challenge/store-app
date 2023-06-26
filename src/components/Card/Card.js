@@ -1,9 +1,7 @@
 import styles from "./Card.module.css";
-import { ReactComponent as BasketIcon } from "./basket-icon.svg";
+
 const Card = ({ product }) => {
   const { title, image, alt, price } = product;
-
-  console.log("product");
 
   return (
     <div className={styles.card}>
@@ -20,9 +18,7 @@ const Card = ({ product }) => {
         <div className={styles.cardPriceGroup}>
           <p className={styles.cardPriceUah}>{`${price} ₴`}</p>
         </div>
-        <div className={styles.cardBasket}>
-          <BasketIcon className={styles.cardBasketIcon} />
-        </div>
+        <div className={styles.cardBasket}></div>
       </div>
     </div>
   );
