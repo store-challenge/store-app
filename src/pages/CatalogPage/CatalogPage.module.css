@@ -1,0 +1,68 @@
+.catalogPageMainContent {
+  max-width: 1121px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 50px;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.catalogPageCategory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.testCategory {
+  display: flex;
+  width: 177px;
+  height: 187px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 77px;
+  border-radius: 20px;
+  background: #6b4c7d;
+}
+
+.catalogPageAdAndProducts {
+  display: flex;
+  flex-direction: column;
+  font-size: 25px;
+  font-weight: 700;
+  max-width: 848px;
+  width: 100%;
+}
+
+.catalogPageAd {
+  max-width: 848px;
+  height: 380px;
+  background-size: contain;
+  background-color: #bb2828;
+  border-radius: 20px;
+}
+
+.catalogPageTitle {
+  width: 186px;
+  height: 32px;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.catalogPageTitle h3 {
+  font-size: 25px;
+  font-family: Montserrat;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.catalogPageProducts {
+  max-width: 848px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+  justify-items: center;
+  column-gap: 14px;
+}
