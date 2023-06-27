@@ -1,4 +1,5 @@
 .card {
+  margin: 7px;
   height: 416px;
   width: 272px;
   display: flex;
@@ -6,7 +7,6 @@
   justify-content: center;
   cursor: pointer;
   padding: 0px;
-  margin-top: 50px;
 }
 
 .cardWrapper {
@@ -28,6 +28,7 @@
 }
 
 .cardWrapper .imgWrapper {
+
   width: 150px;
   height: 200px;
   overflow: hidden;
@@ -36,6 +37,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .card:hover .imgWrapper {
