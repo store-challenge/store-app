@@ -1,5 +1,5 @@
 import styles from "./Card.module.css";
-
+import { Icon } from "@iconify/react";
 const Card = ({ product }) => {
   const { title, image, alt, price } = product;
 
@@ -18,7 +18,9 @@ const Card = ({ product }) => {
         <div className={styles.cardPriceGroup}>
           <p className={styles.cardPriceUah}>{`${price} ₴`}</p>
         </div>
-        <div className={styles.cardBasket}></div>
+        <div className={styles.cardBasket}>
+          <Icon className={styles.cardBasketIcon} icon={"ion:cart-outline"} />
+        </div>
       </div>
     </div>
   );
