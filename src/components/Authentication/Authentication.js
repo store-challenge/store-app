@@ -1,6 +1,8 @@
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from '@auth0/auth0-react';
 
-const Authentication = () => {
+import HeaderButton from '../HeaderButton/HeaderButton';
+
+const Authentication = ({ style }) => {
   const { error, isLoading, isAuthenticated, user, loginWithRedirect, logout } = useAuth0();
 
   if (error) {
@@ -10,25 +12,20 @@ const Authentication = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  console.log(user)
 
-   return (
-     <>
-       {!isAuthenticated ? (
-         <div>
-           <button onClick={() => loginWithRedirect()}>
-             LOGIN
-           </button>
-         </div>
-       ) : (
-         <div>
-           <button onClick={() => logout({ returnTo: window.location.origin })} >
-             LOGOUT
-           </button>
-         </div>
-       )}
-     </>
-   );
-}
+  return (
+    <div>
+      <HeaderButton
+        onClick={() => {
+          !isAuthenticated
+            ? loginWithRedirect()
+            : logout({ returnTo: window.location.origin });
+        }}
+        icon="line-md:account"
+        style={style}
+      />
+    </div>
+  );
+};
 
 export default Authentication;

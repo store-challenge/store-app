@@ -1,0 +1,13 @@
+.button {
+  padding: 0;
+  cursor: pointer;
+  color: var(--secondColor);
+  background: none;
+  border: none;
+}
+.icon:active{
+    position: relative;
+    color: var(--buttonHoverColor);
+    background-color: var(--secondColor);
+    border-radius: 10px;
+}

@@ -1,11 +1,13 @@
+import LangProvider from "../../components/LangProvider/LangProvider";
 import Header from "../../components/Header/Header";
 import Card from "../../components/Card/Card";
 const CatalogPage = () => {
   return (
-    <div>
+    <LangProvider>
       <Header />
-      <Card title="Parfum Chanel №5" image="" alt="" price="2550" coin="₴" />
-    </div>
+
+      {/* Footer */}
+    </LangProvider>
   );
-};
+}
 export default CatalogPage;
