@@ -71,14 +71,7 @@ const CatalogPage = () => {
   return (
     <div className={styles.catalogPageMainContent}>
       <div className={styles.catalogPageCategory}>
-        <div className={styles.testCategory}></div>
-        <div className={styles.testCategory}></div>
-        <div className={styles.testCategory}></div>
-        <div className={styles.testCategory}></div>
-        <div className={styles.testCategory}></div>
-        <div className={styles.testCategory}></div>
-        <div className={styles.testCategory}></div>
-        <div className={styles.testCategory}></div>
+        {new Array(8).fill(null).map((el, i) => <div key={i} className={styles.testCategory}></div>)}
         {/* place for Category component */}
       </div>
       <div className={styles.catalogPageAdAndProducts}>
