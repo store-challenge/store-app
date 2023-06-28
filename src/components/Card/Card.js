@@ -1,28 +1,25 @@
-import styles from "./card.module.css";
-import { ReactComponent as BasketIcon } from "./basket-icon.svg";
-import picture from "./picture.png";
-const Card = (props) => {
-  const { title, image, alt, price, coin } = props;
+import styles from "./Card.module.css";
+import { Icon } from "@iconify/react";
+const Card = ({ product }) => {
+  const { title, image, alt, price } = product;
 
   return (
     <div className={styles.card}>
       <div className={styles.cardWrapper}>
         <div className={styles.imgWrapper}>
-          <img src={picture} alt={alt} />
+          <img src={image} alt={alt} />
         </div>
       </div>
 
       <div className={styles.cardTitle}>
-      <h3>{title}</h3>
+        <h3>{title}</h3>
       </div>
       <div className={styles.cardInfo}>
         <div className={styles.cardPriceGroup}>
-          <p className={styles.cardPriceUah}>
-            {`${price} ₴`}
-          </p>
+          <p className={styles.cardPriceUah}>{`${price} ₴`}</p>
         </div>
         <div className={styles.cardBasket}>
-          <BasketIcon className={styles.cardBasketIcon} />
+          <Icon className={styles.cardBasketIcon} icon={"ion:cart-outline"} />
         </div>
       </div>
     </div>
