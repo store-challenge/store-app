@@ -1,4 +1,4 @@
-import styles from "./Card.module.css";
+import styles from "./card.module.css";
 import { Icon } from "@iconify/react";
 const Card = ({ product }) => {
   const { title, image, alt, price } = product;
