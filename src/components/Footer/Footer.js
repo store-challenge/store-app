@@ -2,10 +2,9 @@ import styles from "./Footer.module.css";
 import { Icon } from "@iconify/react";
 
 const Footer = () => {
-  const phoneIcon = (
-    <Icon className={styles.icon} icon={"fluent:call-12-filled"} />
-  );
+  const phoneIcon = <Icon className={styles.icon} icon={"fluent:call-12-filled"} />;
   const mailIcon = <Icon className={styles.icon} icon={"uiw:mail"} />;
+
   const informationList = [
     { label: "Про нас", href: "/about", icon: null },
     { label: "Умови використання сайту", href: "/terms", icon: null },
