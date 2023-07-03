@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "name": "Одяг",
+    "icon": "streamline:shopping-catergories-shirt-clothing-t-shirt-men-top"
+  },
+  {
+    "id": 2,
+    "name": "Спорт",
+    "icon": "fluent:sport-soccer-20-filled"
+  },
+  {
+    "id": 3,
+    "name": "Меблі",
+    "icon": "streamline:shopping-catergories-sofa-decoration-furniture-interior-design-couch-sofa-decorate"
+  },
+  {
+    "id": 4,
+    "name": "Техніка",
+    "icon": "mdi:laptop"
+  },
+  {
+    "id": 5,
+    "name": "Книжки",
+    "icon": "ph:books-light"
+  },
+  {
+    "id": 6,
+    "name": "Косметика",
+    "icon": "solar:cosmetic-linear"
+  },
+  {
+    "id": 7,
+    "name": "Все для дому",
+    "icon": "radix-icons:home"
+  },
+  {
+    "id": 8,
+    "name": "Зоотовари",
+    "icon": "ph:paw-print-light"
+  }
+
+]
