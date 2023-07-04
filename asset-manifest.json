@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/store-app/static/css/main.0b0dc85c.css",
+    "main.js": "/store-app/static/js/main.1685c527.js",
+    "static/js/787.ec4cc9d9.chunk.js": "/store-app/static/js/787.ec4cc9d9.chunk.js",
+    "index.html": "/store-app/index.html",
+    "main.0b0dc85c.css.map": "/store-app/static/css/main.0b0dc85c.css.map",
+    "main.1685c527.js.map": "/store-app/static/js/main.1685c527.js.map",
+    "787.ec4cc9d9.chunk.js.map": "/store-app/static/js/787.ec4cc9d9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0b0dc85c.css",
+    "static/js/main.1685c527.js"
+  ]
+}
