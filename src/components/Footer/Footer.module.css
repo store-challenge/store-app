@@ -1,0 +1,138 @@
+.wrapper {
+  min-width: 320px;
+  max-width: 100%;
+  background-color: var(--mainColor);
+  padding: 20px;
+  box-sizing: border-box;
+  display: grid;
+  grid-auto-rows: auto;
+  justify-content: center;
+  grid-template-columns: minmax(320px, 1440px);
+}
+
+.content {
+  width: 100%;
+  display: grid;
+  grid-auto-rows: auto;
+  
+}
+
+.logoAndTime {
+  grid-area: 3;
+  width: 156px;
+}
+
+.logoAndTime img {
+  display: none;
+}
+
+.logoAndTime p {
+  color: var(--secondColor);
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 130%;
+}
+
+.info ul {
+  display: grid;
+  gap: 1rem;
+  color: var(--secondColor);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 130%;
+  padding: 0;
+}
+
+.info li {
+  color: var(--secondColor);
+  font-size: 15px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 130%;
+  list-style-type: none;
+}
+
+.info a {
+  text-decoration: none;
+  color: var(--secondColor);
+}
+
+.deliveryAndPayment ul {
+  display: grid;
+  gap: 1rem;
+  color: var(--secondColor);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 130%;
+  padding: 0;
+}
+
+.deliveryAndPayment li {
+  color: var(--secondColor);
+  font-size: 15px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 130%;
+  list-style-type: none;
+}
+
+.deliveryAndPayment a {
+  text-decoration: none;
+  color: var(--secondColor);
+}
+
+.license {
+  margin: 0 auto;
+  color: var(--secondColor);
+  font-size: 10px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media only screen and (min-width: 614px) {
+  .content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .logoAndTime {
+    grid-area: 2;
+  }
+}
+
+@media only screen and (min-width: 910px) {
+  .content {
+    grid-template-columns: 190px 310px 206px;
+    justify-content: space-evenly;
+  }
+
+  .logoAndTime {
+    grid-area: 1;
+  }
+
+  .logoAndTime img {
+    display: block;
+  }
+
+  .info ul {
+    font-size: 20px;
+  }
+
+  .info li {
+    font-size: 20px;
+  }
+
+  .deliveryAndPayment ul {
+    font-size: 20px;
+  }
+  .deliveryAndPayment li {
+    font-size: 20px;
+  }
+
+  .license {
+    font-size: 15px;
+  }
+}

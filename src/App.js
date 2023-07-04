@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+import Header from './components/Header/Header';
+import LangProvider from "./components/LangProvider/LangProvider";
+import CatalogPage from "./pages/CatalogPage/CatalogPage";
+
+const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 320,
+      sm: 480,
+      md: 768,
+      lg: 1024,
+      xl: 1440,
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <LangProvider>
+        <div className="App">
+          <Header />
+          <CatalogPage />
+        </div>
+      </LangProvider>
+    </ThemeProvider>
   );
 }
 
