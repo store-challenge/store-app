@@ -6,7 +6,6 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import HeaderButton from '../HeaderButton/HeaderButton';
 import Language from '../Language/Language'
 import Authentication from '../Authentication/Authentication';
-import AuthProvider from '../AuthProvider/AuthProvider';
 
 const Header = () => {
   const mobile = useMediaQuery('(min-width: 320px)');
@@ -34,9 +33,7 @@ const Header = () => {
             style={mobile && { fontSize: '32px' }}
           />
 
-          <AuthProvider>
-            <Authentication style={mobile && { fontSize: '30px' }} />
-          </AuthProvider>
+          <Authentication style={mobile && { fontSize: '30px' }} />
         </div>
       </div>
     </header>
