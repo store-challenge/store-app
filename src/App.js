@@ -5,6 +5,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from './components/Header/Header';
 import LangProvider from "./components/LangProvider/LangProvider";
 import CatalogPage from "./pages/CatalogPage/CatalogPage";
+import Footer from "./components/Footer/Footer"
 
 const theme = createTheme({
   breakpoints: {
@@ -25,6 +26,7 @@ function App() {
         <div className="App">
           <Header />
           <CatalogPage />
+          <Footer />
         </div>
       </LangProvider>
     </ThemeProvider>
