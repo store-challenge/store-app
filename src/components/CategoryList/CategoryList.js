@@ -6,21 +6,27 @@ const CategoryList = (props) => {
   const {
     rowSpacing,
     columnSpacing,
-    xsColumns,
-    smColumns,
-    mdColumns,
-    xlColumns,
+    sx,
+    xs,
+    sm,
+    md,
+    xl,
     array,
     onClick,
   } = props;
 
   return (
-    <Grid container rowSpacing={rowSpacing} columnSpacing={columnSpacing}>
-      {Array.from(array).map((el, index) => (
-        <Grid key={index} xs={xsColumns} sm={smColumns} md={mdColumns} xl={xlColumns}>
+    <Grid
+      container
+      sx={sx}
+      rowSpacing={rowSpacing}
+      columnSpacing={columnSpacing}
+    >
+      {array.map((el) => (
+        <Grid key={el.name} xs={xs} sm={sm} md={md} xl={xl}>
           <CategoryButton onClick={onClick} icon={el.icon} text={el.name} />
-        </Grid>)
-      )}
+        </Grid>
+      ))}
     </Grid>
   );
 };
