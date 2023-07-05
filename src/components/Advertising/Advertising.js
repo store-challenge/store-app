@@ -8,14 +8,13 @@ const Advertising = () => {
 
   const randomNumber = (Math.floor(Math.random() * images.length));
 
-  const changeImageIndex = () => {
-    setCurrentImage(randomNumber)
-  }
 
-  useEffect(
-    () => changeImageIndex(),
-    []
-  );
+  useEffect(() => {
+    const changeImageIndex = () => {
+      setCurrentImage(randomNumber);
+    };
+    changeImageIndex();
+  }, [randomNumber]);
 
 
   return (
