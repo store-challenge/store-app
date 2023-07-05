@@ -1,13 +1,19 @@
 import "./App.css";
 import CatalogPage from "./pages/CatalogPage/CatalogPage";
+import Footer from "./components/Footer/Footer"
 
 
 function App() {
   return (
-    <div className="App">
-      <CatalogPage />
-      
-    </div>
+    <ThemeProvider theme={theme}>
+      <LangProvider>
+        <div className="App">
+          <Header />
+          <CatalogPage />
+          <Footer />
+        </div>
+      </LangProvider>
+    </ThemeProvider>
   );
 }
 
