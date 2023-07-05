@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "Одяг",
+    "icon": "game-icons:clothes"
+  },
+  {
+    "id": 2,
+    "name": "Взуття",
+    "icon": "icon-park:sandals"
+  },
+  {
+    "id": 3,
+    "name": "Для жінок",
+    "icon": "material-symbols:woman"
+  },
+  {
+    "id": 4,
+    "name": "Для чоловіків",
+    "icon": "ic:round-man"
+  },
+  {
+    "id": 5,
+    "name": "Для дітей",
+    "icon": "bx:child"
+  }
+]
