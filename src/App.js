@@ -3,7 +3,7 @@ import "./App.css";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import Header from './components/Header/Header';
-import LangProvider from "./components/LangProvider/LangProvider";
+import LangProvider from "./providers/LangProvider";
 import CatalogPage from "./pages/CatalogPage/CatalogPage";
 
 const theme = createTheme({

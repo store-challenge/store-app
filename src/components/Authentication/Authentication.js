@@ -2,13 +2,11 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 import HeaderButton from '../HeaderButton/HeaderButton';
 
-
 const Authentication = ({ style }) => {
   const {
     error,
     isLoading,
     isAuthenticated,
-    user,
     loginWithRedirect,
     logout,
   } = useAuth0();
