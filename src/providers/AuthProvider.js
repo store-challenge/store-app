@@ -16,7 +16,6 @@ const AuthProvider = ({ children }) => {
        .then((token) =>
          axiosClient.interceptors.request.use((config) => {
            config.headers.Authorization = `Bearer ${token}`;
-           console.log(token);
          })
        )
        .catch((error) => console.log(error));
