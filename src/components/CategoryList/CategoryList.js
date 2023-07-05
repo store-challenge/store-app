@@ -3,17 +3,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import CategoryButton from '../../components/CategoryButton/CategoryButton';
 
 const CategoryList = (props) => {
-  const {
-    rowSpacing,
-    columnSpacing,
-    sx,
-    xs,
-    sm,
-    md,
-    xl,
-    array,
-    onClick,
-  } = props;
+  const { rowSpacing, columnSpacing, sx, breakpoints, array, onClick } = props;
 
   return (
     <Grid
@@ -23,7 +13,10 @@ const CategoryList = (props) => {
       columnSpacing={columnSpacing}
     >
       {array.map((el) => (
-        <Grid key={el.name} xs={xs} sm={sm} md={md} xl={xl}>
+        <Grid
+          key={el.name}
+          breakpoints={breakpoints}
+        >
           <CategoryButton onClick={onClick} icon={el.icon} text={el.name} />
         </Grid>
       ))}

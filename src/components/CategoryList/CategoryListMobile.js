@@ -13,11 +13,9 @@ const CategoryListMobile = (props) => {
   const sm = useMediaQuery(theme.breakpoints.up('sm'));
   const md = useMediaQuery(theme.breakpoints.up('md'));
   const [showMore, setShowMore] = useState(false);
-  const [buttonText, setButtonText] = useState('Більше категорій');
 
   const handleClickShowMore = () => {
     setShowMore((oldValue) => !oldValue);
-    showMore ? setButtonText('Більше категорій') : setButtonText('Зменшити');
   };
 
   return (
@@ -29,21 +27,17 @@ const CategoryListMobile = (props) => {
       }}
     >
       <CategoryList
-        array={array.slice(
-          0,
-          showMore
-            ? array.length
-            : md ? 4 : sm ? 3 : 2
-        )}
+        array={array.slice(0, showMore ? array.length : md ? 4 : sm ? 3 : 2)}
         rowSpacing={{ xs: 2.5 }}
         columnSpacing={{ xs: 1 }}
-        xs={6}
-        sm={4}
-        md={3}
+        breakpoints= {{ xs: 6, sm: 4, md: 3 }}
         onClick={onClick}
       />
       <Grid sx={{ marginX: 'auto', marginTop: 2.5 }}>
-        <CategoryMoreButton text={buttonText} onClick={handleClickShowMore} />
+        <CategoryMoreButton
+          text={showMore ? 'Більше категорій' : 'Зменшити'}
+          onClick={handleClickShowMore}
+        />
       </Grid>
     </Grid>
   );

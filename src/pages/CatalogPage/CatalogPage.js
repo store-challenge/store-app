@@ -26,7 +26,7 @@ const CatalogPage = () => {
           array={categories}
           rowSpacing={{ xl: 6.25 }}
           columnSpacing={{ xl: 0 }}
-          xl={12}
+          breakpoints={{ xl: 12}}
           onClick={handleClickCategoryButton}
         />
       ) : (

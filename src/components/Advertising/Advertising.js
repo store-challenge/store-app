@@ -6,15 +6,11 @@ import { images } from './images/index';
 const Advertising = () => {
   const [currentImageIndex, setCurrentImage] = useState()
 
-  const randomNumber = (Math.floor(Math.random() * images.length));
-
-
   useEffect(() => {
-    const changeImageIndex = () => {
+    const randomNumber = (Math.floor(Math.random() *
+  images.length));
       setCurrentImage(randomNumber);
-    };
-    changeImageIndex();
-  }, [randomNumber]);
+  }, []);
 
 
   return (
