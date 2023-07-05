@@ -9,3 +9,16 @@
 .App {
   background-color: var(--secondColor);
 }
+p {
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  text-transform: none;
+}
+@media only screen and (min-width: 1440px) {
+  p {
+    font-size: 20px;
+  }
+}

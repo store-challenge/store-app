@@ -13,6 +13,7 @@ const Authentication = ({ style }) => {
     logout,
   } = useAuth0();
 
+
   if (error) {
     return <div>Oops... {error.message}</div>;
   }
