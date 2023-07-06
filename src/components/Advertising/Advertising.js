@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import s from './Advertising.module.css';
 
-import { images } from '../../data/images/index';
+import { advertising } from '../../data/images/index';
 
 const Advertising = () => {
   const [currentImage, setCurrentImage] = useState()
 
   useEffect(() => {
-    const randomNumber = (Math.floor(Math.random() * images.length));
+    const randomNumber = (Math.floor(Math.random() * advertising.length));
     setCurrentImage(randomNumber);
   }, []);
 
@@ -15,7 +15,7 @@ const Advertising = () => {
     <div className={s.hero}>
       <img
         className={s.image}
-        src={images[currentImage]}
+        src={advertising[currentImage]}
         alt="Advertising"
       />
     </div>
