@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import s from './Advertising.module.css';
 
-import { advertising } from '../../data/images/index';
+import { images } from '../../data/images/index';
 
 const Advertising = () => {
   const [currentImage, setCurrentImage] = useState()
@@ -15,7 +15,7 @@ const Advertising = () => {
     <div className={s.hero}>
       <img
         className={s.image}
-        src={advertising[currentImage]}
+        src={images[currentImage]}
         alt="Advertising"
       />
     </div>
