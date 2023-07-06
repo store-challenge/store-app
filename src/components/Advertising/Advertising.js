@@ -4,25 +4,18 @@ import s from './Advertising.module.css';
 import { advertising } from '../../data/images/index';
 
 const Advertising = () => {
-  const [currentImageIndex, setCurrentImage] = useState()
+  const [currentImage, setCurrentImage] = useState()
 
-  const randomNumber = Math.floor(Math.random() * advertising.length);
-
-  const changeImageIndex = () => {
-    setCurrentImage(randomNumber)
-  }
-
-  useEffect(
-    () => changeImageIndex(),
-    []
-  );
-
+  useEffect(() => {
+    const randomNumber = (Math.floor(Math.random() * advertising.length));
+    setCurrentImage(randomNumber);
+  }, []);
 
   return (
     <div className={s.hero}>
       <img
         className={s.image}
-        src={advertising[currentImageIndex]}
+        src={advertising[currentImage]}
         alt="Advertising"
       />
     </div>

@@ -1,93 +1,50 @@
 import styles from "./CatalogPage.module.css";
+
+import { useTheme } from '@mui/material/styles';
+import { Container, useMediaQuery } from '@mui/material';
+
+import Advertising from '../../components/Advertising/Advertising'
+import CategoryList from '../../components/CategoryList/CategoryList'
+import CategoryListMobile from '../../components/CategoryList/CategoryListMobile'
 import Card from "../../components/Card/Card";
 
-const productsTest = [
-  {
-    id: 1,
-    title: "Parfum Chanel №5",
-    image: 'http://placekitten.com/200/300',
-    alt: "Chanel №5 Perfume",
-    price: 2550,
-  },
-  {
-    id: 2,
-    title: "Product 2",
-    image: 'http://placekitten.com/200/300',
-    alt: "Product 2",
-    price: 100,
-  },
-  {
-    id: 3,
-    title: "Product 3",
-    image: 'http://placekitten.com/200/300',
-    alt: "Product 3",
-    price: 500,
-  },
-  {
-    id: 4,
-    title: "Product 4",
-    image: 'http://placekitten.com/200/300',
-    alt: "Product 4",
-    price: 750,
-  },
-  {
-    id: 5,
-    title: "Product 5",
-    image: 'http://placekitten.com/200/300',
-    alt: "Product 5",
-    price: 1200,
-  },
-  {
-    id: 2,
-    title: "Product 2",
-    image: 'http://placekitten.com/200/300',
-    alt: "Product 2",
-    price: 100,
-  },
-  {
-    id: 3,
-    title: "Product 3",
-    image: 'http://placekitten.com/200/300',
-    alt: "Product 3",
-    price: 500,
-  },
-  {
-    id: 4,
-    title: "Product 4",
-    image: 'http://placekitten.com/200/300',
-    alt: "Product 4",
-    price: 750,
-  },
-  {
-    id: 5,
-    title: "Product 5",
-    image: 'http://placekitten.com/200/300',
-    alt: "Product 5",
-    price: 1200,
-  },
-];
+import { products, categories } from '../../data';
 
 const CatalogPage = () => {
+  const theme = useTheme();
+  const desktop = useMediaQuery(theme.breakpoints.up('xl'));
+
+  const handleClickCategoryButton = (e) => {
+    return
+  };
+
   return (
-    <div className={styles.catalogPageMainContent}>
-      <div className={styles.catalogPageCategory}>
-        {new Array(8).fill(null).map((el, i) => <div key={i} className={styles.testCategory}></div>)}
-        {/* place for Category component */}
+    <Container sx={{ paddingY: 2.5 }}>
+      <Advertising />
+      {desktop ? (
+        <CategoryList
+          array={categories}
+          rowSpacing={{ xl: 6.25 }}
+          columnSpacing={{ xl: 0 }}
+          breakpoints={{ xl: 12}}
+          onClick={handleClickCategoryButton}
+        />
+      ) : (
+        <CategoryListMobile
+          array={categories}
+          onClick={handleClickCategoryButton}
+        />
+      )}
+
+      <div className={styles.catalogPageTitle}>
+        <h3>Топ продажів</h3>
       </div>
-      <div className={styles.catalogPageAdAndProducts}>
-        <div className={styles.catalogPageAd}>
-          {/* place for Add component */}
-        </div>
-        <div className={styles.catalogPageTitle}>
-          <h3>Топ продажів</h3>
-        </div>
-        <div className={styles.catalogPageProducts}>
-          {productsTest.map((product) => (
-            <Card product={product} key={product.id} />
-          ))}
-        </div>
+      <div className={styles.catalogPageProducts}>
+        {products.map((product) => (
+          <Card product={product} key={product.id} />
+        ))}
       </div>
-    </div>
+    </Container>
   );
 }
 export default CatalogPage;
