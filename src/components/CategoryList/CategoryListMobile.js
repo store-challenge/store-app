@@ -35,7 +35,7 @@ const CategoryListMobile = (props) => {
       />
       <Grid sx={{ marginX: 'auto', marginTop: 2.5 }}>
         <CategoryMoreButton
-          text={showMore ? 'Більше категорій' : 'Зменшити'}
+          text={showMore ? 'Зменшити' : 'Більше категорій'}
           onClick={handleClickShowMore}
         />
       </Grid>
