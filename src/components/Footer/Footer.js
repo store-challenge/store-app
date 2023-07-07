@@ -1,4 +1,5 @@
 import styles from "./Footer.module.css";
+import logo from '../../logo.svg';
 import { Icon } from "@iconify/react";
 
 const Footer = () => {
@@ -21,7 +22,7 @@ const Footer = () => {
     <footer className={styles.wrapper}>
       <div className={styles.content}>
         <div className={styles.logoAndTime}>
-          <img src="" alt="MEGASTORE" />
+          <img src={logo} alt="MEGASTORE" />
           <p>Пн-Нд 09:00-20:00</p>
         </div>
         <div className={styles.info}>
