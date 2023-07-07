@@ -21,16 +21,20 @@ const CategoryListMobile = (props) => {
   return (
     <Grid
       container
+      maxWidth="lg"
       sx={{
         flexDirection: 'column',
-        marginY: 2.5,
+        marginTop: 2.5,
       }}
     >
       <CategoryList
+        sx={{
+          justifyContent: 'center',
+        }}
+        breakpoints={{ xs: 6, md: 4, lg: 3 }}
         array={array.slice(0, showMore ? array.length : md ? 4 : sm ? 3 : 2)}
-        rowSpacing={{ xs: 2.5 }}
-        columnSpacing={{ xs: 1 }}
-        breakpoints= {{ xs: 6, sm: 4, md: 3 }}
+        rowSpacing={2.5}
+        columnSpacing={1}
         onClick={onClick}
       />
       <Grid sx={{ marginX: 'auto', marginTop: 2.5 }}>
