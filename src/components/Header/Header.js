@@ -1,6 +1,7 @@
 import logo from '../../logo.svg';
 import s from './Header.module.css';
 
+import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 import HeaderButton from '../HeaderButton/HeaderButton';
@@ -8,15 +9,15 @@ import Language from '../Language/Language'
 import Authentication from '../Authentication/Authentication';
 
 const Header = () => {
-  const mobile = useMediaQuery('(min-width: 320px)');
+  const theme = useTheme();
+  const desktop = useMediaQuery(theme.breakpoints.up('xl'));
 
   return (
     <header className={s.header}>
       <img className={s.logo} src={logo} alt="MegaStore" />
       <div className={s.navBar}>
-
         {/* Search component */}
-        {!mobile && (
+        {!desktop && (
           <HeaderButton
             onClick={() => {}}
             icon="iconoir:search"
@@ -25,15 +26,15 @@ const Header = () => {
         )}
 
         <div className={s.appBar}>
-          <Language style={mobile && { fontSize: '28px' }} />
+          <Language style={desktop && { fontSize: '28px' }} />
 
           <HeaderButton
             onClick={() => {}}
             icon="ion:cart-outline"
-            style={mobile && { fontSize: '32px' }}
+            style={desktop && { fontSize: '32px' }}
           />
 
-          <Authentication style={mobile && { fontSize: '30px' }} />
+          <Authentication style={desktop && { fontSize: '30px' }} />
         </div>
       </div>
     </header>
