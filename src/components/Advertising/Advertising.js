@@ -4,20 +4,26 @@ import s from './Advertising.module.css';
 import { advertising } from '../../data/images/index';
 
 const Advertising = () => {
-  const [currentImage, setCurrentImage] = useState()
+  const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
-    const randomNumber = (Math.floor(Math.random() * advertising.length));
-    setCurrentImage(randomNumber);
+    const interval = setInterval(() => {
+      const randomNumber = Math.floor(Math.random() * advertising.length);
+      setCurrentImage(randomNumber);
+    }, 6000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <div className={s.hero}>
-      <img
-        className={s.image}
-        src={advertising[currentImage]}
-        alt="Advertising"
-      />
+      {currentImage !== undefined && (
+        <img
+          className={s.image}
+          src={advertising[currentImage]}
+          alt="Advertising"
+        />
+      )}
     </div>
   );
 };
