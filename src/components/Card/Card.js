@@ -6,7 +6,8 @@ const Card = ({ product }) => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.card}>
+     <a href="#">
+     <div className={styles.card}>
         <div className={styles.productImage}>
           <img src={image} alt={alt} />
         </div>
@@ -20,9 +21,10 @@ const Card = ({ product }) => {
           <p className={styles.priceUah}>{`${price} ₴`}</p>
         </div>
         <div className={styles.basket}>
-          <Icon className={styles.basketIcon} icon={"ion:cart-outline"} />
+          <a href="#"><Icon className={styles.basketIcon} icon={"ion:cart-outline"} /></a>
         </div>
       </div>
+     </a>
     </div>
   );
 };
