@@ -6,6 +6,10 @@
     --buttonHoverColor: #B18CC6;
     --buttonClickColor: #482B58;
 }
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
 .App {
   background-color: var(--secondColor);
 }
