@@ -3,10 +3,11 @@ import { Icon } from "@iconify/react";
 
 const Card = ({ product }) => {
   const { title, image, alt, price } = product;
+  const {href} = product;
 
   return (
     <div className={styles.wrapper}>
-     <a href="#">
+     <a href={href}>
      <div className={styles.card}>
         <div className={styles.productImage}>
           <img src={image} alt={alt} />
@@ -21,7 +22,7 @@ const Card = ({ product }) => {
           <p className={styles.priceUah}>{`${price} ₴`}</p>
         </div>
         <div className={styles.basket}>
-          <a href="#"><Icon className={styles.basketIcon} icon={"ion:cart-outline"} /></a>
+          <a href={href}><Icon className={styles.basketIcon} icon={"ion:cart-outline"} /></a>
         </div>
       </div>
      </a>
