@@ -22,7 +22,7 @@ const Card = ({ product }) => {
           <p className={styles.priceUah}>{`${price} ₴`}</p>
         </div>
         <div className={styles.basket}>
-          <a href={href}><Icon className={styles.basketIcon} icon={"ion:cart-outline"} /></a>
+          <Icon className={styles.basketIcon} icon={"ion:cart-outline"} />
         </div>
       </div>
      </a>

@@ -82,11 +82,6 @@
   border-radius: 0;
 }
 
-.basket a {
-  width: 100%;
-  display: flex;
-}
-
 .basketIcon {
   width: 100%;
   height: 100%;
