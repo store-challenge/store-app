@@ -2,8 +2,7 @@ import styles from "./card.module.css";
 import { Icon } from "@iconify/react";
 
 const Card = ({ product }) => {
-  const { title, image, alt, price } = product;
-  const {href} = product;
+  const {href, title, image, alt, price } = product;
 
   return (
     <div className={styles.wrapper}>
