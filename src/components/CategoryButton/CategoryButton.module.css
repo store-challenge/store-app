@@ -1,13 +1,6 @@
 .button {
-  width: 100%;
-  max-width: 140px;
-  max-height: 150px;
-  padding: 2px;
-  margin-right: auto;
-  margin-left: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  width: 140px;
+  height: 150px;
   border-radius: 16px;
   border: none;
   background: var(--mainColor);
@@ -15,37 +8,53 @@
 .button:hover {
   cursor: pointer;
 }
+.link {
+  width: 97%;
+  height: 100%;
+  padding: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .icon {
   width: 40px;
   height: 40px;
-  margin-top: 35px;
+  margin-top: 33px;
   color: var(--secondColor);
 }
 .popup {
-  width: 100%
+  width: 100%;
 }
 .text {
+  width: 100%;
   padding-top: 9px;
+  text-align: center;
   border-top: 1px solid;
   color: var(--secondColor);
 }
 
 @media only screen and (min-width: 1440px) {
   .button {
-    max-width: 177px;
-    max-height: 187px;
+    width: 177px;
+    height: 187px;
     border-radius: 20px;
+  }
+  .link {
+    align-content: center;
+  }
+  .icon {
+    margin-top: 0;
   }
   .popup {
     display: flex;
     align-items: center;
-    justify-content: center;
     visibility: hidden;
     border-radius: 18px;
     background-color: var(--secondColor);
   }
-  .button:hover .popup {
+  .link:hover .popup {
     height: 120px;
+    margin-top: 18px;
     visibility: visible;
     -webkit-animation: smart-animate 0.8s;
     animation: smart-animate 0.8s
@@ -54,7 +63,7 @@
     from {opacity: 0}
     to {opacity:1}
   }
-  .button:hover .icon {
+  .link:hover .icon {
     visibility: hidden;
   }
   .text {

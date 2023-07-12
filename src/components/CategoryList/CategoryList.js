@@ -13,11 +13,13 @@ const CategoryList = (props) => {
       columnSpacing={columnSpacing}
     >
       {array.map((el) => (
-        <Grid
-          key={el.name}
-          breakpoints={breakpoints}
-        >
-          <CategoryButton onClick={onClick} icon={el.icon} text={el.name} />
+        <Grid key={el.name} breakpoints={breakpoints} >
+          <CategoryButton
+            href="/category"
+            onClick={onClick}
+            icon={el.icon}
+            text={el.name}
+          />
         </Grid>
       ))}
     </Grid>
