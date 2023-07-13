@@ -5,9 +5,9 @@ import { useMediaQuery } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 
 import CategoryList from './CategoryList';
-import CategoryMoreButton from '../CategoryMoreButton/CategoryMoreButton'
+import CategoryMoreButton from '../CategoryMoreButton/CategoryMoreButton';
 
-const CategoryListMobile = (props) => {
+const CategoryListMobile = props => {
   const { array, onClick } = props;
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.up('sm'));
@@ -15,7 +15,7 @@ const CategoryListMobile = (props) => {
   const [showMore, setShowMore] = useState(false);
 
   const handleClickShowMore = () => {
-    setShowMore((oldValue) => !oldValue);
+    setShowMore(oldValue => !oldValue);
   };
 
   return (
@@ -25,8 +25,7 @@ const CategoryListMobile = (props) => {
       sx={{
         flexDirection: 'column',
         marginTop: 2.5,
-      }}
-    >
+      }}>
       <CategoryList
         sx={{
           justifyContent: 'center',
@@ -38,10 +37,7 @@ const CategoryListMobile = (props) => {
         onClick={onClick}
       />
       <Grid sx={{ marginX: 'auto', marginTop: 2.5 }}>
-        <CategoryMoreButton
-          text={showMore ? 'Зменшити' : 'Більше категорій'}
-          onClick={handleClickShowMore}
-        />
+        <CategoryMoreButton text={showMore ? 'Зменшити' : 'Більше категорій'} onClick={handleClickShowMore} />
       </Grid>
     </Grid>
   );

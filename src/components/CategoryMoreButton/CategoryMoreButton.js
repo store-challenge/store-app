@@ -1,6 +1,7 @@
 import { styled } from '@mui/material/styles';
 import { Button } from '@mui/material';
 
+// eslint-disable-next-line unused-imports/no-unused-vars, no-unused-vars
 const ButtonMore = styled(Button)(() => ({
   width: '288px',
   height: '48px',
@@ -16,7 +17,7 @@ const ButtonMore = styled(Button)(() => ({
   },
 }));
 
-const CategoryMoreButton = (props) => {
+const CategoryMoreButton = props => {
   const { onClick, text } = props;
 
   return (
