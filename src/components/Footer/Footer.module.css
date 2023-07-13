@@ -2,8 +2,7 @@
   min-width: 320px;
   max-width: 100%;
   background-color: var(--mainColor);
-  padding: 20px;
-  box-sizing: border-box;
+  padding: 18px 0px 20px 0px;
   display: grid;
   grid-auto-rows: auto;
   justify-content: center;
@@ -14,16 +13,17 @@
   width: 100%;
   display: grid;
   grid-auto-rows: auto;
-  
+  gap: 20px;
+  margin-left: 20px;
 }
 
 .logoAndTime {
   grid-area: 3;
-  width: 156px;
 }
 
 .logoAndTime img {
   display: none;
+  margin-bottom: 22.54px;
 }
 
 .logoAndTime p {
@@ -32,7 +32,9 @@
   font-weight: 300;
   line-height: 130%;
 }
-
+.info {
+  margin-bottom: 10px;
+}
 .info ul {
   display: grid;
   gap: 1rem;
@@ -46,8 +48,6 @@
 .info li {
   color: var(--secondColor);
   font-size: 15px;
-  font-family: Montserrat;
-  font-style: normal;
   font-weight: 300;
   line-height: 130%;
   list-style-type: none;
@@ -71,8 +71,6 @@
 .deliveryAndPayment li {
   color: var(--secondColor);
   font-size: 15px;
-  font-family: Montserrat;
-  font-style: normal;
   font-weight: 300;
   line-height: 130%;
   list-style-type: none;
@@ -84,10 +82,13 @@
 }
 
 .license {
-  margin: 0 auto;
   color: var(--secondColor);
+  margin: 20px 0 0 20px;
+}
+
+.license p {
   font-size: 10px;
-  font-family: Inter;
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -103,21 +104,43 @@
   }
 }
 
-@media only screen and (min-width: 910px) {
+@media only screen and (min-width: 1200px) {
+  .wrapper {
+    padding: 40px 0 20px 151px;
+  }
   .content {
-    grid-template-columns: 190px 310px 206px;
-    justify-content: space-evenly;
+    grid-template-columns: 190px auto auto;
+    grid-template-areas: "logoAndTime info deliveryAndPayment";
+    gap: 0px;
+    justify-content: start;
+    margin-left: 0;
   }
 
   .logoAndTime {
-    grid-area: 1;
+    grid-area: logoAndTime;
+  }
+
+  .info {
+    grid-area: info;
+    margin-left: 100px;
+    margin-bottom: 0;
+  }
+
+  .deliveryAndPayment {
+    grid-area: deliveryAndPayment;
+    margin-left: 76px;
   }
 
   .logoAndTime img {
     display: block;
   }
 
+  .logoAndTime p {
+    font-size: 20px;
+  }
+
   .info ul {
+    gap: 12px;
     font-size: 20px;
   }
 
@@ -126,13 +149,18 @@
   }
 
   .deliveryAndPayment ul {
+    gap: 12px;
     font-size: 20px;
   }
+
   .deliveryAndPayment li {
     font-size: 20px;
   }
 
   .license {
+    margin: 55px 0 0 0;
+  }
+  .license p {
     font-size: 15px;
   }
 }
