@@ -10,7 +10,7 @@ import { products, categories } from '../../data';
 
 const CatalogPage = () => {
   const theme = useTheme();
-  const desktop = useMediaQuery(theme.breakpoints.up('lg'));
+  const desktop = useMediaQuery(theme.breakpoints.up('xl'));
 
   const handleClickCategoryButton = (e) => {
     return;

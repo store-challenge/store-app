@@ -35,7 +35,7 @@ const Footer = () => {
           <ul>
             Інформація про компанію
             {informationList.map(({ label, href, icon }) => (
-              <li key={href}>
+              <li key={label}>
                 {icon} <a href={href}>{label}</a>
               </li>
             ))}
@@ -45,7 +45,7 @@ const Footer = () => {
           <ul>
             Доставка та оплата
             {deliveryList.map(({ label, href }) => (
-              <li key={href}>
+              <li key={label}>
                 <a href={href}>{label}</a>
               </li>
             ))}
