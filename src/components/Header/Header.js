@@ -17,15 +17,23 @@ const Header = () => {
     desktop ? (
       <Search href="/search" />
     ) : (
-      <HeaderButton href="/search" onClick={() => {}} icon="iconoir:search" style={{ fontSize: '16px' }} />
+      <HeaderButton href="/search"
+onClick={() => {}}
+icon="iconoir:search"
+style={{ fontSize: '16px' }} />
     ),
     <Language style={desktop && { fontSize: '28px' }} />,
-    <HeaderButton href="/cart" onClick={() => {}} icon="ion:cart-outline" style={desktop && { fontSize: '32px' }} />,
+    <HeaderButton href="/cart"
+onClick={() => {}}
+icon="ion:cart-outline"
+style={desktop && { fontSize: '32px' }} />,
     <Authentication style={desktop && { fontSize: '30px' }} />,
   ];
 
   return (
-    <AppBar position="static" color="transparent" elevation={0}>
+    <AppBar position="static"
+color="transparent"
+elevation={0}>
       <Container
         maxWidth="vw"
         disableGutters
@@ -60,7 +68,8 @@ const Header = () => {
               justifyContent: 'space-between',
             }}>
             {pages.map((page, index) => (
-              <Link key={index} component="button">
+              <Link key={index}
+component="button">
                 {page}
               </Link>
             ))}

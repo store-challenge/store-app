@@ -31,6 +31,8 @@ module.exports = {
     'react/destructuring-assignment': 'off',
     'react/prop-types': 'off',
     'react/require-default-props': 'off',
+    'react/jsx-uses-react': 'error',
+    'react/jsx-uses-vars': 'error',
     'import/named': 'off',
     'arrow-parens': ['error', 'as-needed'],
     'unicorn/filename-case': [

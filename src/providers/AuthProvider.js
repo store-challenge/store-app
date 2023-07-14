@@ -19,7 +19,8 @@ const AuthProvider = ({ children }) => {
           config.headers.Authorization = `Bearer ${token}`;
         }),
       )
-      .catch(error => console.log(error));
+      // eslint-disable-next-line no-console
+      .catch(error => console.error(error));
   }, [getAccessTokenSilently]);
 
   return <div>{children}</div>;
