@@ -57,6 +57,7 @@ module.exports = {
       },
     ],
     'no-restricted-exports': 'off',
+    'no-unused-vars': 'off',
     'unused-imports/no-unused-imports': 'error',
     'unused-imports/no-unused-vars': 'error',
     'unicorn/no-null': 'off',
