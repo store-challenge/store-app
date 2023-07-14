@@ -33,7 +33,7 @@
   color: var(--secondColor);
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1024px) {
   .button {
     width: 177px;
     height: 187px;

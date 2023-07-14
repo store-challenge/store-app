@@ -1,32 +1,31 @@
-import styles from "./CatalogPage.module.css";
 import { useTheme } from '@mui/material/styles';
 import { Container, Stack, useMediaQuery } from '@mui/material';
 
 import Advertising from '../../components/Advertising/Advertising';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import CategoryListMobile from '../../components/CategoryList/CategoryListMobile';
-import Card from '../../components/Card/Card';
+import CatalogList from "../../components/CatalogList/CatalogList";
 
 import { products, categories } from '../../data';
 
 const CatalogPage = () => {
   const theme = useTheme();
-  const desktop = useMediaQuery(theme.breakpoints.up('xl'));
+  const desktop = useMediaQuery(theme.breakpoints.up('lg'));
 
   const handleClickCategoryButton = (e) => {
-    return
+    return;
   };
 
   return (
     <Container maxWidth="xl">
       <Stack
-        direction={{ xl: 'row-reverse' }}
+        marginTop={{ xs: 2.5, lg: 6.25 }}
+        marginBottom={{ xs: 2.5, lg: 20 }}
+        direction={{ xs: 'column', lg: 'row' }}
         justifyContent="center"
-        alignItems={{ xs: 'center', xl: 'flex-start' }}
-        paddingY ={{ xs: 2.5, xl: 6.25 }}
+        alignItems={{ xs: 'center', lg: 'flex-start' }}
       >
-        <Advertising />
-        {desktop ? (
+        {desktop && (
           <CategoryList
             sx={{
               flexDirection: 'column',
@@ -38,23 +37,23 @@ const CatalogPage = () => {
             breakpoints={{ xl: 12 }}
             onClick={handleClickCategoryButton}
           />
-        ) : (
-          <CategoryListMobile
-            array={categories}
-            onClick={handleClickCategoryButton}
-          />
         )}
+        <Stack
+          direction="column"
+          alignItems={desktop ? 'flex-start' : 'center'}
+        >
+          <Advertising />
+          {!desktop && (
+            <CategoryListMobile
+              array={categories}
+              onClick={handleClickCategoryButton}
+            />
+          )}
+          <CatalogList products={products} />
+        </Stack>
       </Stack>
-
-      <div className={styles.catalogPageTitle}>
-        <h3>Топ продажів</h3>
-      </div>
-      <div className={styles.catalogPageProducts}>
-        {products.map((product) => (
-          <Card product={product} key={product.id} />
-        ))}
-      </div>
     </Container>
   );
-}
+};
+
 export default CatalogPage;
