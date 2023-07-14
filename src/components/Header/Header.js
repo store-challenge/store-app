@@ -1,27 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useTheme } from '@mui/material/styles';
 import { AppBar, Toolbar, Box, Link, Container, IconButton, useMediaQuery } from '@mui/material';
 import { ReactComponent as Logo } from '../../logo.svg';
 
-import HeaderButton from '../HeaderButton/HeaderButton';
 import Search from '../Search/Search';
 import Language from '../Language/Language';
+import HeaderButton from '../HeaderButton/HeaderButton';
 import Authentication from '../Authentication/Authentication';
 
 const Header = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.between('xs', 'xl'));
   const desktop = useMediaQuery(theme.breakpoints.up('xl'));
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
+
+  const toggleSearchField = () => {
+    setIsSearchVisible(!isSearchVisible);
+  };
+
   const pages = [
-    desktop ? (
-      <Search href="/search" />
-    ) : (
-      <HeaderButton href="/search" onClick={() => {}} icon="iconoir:search" style={{ fontSize: '16px' }} />
+    <Search isVisible={isSearchVisible} onClick={toggleSearchField} key="search" />,
+    !isSearchVisible && <Language style={{ fontSize: desktop ? '28px' : undefined }} key="language" />,
+    !isSearchVisible && (
+      <HeaderButton
+        href="/cart"
+        onClick={() => {}}
+        icon="ion:cart-outline"
+        style={{ fontSize: desktop ? '32px' : undefined }}
+        key="cart"
+      />
     ),
-    <Language style={desktop && { fontSize: '28px' }} />,
-    <HeaderButton href="/cart" onClick={() => {}} icon="ion:cart-outline" style={desktop && { fontSize: '32px' }} />,
-    <Authentication style={desktop && { fontSize: '30px' }} />,
+    !isSearchVisible && <Authentication style={{ fontSize: desktop ? '30px' : undefined }} key="authentication" />,
   ];
 
   return (
@@ -36,18 +46,21 @@ const Header = () => {
         <Toolbar
           disableGutters
           sx={{
-            maxWidth: matches ? '768px' : desktop ? '1137px' : '288px',
+            maxWidth: matches ? '768px' : desktop ? '1084px' : '277px',
             height: desktop ? '120px' : '52px',
-            paddingX: desktop ? 9 : 2,
+            paddingX: desktop ? undefined : 2,
             marginX: 'auto',
-            justifyContent: 'space-between',
+            justifyContent: matches ? 'space-between' : undefined,
           }}>
           <IconButton
             href="/"
-            color="var(--secondColor)"
             sx={{
               width: desktop ? '109px' : '57px',
               height: 'auto',
+              marginRight: desktop ? '100px' : undefined,
+              '&:hover, &:focus, &:active': {
+                background: 'none',
+              },
             }}>
             <Logo />
           </IconButton>
@@ -55,12 +68,20 @@ const Header = () => {
           <Box
             sx={{
               flexGrow: 1,
-              maxWidth: desktop ? '850px' : '128px',
+              maxWidth: desktop ? '890px' : '128px',
               display: 'flex',
-              justifyContent: 'space-between',
+              justifyContent: isSearchVisible ? 'flex-end' : 'space-between',
             }}>
             {pages.map((page, index) => (
-              <Link key={index} component="button">
+              <Link
+                key={index}
+                component="button"
+                underline="none"
+                sx={{
+                  '&:hover, &:focus-within': {
+                    outline: 'none',
+                  },
+                }}>
                 {page}
               </Link>
             ))}

@@ -10,6 +10,11 @@ const ButtonMore = styled(Button)(() => ({
   border: '1px solid var(--mainColor)',
   borderRadius: '15px',
   '&:hover': {
+    color: 'none',
+    borderColor: 'var(--mainColor)',
+    backgroundColor: 'var(--secondColor)',
+  },
+  '&:active': {
     color: 'var(--secondColor)',
     borderColor: 'var(--mainColor)',
     backgroundColor: 'var(--mainColor)',
