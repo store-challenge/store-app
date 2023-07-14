@@ -1,27 +1,25 @@
-import { Icon } from "@iconify/react";
-import styles from "./Footer.module.css";
-import logo from "../../logo.svg";
+import { Icon } from '@iconify/react';
+import styles from './Footer.module.css';
+import logo from '../../logo.svg';
 
 const Footer = () => {
-  const phoneIcon = (
-    <Icon className={styles.icon} icon={"fluent:call-12-filled"} />
-  );
-  const mailIcon = <Icon className={styles.icon} icon={"uiw:mail"} />;
+  const phoneIcon = <Icon className={styles.icon} icon={'fluent:call-12-filled'} />;
+  const mailIcon = <Icon className={styles.icon} icon={'uiw:mail'} />;
 
   const informationList = [
-    { label: "Про нас", href: "/about", icon: null },
-    { label: "Умови використання сайту", href: "/terms", icon: null },
-    { label: "+380 939 475 397", href: "tel:+380939475397", icon: phoneIcon },
+    { label: 'Про нас', href: '/about', icon: null },
+    { label: 'Умови використання сайту', href: '/terms', icon: null },
+    { label: '+380 939 475 397", href: "tel:+380939475397', icon: phoneIcon },
     {
-      label: "megamarket@market.com",
-      href: "mailto:megamarket@market.com",
+      label: 'megamarket@market.com',
+      href: 'mailto:megamarket@market.com',
       icon: mailIcon,
     },
   ];
 
   const deliveryList = [
-    { label: "Гарантія", href: "/warranty" },
-    { label: "Повернення товару", href: "/return" },
+    { label: 'Гарантія', href: '/warranty' },
+    { label: 'Повернення товару', href: '/return' },
   ];
 
   return (

@@ -1,5 +1,6 @@
 import { useTheme } from '@mui/material/styles';
 import { Container, Stack, useMediaQuery } from '@mui/material';
+import styles from './CatalogPage.module.css';
 
 import Advertising from '../../components/Advertising/Advertising';
 import CategoryList from '../../components/CategoryList/CategoryList';
@@ -35,7 +36,7 @@ const CatalogPage = () => {
             rowSpacing={6.25}
             columnSpacing={0}
             breakpoints={{ xl: 12 }}
-            onClick={handleClickCategoryButton}
+            onClick={() => {}}
           />
         )}
         <Stack

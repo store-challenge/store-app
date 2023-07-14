@@ -11,8 +11,6 @@ const providerConfig = {
   },
 };
 
-const Auth0Provider = ({ children }) => {
-  return <Auth0 {...providerConfig}>{children}</Auth0>;
-};
+const Auth0Provider = ({ children }) => <Auth0 {...providerConfig}>{children}</Auth0>;
 
-export default Auth0Provider
+export default Auth0Provider;

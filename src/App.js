@@ -1,11 +1,10 @@
-import "./App.css";
-
+import './App.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import LangProvider from "./providers/LangProvider";
+import LangProvider from './providers/LangProvider';
 import Header from './components/Header/Header';
-import CatalogPage from "./pages/CatalogPage/CatalogPage";
-import Footer from "./components/Footer/Footer"
+import CatalogPage from './pages/CatalogPage/CatalogPage';
+import Footer from './components/Footer/Footer';
 
 const theme = createTheme({
   breakpoints: {
