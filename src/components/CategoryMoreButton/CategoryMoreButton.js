@@ -16,7 +16,7 @@ const ButtonMore = styled(Button)(() => ({
   },
 }));
 
-const CategoryMoreButton = (props) => {
+const CategoryMoreButton = props => {
   const { onClick, text } = props;
 
   return (

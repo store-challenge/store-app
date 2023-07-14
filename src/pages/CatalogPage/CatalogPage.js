@@ -1,6 +1,6 @@
-import styles from "./CatalogPage.module.css";
 import { useTheme } from '@mui/material/styles';
 import { Container, Stack, useMediaQuery } from '@mui/material';
+import styles from './CatalogPage.module.css';
 
 import Advertising from '../../components/Advertising/Advertising';
 import CategoryList from '../../components/CategoryList/CategoryList';
@@ -13,18 +13,13 @@ const CatalogPage = () => {
   const theme = useTheme();
   const desktop = useMediaQuery(theme.breakpoints.up('xl'));
 
-  const handleClickCategoryButton = (e) => {
-    return
-  };
-
   return (
     <Container maxWidth="xl">
       <Stack
         direction={{ xl: 'row-reverse' }}
         justifyContent="center"
         alignItems={{ xs: 'center', xl: 'flex-start' }}
-        paddingY ={{ xs: 2.5, xl: 6.25 }}
-      >
+        paddingY={{ xs: 2.5, xl: 6.25 }}>
         <Advertising />
         {desktop ? (
           <CategoryList
@@ -36,13 +31,10 @@ const CatalogPage = () => {
             rowSpacing={6.25}
             columnSpacing={0}
             breakpoints={{ xl: 12 }}
-            onClick={handleClickCategoryButton}
+            onClick={() => {}}
           />
         ) : (
-          <CategoryListMobile
-            array={categories}
-            onClick={handleClickCategoryButton}
-          />
+          <CategoryListMobile array={categories} onClick={() => {}} />
         )}
       </Stack>
 
@@ -50,11 +42,11 @@ const CatalogPage = () => {
         <h3>Топ продажів</h3>
       </div>
       <div className={styles.catalogPageProducts}>
-        {products.map((product) => (
+        {products.map(product => (
           <Card product={product} key={product.id} />
         ))}
       </div>
     </Container>
   );
-}
+};
 export default CatalogPage;

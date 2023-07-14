@@ -17,13 +17,7 @@ const Advertising = () => {
 
   return (
     <div className={s.hero}>
-      {currentImage !== undefined && (
-        <img
-          className={s.image}
-          src={advertising[currentImage]}
-          alt="Advertising"
-        />
-      )}
+      {currentImage !== undefined && <img className={s.image} src={advertising[currentImage]} alt="Advertising" />}
     </div>
   );
 };

@@ -1,7 +1,5 @@
-import adv_1 from './adv_1.svg'
-import adv_2 from './adv_2.svg'
-import adv_3 from './adv_3.svg';
+import adv1 from './adv1.svg';
+import adv2 from './adv2.svg';
+import adv3 from './adv3.svg';
 
-export const advertising = [
-  adv_1, adv_2, adv_3
-]
+export const advertising = [adv1, adv2, adv3];
