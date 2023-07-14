@@ -78,7 +78,7 @@ const Header = () => {
                 component="button"
                 underline="none"
                 sx={{
-                  '&:hover, &:focus': {
+                  '&:hover, &:focus-within': {
                     outline: 'none',
                   },
                 }}>

@@ -11,6 +11,7 @@ export const getSearchProduct = searchValue => {
     })
     .then(response => response.data)
     .catch(error => {
+      // eslint-disable-next-line no-console
       console.error('Search Error:', error);
     });
 };
