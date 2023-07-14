@@ -12,10 +12,8 @@ const CatalogPage = () => {
   const desktop = useMediaQuery(theme.breakpoints.up('xl'));
 
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" sx={{ paddingTop: desktop ? 6.25 : 2.5, paddingBottom: desktop ? 20 : 2.5 }}>
       <Stack
-        marginTop={{ xs: 2.5, lg: 6.25 }}
-        marginBottom={{ xs: 2.5, lg: 20 }}
         direction={{ xs: 'column', lg: 'row' }}
         justifyContent="center"
         alignItems={{ xs: 'center', lg: 'flex-start' }}>
@@ -32,7 +30,7 @@ const CatalogPage = () => {
             onClick={() => {}}
           />
         )}
-        <Stack width={'100%'} direction="column" alignItems={desktop ? 'flex-start' : 'center'}>
+        <Stack maxWidth={'100%'} direction="column" alignItems={desktop ? 'flex-start' : 'center'}>
           <Advertising />
           {!desktop && <CategoryListMobile array={data.categories} onClick={() => {}} />}
           <CatalogList products={data.products} />

@@ -26,7 +26,9 @@ const Footer = () => {
     <footer className={styles.wrapper}>
       <div className={styles.content}>
         <div className={styles.logoAndTime}>
-          <img src={logo} alt="MEGASTORE" />
+          <a href="/">
+            <img src={logo} alt="MEGASTORE" />
+          </a>
           <p>Пн-Нд 09:00-20:00</p>
         </div>
         <div className={styles.info}>

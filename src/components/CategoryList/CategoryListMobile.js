@@ -21,7 +21,7 @@ const CategoryListMobile = props => {
   return (
     <Grid
       container
-      maxWidth="lg"
+      minWidth={'xs'}
       sx={{
         flexDirection: 'column',
         marginTop: 2.5,

@@ -9,9 +9,9 @@
   cursor: pointer;
 }
 .link {
-  width: 97%;
+  width: 100%;
   height: 100%;
-  padding: 2px;
+  padding: 3px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -23,7 +23,7 @@
   color: var(--secondColor);
 }
 .popup {
-  width: 100%;
+  width: 98%;
 }
 .text {
   width: 100%;
