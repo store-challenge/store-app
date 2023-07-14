@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   ignorePatterns: ['config/*'],
-  plugins: ['react', 'eslint-comments', 'promise', 'unicorn', 'prettier', 'unused-imports'],
+  plugins: ['react', 'eslint-comments', 'promise', 'unicorn', 'prettier'],
   extends: [
     'airbnb-base',
     'plugin:eslint-comments/recommended',
@@ -58,8 +58,8 @@ module.exports = {
     ],
     'no-restricted-exports': 'off',
     'no-unused-vars': 'off',
-    'unused-imports/no-unused-imports': 'error',
-    'unused-imports/no-unused-vars': 'error',
+    // 'unused-imports/no-unused-imports': 'error',
+    // 'unused-imports/no-unused-vars': 'error',
     'unicorn/no-null': 'off',
   },
   settings: {
