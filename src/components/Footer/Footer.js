@@ -9,7 +9,7 @@ const Footer = () => {
   const informationList = [
     { label: 'Про нас', href: '/about', icon: null },
     { label: 'Умови використання сайту', href: '/terms', icon: null },
-    { label: '+380 939 475 397", href: "tel:+380939475397', icon: phoneIcon },
+    { label: '+380 939 475 397', href: 'tel:+380939475397', icon: phoneIcon },
     {
       label: 'megamarket@market.com',
       href: 'mailto:megamarket@market.com',
