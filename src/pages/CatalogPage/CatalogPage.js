@@ -1,6 +1,5 @@
 import { useTheme } from '@mui/material/styles';
 import { Container, Stack, useMediaQuery } from '@mui/material';
-import styles from './CatalogPage.module.css';
 
 import Advertising from '../../components/Advertising/Advertising';
 import CategoryList from '../../components/CategoryList/CategoryList';
