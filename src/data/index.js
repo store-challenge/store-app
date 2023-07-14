@@ -1,5 +1,3 @@
-import categories from './categories.json';
-import subcategories from './subcategories.json';
-import products from './products.json'
-
-export {categories, subcategories, products}
+export { default as categories } from './categories.json';
+export { default as products } from './products.json';
+export { default as subcategories } from './subcategories.json';

@@ -1,8 +1,7 @@
+import { Icon } from '@iconify/react';
 import s from './CategoryButton.module.css';
 
-import { Icon } from '@iconify/react';
-
-const CategoryButton = (props) => {
+const CategoryButton = props => {
   const { href, onClick, icon, style, text } = props;
 
   return (
