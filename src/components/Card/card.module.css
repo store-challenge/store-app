@@ -153,7 +153,7 @@
   }
 }
 
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 1023px) {
   .wrapper {
     height: 416px;
     width: 272px;

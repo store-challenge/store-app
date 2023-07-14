@@ -1,51 +1,41 @@
 import { useTheme } from '@mui/material/styles';
 import { Container, Stack, useMediaQuery } from '@mui/material';
-import styles from './CatalogPage.module.css';
 
 import Advertising from '../../components/Advertising/Advertising';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import CategoryListMobile from '../../components/CategoryList/CategoryListMobile';
-import Card from '../../components/Card/Card';
-
-import { products, categories } from '../../data';
+import CatalogList from '../../components/CatalogList/CatalogList';
+import * as data from '../../data';
 
 const CatalogPage = () => {
   const theme = useTheme();
   const desktop = useMediaQuery(theme.breakpoints.up('xl'));
 
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" sx={{ paddingTop: desktop ? 6.25 : 2.5, paddingBottom: desktop ? 20 : 2.5 }}>
       <Stack
-        direction={{ xl: 'row-reverse' }}
+        direction={{ xs: 'column', lg: 'row' }}
         justifyContent="center"
-        alignItems={{ xs: 'center', xl: 'flex-start' }}
-        paddingY={{ xs: 2.5, xl: 6.25 }}>
-        <Advertising />
-        {desktop ? (
+        alignItems={{ xs: 'center', lg: 'flex-start' }}>
+        {desktop && (
           <CategoryList
             sx={{
               flexDirection: 'column',
               marginRight: 14,
             }}
-            array={categories}
+            array={data.categories}
             rowSpacing={6.25}
             columnSpacing={0}
             breakpoints={{ xl: 12 }}
             onClick={() => {}}
           />
-        ) : (
-          <CategoryListMobile array={categories} onClick={() => {}} />
         )}
+        <Stack maxWidth={'100%'} direction="column" alignItems={desktop ? 'flex-start' : 'center'}>
+          <Advertising />
+          {!desktop && <CategoryListMobile array={data.categories} onClick={() => {}} />}
+          <CatalogList products={data.products} />
+        </Stack>
       </Stack>
-
-      <div className={styles.catalogPageTitle}>
-        <h3>Топ продажів</h3>
-      </div>
-      <div className={styles.catalogPageProducts}>
-        {products.map(product => (
-          <Card product={product} key={product.id} />
-        ))}
-      </div>
     </Container>
   );
 };
