@@ -34,12 +34,11 @@ const Search = props => {
   const desktop = useMediaQuery(theme => theme.breakpoints.up('xl'));
   const [searchValue, setSearchValue] = useState('');
 
-  const handleInputChange = error => {
-    setSearchValue(error.target.value);
+  const handleInputChange = event => {
+    setSearchValue(event.target.value);
   };
-
-  const handleFormSubmit = error => {
-    error.preventDefault();
+  const handleFormSubmit = event => {
+    event.preventDefault();
     getSearchProduct(searchValue);
   };
 
@@ -53,6 +52,7 @@ const Search = props => {
           fontSize: desktop ? '16px' : '10px',
           fontWeight: '300',
           lineHeight: '130%',
+          animation: searchValue === '' ? `${s.blink} 2s infinite` : 'none',
         }}
         value={searchValue}
         onChange={handleInputChange}
