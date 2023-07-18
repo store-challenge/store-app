@@ -9,7 +9,7 @@ const Footer = () => {
   const informationList = [
     { label: 'Про нас', href: '/about', icon: null },
     { label: 'Умови використання сайту', href: '/terms', icon: null },
-    { label: '+380 939 475 397", href: "tel:+380939475397', icon: phoneIcon },
+    { label: '+380 939 475 397', href: 'tel:+380939475397', icon: phoneIcon },
     {
       label: 'megamarket@market.com',
       href: 'mailto:megamarket@market.com',
@@ -26,14 +26,16 @@ const Footer = () => {
     <footer className={styles.wrapper}>
       <div className={styles.content}>
         <div className={styles.logoAndTime}>
-          <img src={logo} alt="MEGASTORE" />
+          <a href="/">
+            <img src={logo} alt="MEGASTORE" />
+          </a>
           <p>Пн-Нд 09:00-20:00</p>
         </div>
         <div className={styles.info}>
           <ul>
             Інформація про компанію
             {informationList.map(({ label, href, icon }) => (
-              <li key={href}>
+              <li key={label}>
                 {icon} <a href={href}>{label}</a>
               </li>
             ))}
@@ -43,7 +45,7 @@ const Footer = () => {
           <ul>
             Доставка та оплата
             {deliveryList.map(({ label, href }) => (
-              <li key={href}>
+              <li key={label}>
                 <a href={href}>{label}</a>
               </li>
             ))}
