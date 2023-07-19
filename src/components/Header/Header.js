@@ -31,7 +31,9 @@ const Header = () => {
         key="cart"
       />
     ),
-    !isSearchVisible && <Authentication style={{ fontSize: desktop ? '30px' : undefined }} key="authentication" />,
+    !isSearchVisible && (
+      <Authentication style={{ fontSize: desktop ? '30px' : undefined }} key="authentication" breakpoint={desktop} />
+    ),
   ];
 
   return (
@@ -77,6 +79,7 @@ const Header = () => {
                 key={index}
                 component="button"
                 underline="none"
+                color={'var(--secondColor)'}
                 sx={{
                   '&:hover, &:focus-within': {
                     outline: 'none',

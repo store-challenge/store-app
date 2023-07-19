@@ -3,7 +3,7 @@ import { LOCALES } from '../data/i18n/locales';
 import { messages } from '../data/i18n/messages';
 
 const LangProvider = ({ children }) => {
-  const locale = LOCALES.UKRAINIAN;
+  const locale = LOCALES.ENGLISH;
 
   return (
     <IntlProvider messages={messages[locale]} locale={locale} defaultLocale={LOCALES.UKRAINIAN}>
