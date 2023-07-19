@@ -43,7 +43,7 @@
     align-content: center;
   }
   .icon {
-    margin-top: 0;
+    margin-top: 18px;
   }
   .popup {
     display: flex;
@@ -54,7 +54,6 @@
   }
   .link:hover .popup {
     height: 120px;
-    margin-top: 18px;
     visibility: visible;
     -webkit-animation: smart-animate 0.8s;
     animation: smart-animate 0.8s
@@ -68,6 +67,7 @@
   }
   .text {
     border: none;
+    padding: 0;
     color: var(--textColor);
   }
 }
