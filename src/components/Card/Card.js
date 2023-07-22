@@ -19,8 +19,8 @@ const Card = ({ product }) => {
           <div className={styles.priceGroup}>
             <p className={styles.priceUah}>{`${price} ₴`}</p>
           </div>
-          <div className={styles.cardBasket}>
-            <Icon className={styles.cardBasketIcon} icon={'ion:cart-outline'} />
+          <div className={styles.basket}>
+            <Icon className={styles.basketIcon} icon={'ion:cart-outline'} />
           </div>
         </div>
       </a>

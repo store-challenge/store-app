@@ -5,12 +5,10 @@
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
-  padding: 0px;
 }
 
 .card {
   height: 150px;
-  width: 100%;
   background: rgba(107, 76, 125, 0.25);
   border: 2.36px solid var(--mainColor);
   transition: background-color 0.5s ease;
@@ -53,8 +51,7 @@
   width: 74px;
 }
 
-.title h3 {
-  font-weight: 500;
+.title h3, .priceUah {
   font-size: 13px;
 }
 
@@ -68,9 +65,6 @@
 
 .priceUah {
   color: var(--priceTextColor);
-  font-style: normal;
-  font-weight: 500;
-  font-size: 13px;
 }
 
 .basket {
@@ -134,17 +128,12 @@
     width: 100%;
   }
 
-  .title h3 {
-    font-weight: 500;
+  .title h3, .priceUah {
     font-size: 16.5px;
   }
 
   .info {
     margin-top: 15px;
-  }
-
-  .priceUah {
-    font-size: 16.5px;
   }
 
   .basket {
@@ -186,17 +175,12 @@
     width: 100%;
   }
 
-  .title h3 {
-    font-weight: 500;
+  .title h3, .priceUah {
     font-size: 20px;
   }
 
   .info {
     margin-top: 23px;
-  }
-
-  .priceUah {
-    font-size: 20px;
   }
 
   .basket {
