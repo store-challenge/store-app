@@ -11,7 +11,7 @@ import Authentication from '../Authentication/Authentication';
 
 const Header = () => {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.between('xs', 'xl'));
+  const matches = useMediaQuery(theme.breakpoints.down('xl'));
   const desktop = useMediaQuery(theme.breakpoints.up('xl'));
   const [isSearchVisible, setIsSearchVisible] = useState(false);
 
@@ -20,7 +20,7 @@ const Header = () => {
   };
 
   const pages = [
-    <Search isVisible={isSearchVisible} onClick={toggleSearchField} key="search" />,
+    <Search breakpoint={desktop} isVisible={isSearchVisible} onClick={toggleSearchField} key="search" />,
     !isSearchVisible && <Language style={{ fontSize: desktop ? '28px' : undefined }} key="language" />,
     !isSearchVisible && (
       <HeaderButton
@@ -48,17 +48,18 @@ const Header = () => {
         <Toolbar
           disableGutters
           sx={{
-            maxWidth: matches ? '768px' : desktop ? '1084px' : '277px',
+            maxWidth: desktop ? '1138px' : matches ? '768px' : '274px',
             height: desktop ? '120px' : '52px',
-            paddingX: desktop ? undefined : 2,
+            paddingX: desktop ? undefined : 2.5,
             marginX: 'auto',
-            justifyContent: matches ? 'space-between' : undefined,
+            justifyContent: desktop ? undefined : 'space-between',
           }}>
           <IconButton
             href="/"
             sx={{
-              width: desktop ? '109px' : '57px',
-              height: 'auto',
+              width: desktop ? '109px' : '46px',
+              height: '100%',
+              padding: 0,
               marginRight: desktop ? '100px' : undefined,
               '&:hover, &:focus, &:active': {
                 background: 'none',
@@ -70,7 +71,7 @@ const Header = () => {
           <Box
             sx={{
               flexGrow: 1,
-              maxWidth: desktop ? '890px' : '128px',
+              maxWidth: desktop ? '940px' : '128px',
               display: 'flex',
               justifyContent: isSearchVisible ? 'flex-end' : 'space-between',
             }}>

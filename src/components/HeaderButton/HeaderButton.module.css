@@ -1,6 +1,4 @@
 .button {
-  padding: 0;
-  cursor: pointer;
   color: var(--secondColor);
   background: none;
   border: none;
