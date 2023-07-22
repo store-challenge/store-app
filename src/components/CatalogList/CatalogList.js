@@ -12,9 +12,10 @@ const CatalogList = ({ products }) => (
     <Title text="Топ продажів" />
     <Grid
       container
-      marginTop={{ xs: 2.5, xl: 6.25 }}
+      marginTop={{ xs: 2.5, xl: 0 }}
       columns={{ xs: 6, md: 4 }}
-      rowGap={2.5}
+      rowSpacing={{ xl: 6.25 }}
+      rowGap={{ xs: 2.5, xl: 0 }}
       columnGap={{ xs: 1, md: 1.5, xl: 1.75 }}
       maxWidth={'844px'}
       justifyContent="center"
