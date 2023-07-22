@@ -1,6 +1,7 @@
 import { useTheme } from '@mui/material/styles';
-import { Container, Stack, useMediaQuery } from '@mui/material';
+import { Stack, useMediaQuery } from '@mui/material';
 
+import Container from '../../components/Container/Container';
 import Advertising from '../../components/Advertising/Advertising';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import CategoryListMobile from '../../components/CategoryList/CategoryListMobile';
@@ -12,11 +13,11 @@ const CatalogPage = () => {
   const desktop = useMediaQuery(theme.breakpoints.up('xl'));
 
   return (
-    <Container maxWidth="xl" sx={{ paddingTop: desktop ? 6.25 : 2.5, paddingBottom: desktop ? 20 : 2.5 }}>
+    <Container breakpoint={desktop}>
       <Stack
-        direction={{ xs: 'column', lg: 'row' }}
+        direction={{ xs: 'column', xl: 'row' }}
         justifyContent="center"
-        alignItems={{ xs: 'center', lg: 'flex-start' }}>
+        alignItems={{ xs: 'center', xl: 'flex-start' }}>
         {desktop && (
           <CategoryList
             sx={{
