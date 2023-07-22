@@ -5,7 +5,8 @@
 }
 
 .form {
-  width: 175px;
+  max-width: 600px;
+  width: 52vw;
   height: 22px;
   margin-right: 32px;
   display: flex;
