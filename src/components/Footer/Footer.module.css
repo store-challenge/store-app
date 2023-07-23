@@ -1,12 +1,11 @@
 .wrapper {
-  min-width: 320px;
+  min-width: 300px;
   max-width: 100%;
   background-color: var(--mainColor);
   padding: 18px 0px 20px 0px;
   display: grid;
   grid-auto-rows: auto;
-  justify-content: center;
-  grid-template-columns: minmax(320px, 1440px);
+  justify-content: start;
 }
 
 .content {
@@ -32,51 +31,23 @@
   font-weight: 300;
   line-height: 130%;
 }
+
 .info {
   margin-bottom: 10px;
 }
-.info ul {
+
+.info ul, .deliveryAndPayment ul  {
   display: grid;
   gap: 1rem;
   color: var(--secondColor);
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 130%;
-  padding: 0;
 }
 
-.info li {
+.info li, .deliveryAndPayment li {
   color: var(--secondColor);
-  font-size: 15px;
   font-weight: 300;
-  line-height: 130%;
-  list-style-type: none;
 }
 
-.info a {
-  text-decoration: none;
-  color: var(--secondColor);
-}
-
-.deliveryAndPayment ul {
-  display: grid;
-  gap: 1rem;
-  color: var(--secondColor);
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 130%;
-  padding: 0;
-}
-
-.deliveryAndPayment li {
-  color: var(--secondColor);
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 130%;
-  list-style-type: none;
-}
-
-.deliveryAndPayment a {
+.info a, .deliveryAndPayment a  {
   text-decoration: none;
   color: var(--secondColor);
 }
@@ -88,15 +59,17 @@
 
 .license p {
   font-size: 10px;
-  font-family: "Inter", sans-serif;
-  font-style: normal;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
-  line-height: normal;
 }
 
-@media only screen and (min-width: 614px) {
+@media only screen and (min-width: 520px) {
+  .wrapper {
+    justify-content: start;
+  }
   .content {
     grid-template-columns: auto auto;
+    column-gap: 95px;
   }
 
   .logoAndTime {
@@ -104,16 +77,18 @@
   }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 880px) {
   .wrapper {
-    padding: 40px 0 20px 151px;
+    justify-content: center;
   }
+
   .content {
-    grid-template-columns: 190px auto auto;
-    grid-template-areas: "logoAndTime info deliveryAndPayment";
-    gap: 0px;
+    width: 855px;
+    grid-template-columns: auto auto auto;
+    grid-template-areas: 'logoAndTime info deliveryAndPayment';
     justify-content: start;
-    margin-left: 0;
+    justify-items: center;
+    margin-left: 0px;
   }
 
   .logoAndTime {
@@ -122,44 +97,45 @@
 
   .info {
     grid-area: info;
-    margin-left: 100px;
     margin-bottom: 0;
   }
 
   .deliveryAndPayment {
     grid-area: deliveryAndPayment;
-    margin-left: 76px;
   }
 
   .logoAndTime img {
     display: block;
   }
 
+  .license {
+    margin-left: 0;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .wrapper {
+    justify-content: center;
+    padding: 40px 0 24px 0;
+  }
+
+  .content {
+    width: 1136px;
+    gap: 100px;
+  }
+
   .logoAndTime p {
     font-size: 20px;
   }
 
-  .info ul {
+  .info ul, .deliveryAndPayment ul {
     gap: 12px;
-    font-size: 20px;
-  }
-
-  .info li {
-    font-size: 20px;
-  }
-
-  .deliveryAndPayment ul {
-    gap: 12px;
-    font-size: 20px;
-  }
-
-  .deliveryAndPayment li {
-    font-size: 20px;
   }
 
   .license {
-    margin: 55px 0 0 0;
+    margin: 50px 0 0 0;
   }
+
   .license p {
     font-size: 15px;
   }

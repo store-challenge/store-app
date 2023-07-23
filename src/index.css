@@ -1,11 +1,40 @@
+html, body, div, span, h1, h2, h3, h4, h5, h6, p,
+a,link, ol, ul, li, form, label, nav {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+footer, header, nav, section {
+	display: block;
+}
+
 body {
-  margin: 0;
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 130%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+ol, ul {
+  list-style: none;
+}
+.button, .button:hover {
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 1280px) {
+  body {
+    font-size: 20px;
+  }
 }

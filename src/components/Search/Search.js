@@ -30,8 +30,7 @@ const StyledButton = styled(Button)(() => ({
 }));
 
 const Search = props => {
-  const { isVisible, onClick } = props;
-  const desktop = useMediaQuery(theme => theme.breakpoints.up('xl'));
+  const { breakpoint, isVisible, onClick } = props;
   const [searchValue, setSearchValue] = useState('');
 
   const handleInputChange = event => {
@@ -47,12 +46,12 @@ const Search = props => {
       <InputBase
         sx={{
           flex: 1,
-          marginLeft: desktop ? '15px' : '7px',
+          marginLeft: breakpoint ? '15px' : '7px',
           fontFamily: 'Montserrat',
-          fontSize: desktop ? '16px' : '10px',
+          fontSize: breakpoint ? '16px' : '10px',
           fontWeight: '300',
           lineHeight: '130%',
-          animation: searchValue === '' ? `${s.blink} 2s infinite` : 'none',
+          animation: !breakpoint && searchValue === '' ? `${s.blink} 2s infinite` : 'none',
         }}
         value={searchValue}
         onChange={handleInputChange}
@@ -62,13 +61,13 @@ const Search = props => {
             position="start"
             sx={{
               color: '#6b4c7d80',
-              marginRight: desktop ? '7px' : '6px',
+              marginRight: breakpoint ? '7px' : '6px',
             }}>
             <Icon icon="carbon:search" />
           </InputAdornment>
         }
       />
-      {desktop && (
+      {breakpoint && (
         <StyledButton type="submit" variant="contained" disableElevation onClick={handleFormSubmit}>
           Пошук
         </StyledButton>
@@ -76,7 +75,7 @@ const Search = props => {
     </form>
   );
 
-  return desktop ? (
+  return breakpoint ? (
     searchForm()
   ) : (
     <div className={s.container}>

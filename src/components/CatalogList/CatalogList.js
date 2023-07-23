@@ -1,23 +1,22 @@
-import { Grid, Paper } from '@mui/material';
-import styles from './CatalogList.module.css';
+import { Grid } from '@mui/material';
+import Title from '../Title/Title';
 import Card from '../Card/Card';
 
 const CatalogList = ({ products }) => (
   <Grid
     container
-    marginTop={{ xs: 2.5, lg: 6.25 }}
+    marginTop={{ xs: 2.5, xl: 6.25 }}
     direction="column"
-    alignItems={{ xs: 'center', lg: 'start' }}
+    alignItems={{ xs: 'center', xl: 'start' }}
     minWidth={'320px'}>
-    <div className={styles.title}>
-      <h3>Топ продажів</h3>
-    </div>
+    <Title text="Топ продажів" />
     <Grid
       container
-      marginTop={{ xs: 2.5, lg: 6.25 }}
+      marginTop={{ xs: 2.5, xl: 0 }}
       columns={{ xs: 6, md: 4 }}
-      rowGap={2.5}
-      columnGap={{ xs: 1, md: 1.5, lg: 1.75 }}
+      rowSpacing={{ xl: 6.25 }}
+      rowGap={{ xs: 2.5, xl: 0 }}
+      columnGap={{ xs: 1, md: 1.5, xl: 1.75 }}
       maxWidth={'844px'}
       justifyContent="center"
       alignItems="center">

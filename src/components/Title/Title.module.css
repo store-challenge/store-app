@@ -1,0 +1,9 @@
+.title {
+  font-size: 18px;
+  font-weight: 700;
+}
+@media only screen and (min-width: 1280px) {
+  .title {
+  font-size: 25px;
+  }
+}
