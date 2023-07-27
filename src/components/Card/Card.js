@@ -1,12 +1,13 @@
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom';
 import styles from './card.module.css';
 
 const Card = ({ product }) => {
   const { href, title, image, alt, price } = product;
 
   return (
-    <div className={styles.wrapper}>
-      <a href={href}>
+    <Link to={href}>
+      <div className={styles.wrapper}>
         <div className={styles.card}>
           <div className={styles.productImage}>
             <img src={image} alt={alt} />
@@ -23,8 +24,8 @@ const Card = ({ product }) => {
             <Icon className={styles.basketIcon} icon={'ion:cart-outline'} />
           </div>
         </div>
-      </a>
-    </div>
+      </div>
+    </Link>
   );
 };
 

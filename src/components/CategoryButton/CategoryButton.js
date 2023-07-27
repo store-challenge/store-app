@@ -1,4 +1,5 @@
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom';
 import s from './CategoryButton.module.css';
 
 const CategoryButton = props => {
@@ -6,12 +7,12 @@ const CategoryButton = props => {
 
   return (
     <div className={s.button}>
-      <a href={href} className={s.link} onClick={onClick}>
+      <Link to={href} className={s.link} onClick={onClick}>
         <Icon className={s.icon} icon={icon} style={style} />
         <div className={s.popup}>
           <p className={s.text}>{text}</p>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };

@@ -1,9 +1,10 @@
 import './App.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LangProvider from './providers/LangProvider';
 import Header from './components/Header/Header';
 import CatalogPage from './pages/CatalogPage/CatalogPage';
+import CategoryPage from './pages/CategoryPage/CategoryPage';
 import Footer from './components/Footer/Footer';
 
 const theme = createTheme({
@@ -24,9 +25,14 @@ function App() {
     <ThemeProvider theme={theme}>
       <LangProvider>
         <div className="App">
-          <Header />
-          <CatalogPage />
-          <Footer />
+          <BrowserRouter>
+            <Header />
+            <Routes>
+              <Route path="/" element={<CatalogPage />} />
+              <Route path="/category" element={<CategoryPage />} />
+            </Routes>
+            <Footer />
+          </BrowserRouter>
         </div>
       </LangProvider>
     </ThemeProvider>
