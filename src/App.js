@@ -25,14 +25,14 @@ function App() {
     <ThemeProvider theme={theme}>
       <LangProvider>
         <div className="App">
-          <Header />
           <BrowserRouter>
+            <Header />
             <Routes>
               <Route path="/" element={<CatalogPage />} />
               <Route path="/category" element={<CategoryPage />} />
             </Routes>
+            <Footer />
           </BrowserRouter>
-          <Footer />
         </div>
       </LangProvider>
     </ThemeProvider>
