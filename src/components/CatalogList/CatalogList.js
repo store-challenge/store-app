@@ -1,31 +1,22 @@
 import { Grid } from '@mui/material';
-import Title from '../Title/Title';
 import Card from '../Card/Card';
 
-const CatalogList = ({ products }) => (
+const CatalogList = ({ products, width }) => (
   <Grid
     container
-    marginTop={{ xs: 2.5, xl: 6.25 }}
-    direction="column"
+    direction="row"
     alignItems={{ xs: 'center', xl: 'start' }}
-    minWidth={'320px'}>
-    <Title text="Топ продажів" />
-    <Grid
-      container
-      marginTop={{ xs: 2.5, xl: 0 }}
-      columns={{ xs: 6, md: 4 }}
-      rowSpacing={{ xl: 6.25 }}
-      rowGap={{ xs: 2.5, xl: 0 }}
-      columnGap={{ xs: 1, md: 1.5, xl: 1.75 }}
-      maxWidth={'844px'}
-      justifyContent="center"
-      alignItems="center">
-      {products.map(product => (
-        <Grid item key={product.id}>
-          <Card product={product} />
-        </Grid>
-      ))}
-    </Grid>
+    columns={{ xs: 6, sm: 4, md: 4 }}
+    rowGap={{ xs: 2.5, xl: 6.25 }}
+    columnGap={{ xs: 1, md: 1.5, xl: 1.75 }}
+    minWidth={'320px'}
+    maxWidth={width ? '1130px' : '844px'}
+    justifyContent="center">
+    {products.map(product => (
+      <Grid item key={product.id}>
+        <Card product={product} />
+      </Grid>
+    ))}
   </Grid>
 );
 
