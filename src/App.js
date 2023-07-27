@@ -30,7 +30,7 @@ function App() {
             <Header />
             <Routes>
               <Route path={RoutesLinks.HOMEPAGE} element={<CatalogPage />} />
-              <Route path={RoutesLinks.CATEGORYPAGE} element={<CategoryPage />} />
+              <Route path={RoutesLinks.CATEGORY_PAGE} element={<CategoryPage />} />
             </Routes>
             <Footer />
           </BrowserRouter>
