@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { AppBar, Toolbar, Box, Link, Container, IconButton, useMediaQuery } from '@mui/material';
 import { ReactComponent as Logo } from '../../logo.svg';
+import { RoutesLinks } from '../../constant/constant';
 
 import Search from '../Search/Search';
 import Language from '../Language/Language';
@@ -55,7 +56,7 @@ const Header = () => {
             justifyContent: desktop ? undefined : 'space-between',
           }}>
           <IconButton
-            href="/"
+            href={RoutesLinks.HOMEPAGE}
             sx={{
               width: desktop ? '109px' : '46px',
               height: '100%',
