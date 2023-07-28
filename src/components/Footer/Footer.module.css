@@ -30,6 +30,7 @@
   font-size: 15px;
   font-weight: 300;
   line-height: 130%;
+  cursor:default
 }
 
 .info {
@@ -40,6 +41,7 @@
   display: grid;
   gap: 1rem;
   color: var(--secondColor);
+  cursor:default
 }
 
 .info li, .deliveryAndPayment li {
@@ -61,6 +63,7 @@
   font-size: 10px;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
+  cursor:default
 }
 
 @media only screen and (min-width: 520px) {

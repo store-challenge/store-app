@@ -1,4 +1,6 @@
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom';
+import { RoutesLinks } from '../../constant/constant';
 import styles from './Footer.module.css';
 import logo from '../../logo.svg';
 
@@ -26,9 +28,9 @@ const Footer = () => {
     <footer className={styles.wrapper}>
       <div className={styles.content}>
         <div className={styles.logoAndTime}>
-          <a href="/">
+          <Link to={RoutesLinks.HOMEPAGE}>
             <img src={logo} alt="MEGASTORE" />
-          </a>
+          </Link>
           <p>Пн-Нд 09:00-20:00</p>
         </div>
         <div className={styles.info}>
@@ -36,7 +38,7 @@ const Footer = () => {
             Інформація про компанію
             {informationList.map(({ label, href, icon }) => (
               <li key={label}>
-                {icon} <a href={href}>{label}</a>
+                {icon} <Link to={href}>{label}</Link>
               </li>
             ))}
           </ul>
@@ -46,7 +48,7 @@ const Footer = () => {
             Доставка та оплата
             {deliveryList.map(({ label, href }) => (
               <li key={label}>
-                <a href={href}>{label}</a>
+                <Link to={href}>{label}</Link>
               </li>
             ))}
           </ul>

@@ -1,6 +1,7 @@
 import './App.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { RoutesLinks } from './constant/constant';
 import LangProvider from './providers/LangProvider';
 import Header from './components/Header/Header';
 import CatalogPage from './pages/CatalogPage/CatalogPage';
@@ -28,8 +29,8 @@ function App() {
           <BrowserRouter>
             <Header />
             <Routes>
-              <Route path="/" element={<CatalogPage />} />
-              <Route path="/category" element={<CategoryPage />} />
+              <Route path={RoutesLinks.HOMEPAGE} element={<CatalogPage />} />
+              <Route path={RoutesLinks.CATEGORY_PAGE} element={<CategoryPage />} />
             </Routes>
             <Footer />
           </BrowserRouter>
