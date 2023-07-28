@@ -7,7 +7,7 @@ const CategoryButton = props => {
 
   return (
     <div className={s.button}>
-      <Link to={href} className={s.link} onClick={onClick}>
+      <Link to={href} className={s.link}>
         <Icon className={s.icon} icon={icon} style={style} />
         <div className={s.popup}>
           <p className={s.text}>{text}</p>
