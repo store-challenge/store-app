@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/store-app/static/css/main.f50b4ee9.css",
-    "main.js": "/store-app/static/js/main.6f655d61.js",
-    "static/media/adv1.svg": "/store-app/static/media/adv1.2b8156cfdb49c8dc27d08a280bb16d59.svg",
-    "static/media/adv3.svg": "/store-app/static/media/adv3.832d4579fc1006ab3aaba15a3517d709.svg",
-    "static/media/adv2.svg": "/store-app/static/media/adv2.dc53e0bce165e1f786b9125ea0028904.svg",
+    "main.css": "/store-app/static/css/main.15ce6954.css",
+    "main.js": "/store-app/static/js/main.c74fbdc8.js",
+    "static/media/adv1.svg": "/store-app/static/media/adv1.65e0388d5450456e4dff10b660e4b7b9.svg",
+    "static/media/adv3.svg": "/store-app/static/media/adv3.6ea1222a56aed48a8e58574e88258b7f.svg",
+    "static/media/adv2.svg": "/store-app/static/media/adv2.9069f0eb15e10f428269acae1a26f974.svg",
     "static/media/logo.svg": "/store-app/static/media/logo.b3585c1dc456bd1304da7252a5843d67.svg",
     "index.html": "/store-app/index.html",
-    "main.f50b4ee9.css.map": "/store-app/static/css/main.f50b4ee9.css.map",
-    "main.6f655d61.js.map": "/store-app/static/js/main.6f655d61.js.map"
+    "main.15ce6954.css.map": "/store-app/static/css/main.15ce6954.css.map",
+    "main.c74fbdc8.js.map": "/store-app/static/js/main.c74fbdc8.js.map"
   },
   "entrypoints": [
-    "static/css/main.f50b4ee9.css",
-    "static/js/main.6f655d61.js"
+    "static/css/main.15ce6954.css",
+    "static/js/main.c74fbdc8.js"
   ]
 }
