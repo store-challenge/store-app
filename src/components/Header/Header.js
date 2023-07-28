@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { useTheme } from '@mui/material/styles';
-import { AppBar, Toolbar, Box, Link, Container, IconButton, useMediaQuery } from '@mui/material';
-import { ReactComponent as Logo } from '../../logo.svg';
+import { AppBar, Toolbar, Box, Container, useMediaQuery } from '@mui/material';
+import logo from '../../logo.svg';
 import { RoutesLinks } from '../../constant/constant';
 
 import Search from '../Search/Search';
@@ -10,10 +11,9 @@ import Language from '../Language/Language';
 import HeaderButton from '../HeaderButton/HeaderButton';
 import Authentication from '../Authentication/Authentication';
 
-const Header = () => {
+const Header = ({ desktop }) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('xl'));
-  const desktop = useMediaQuery(theme.breakpoints.up('xl'));
   const [isSearchVisible, setIsSearchVisible] = useState(false);
 
   const toggleSearchField = () => {
@@ -55,8 +55,7 @@ const Header = () => {
             marginX: 'auto',
             justifyContent: desktop ? undefined : 'space-between',
           }}>
-          <IconButton
-            href={RoutesLinks.HOMEPAGE}
+          <Box
             sx={{
               width: desktop ? '109px' : '46px',
               height: '100%',
@@ -66,21 +65,23 @@ const Header = () => {
                 background: 'none',
               },
             }}>
-            <Logo />
-          </IconButton>
+            <Link to={RoutesLinks.HOMEPAGE}>
+              <img src={logo} alt="MEGASTORE" style={{ width: !desktop && '57px', paddingTop: '10px' }} />
+            </Link>
+          </Box>
 
           <Box
             sx={{
               flexGrow: 1,
               maxWidth: desktop ? '940px' : '128px',
               display: 'flex',
+              alignItems: 'center',
               justifyContent: isSearchVisible ? 'flex-end' : 'space-between',
             }}>
             {pages.map((page, index) => (
-              <Link
+              <Box
                 key={index}
-                component="button"
-                underline="none"
+                component="span"
                 color={'var(--secondColor)'}
                 sx={{
                   '&:hover, &:focus-within': {
@@ -88,7 +89,7 @@ const Header = () => {
                   },
                 }}>
                 {page}
-              </Link>
+              </Box>
             ))}
           </Box>
         </Toolbar>

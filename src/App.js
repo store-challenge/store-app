@@ -1,4 +1,5 @@
 import './App.css';
+import { useMediaQuery } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { RoutesLinks } from './constant/constant';
@@ -22,15 +23,16 @@ const theme = createTheme({
 });
 
 function App() {
+  const desktop = useMediaQuery(theme.breakpoints.up('xl'));
   return (
     <ThemeProvider theme={theme}>
       <LangProvider>
         <div className="App">
           <BrowserRouter>
-            <Header />
+            <Header desktop={desktop} />
             <Routes>
-              <Route path={RoutesLinks.HOMEPAGE} element={<CatalogPage />} />
-              <Route path={RoutesLinks.CATEGORY_PAGE} element={<CategoryPage />} />
+              <Route path={RoutesLinks.HOMEPAGE} element={<CatalogPage desktop={desktop} />} />
+              <Route path={RoutesLinks.CATEGORY_PAGE} element={<CategoryPage desktop={desktop} />} />
             </Routes>
             <Footer />
           </BrowserRouter>
