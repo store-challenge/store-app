@@ -20,7 +20,8 @@ const Footer = () => {
   ];
 
   const deliveryList = [
-    { label: 'Гарантія', href: '/warranty' },
+    { label: 'Доставка та оплата', href: '/delivery' },
+    { label: 'Гарантія', href: '/guaranty' },
     { label: 'Повернення товару', href: '/return' },
   ];
 
@@ -45,7 +46,7 @@ const Footer = () => {
         </div>
         <div className={styles.deliveryAndPayment}>
           <ul>
-            Доставка та оплата
+            Допомога
             {deliveryList.map(({ label, href }) => (
               <li key={label}>
                 <Link to={href}>{label}</Link>
