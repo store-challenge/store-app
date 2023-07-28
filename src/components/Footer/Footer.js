@@ -46,7 +46,7 @@ const Footer = () => {
         </div>
         <div className={styles.deliveryAndPayment}>
           <ul>
-            Допомога
+            Додаткова інформація
             {deliveryList.map(({ label, href }) => (
               <li key={label}>
                 <Link to={href}>{label}</Link>
