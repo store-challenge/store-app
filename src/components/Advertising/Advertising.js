@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import s from './Advertising.module.css';
 
-import { advertising } from '../../data/images/index';
-
-const Advertising = () => {
+const Advertising = ({ advertising }) => {
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
@@ -17,7 +15,11 @@ const Advertising = () => {
 
   return (
     <div className={s.hero}>
-      {currentImage !== undefined && <img className={s.image} src={advertising[currentImage]} alt="Advertising" />}
+      {currentImage === undefined ? (
+        <span className={s.undefined}>Тут може бути ваша реклама</span>
+      ) : (
+        <img className={s.image} src={advertising[currentImage]} alt="Advertising" />
+      )}
     </div>
   );
 };

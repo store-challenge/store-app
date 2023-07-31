@@ -8,7 +8,7 @@ import CategoryList from './CategoryList';
 import CategoryMoreButton from '../CategoryMoreButton/CategoryMoreButton';
 
 const CategoryListMobile = props => {
-  const { array, onClick } = props;
+  const { array, href, onClick } = props;
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.up('sm'));
   const md = useMediaQuery(theme.breakpoints.up('md'));
@@ -24,16 +24,17 @@ const CategoryListMobile = props => {
       minWidth={'xs'}
       sx={{
         flexDirection: 'column',
-        marginTop: 2.5,
       }}>
       <CategoryList
         sx={{
           justifyContent: 'center',
+          marginTop: 2.5,
         }}
         breakpoints={{ xs: 6, md: 4, lg: 3 }}
         array={array.slice(0, showMore ? array.length : md ? 4 : sm ? 3 : 2)}
-        rowSpacing={2.5}
-        columnSpacing={1}
+        href={href}
+        rowGap={2.5}
+        columnGap={1}
         onClick={onClick}
       />
       <Grid sx={{ marginX: 'auto', marginTop: 2.5 }}>

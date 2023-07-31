@@ -6,7 +6,7 @@ import { Icon } from '@iconify/react';
 
 import s from './Search.module.css';
 
-import { getSearchProduct } from '../../services/searchProduct';
+import { getSearchProduct } from '../../services/getProducts';
 
 const StyledButton = styled(Button)(() => ({
   marginRight: '10px',

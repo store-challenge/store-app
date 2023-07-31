@@ -6,7 +6,7 @@ const CatalogList = ({ products, width }) => (
     container
     direction="row"
     alignItems={{ xs: 'center', xl: 'start' }}
-    columns={{ xs: 6, sm: 4, md: 4 }}
+    columns={{ xs: 6, md: 4 }}
     rowGap={{ xs: 2.5, xl: 6.25 }}
     columnGap={{ xs: 1, md: 1.5, xl: 1.75 }}
     minWidth={'320px'}
