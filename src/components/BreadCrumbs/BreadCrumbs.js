@@ -12,6 +12,10 @@ const CustomBreadcrumbs = styled(Breadcrumbs)(({ theme }) => ({
   fontStyle: 'normal',
   lineHeight: '130%',
   color: 'var(--mainColor)',
+  '& .MuiBreadcrumbs-separator': {
+    marginLeft: '0',
+    marginRight: '0',
+  },
   [theme.breakpoints.down('xl')]: {
     fontSize: '15px',
     fontWeight: '500',
@@ -32,35 +36,43 @@ const BreadCrumbs = () => {
     <CustomBreadcrumbs
       aria-label="breadcrumb"
       aria-current="last"
-      separator={
-        <Icon
-          icon={desktop ? 'iconamoon:arrow-right-2-duotone' : 'iconamoon:arrow-left-2-duotone'}
-          style={{ fontSize: '24px' }}
-        />
-      }>
-      <Link color="inherit" underline="none" component={RouterLink} to={RoutesLinks.HOMEPAGE}>
-        {desktop ? 'Головна сторінка' : 'На головну'}
+      separator={<Icon icon={'iconamoon:arrow-right-2-duotone'} style={{ fontSize: '24px' }} />}>
+      <Link
+        color="inherit"
+        underline="none"
+        component={RouterLink}
+        to={RoutesLinks.HOMEPAGE}
+        sx={{ display: 'flex', alignItems: 'center' }}>
+        {desktop ? (
+          'Головна сторінка'
+        ) : (
+          <>
+            <Icon icon={'iconamoon:arrow-left-2-duotone'} style={{ fontSize: '24px' }} />
+            На головну
+          </>
+        )}
       </Link>
-      {pathnames.map((path, index) => {
-        const lastIndex = index === pathnames.at(-1);
-        const to = `/${pathnames.slice(0, index + 1).join('/')}`;
-        const linkProps = {
-          href: path.url,
-          color: 'inherit',
-          underline: 'none',
-          style: {
-            fontWeight: !lastIndex && '500',
-            cursor: !lastIndex && 'pointer',
-            visibility: !desktop && !lastIndex && 'hidden',
-          },
-        };
+      {desktop &&
+        pathnames.map((path, index) => {
+          const lastIndex = index === pathnames.at(-1);
+          const to = `/${pathnames.slice(0, index + 1).join('/')}`;
+          const linkProps = {
+            href: path.url,
+            color: 'inherit',
+            underline: 'none',
+            style: {
+              fontWeight: !lastIndex && '500',
+              cursor: !lastIndex && 'default',
+              visibility: !desktop && !lastIndex && 'hidden',
+            },
+          };
 
-        return (
-          <Link {...linkProps} component={RouterLink} to={to} key={path.id}>
-            {path}
-          </Link>
-        );
-      })}
+          return (
+            <Link {...linkProps} component={RouterLink} to={to} key={index}>
+              {path}
+            </Link>
+          );
+        })}
     </CustomBreadcrumbs>
   );
 };
