@@ -20,7 +20,7 @@ const ButtonMore = styled(Button)(({ theme }) => ({
     borderColor: 'var(--mainColor)',
     backgroundColor: 'var(--mainColor)',
   },
-  [theme.breakpoints.up('md')]: {
+  [theme.breakpoints.up('xl')]: {
     backgroundColor: 'var(--mainColor)',
     color: 'var(--secondColor)',
     width: '177px',
