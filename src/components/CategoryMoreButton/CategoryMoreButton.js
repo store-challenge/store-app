@@ -1,9 +1,10 @@
-import { styled } from '@mui/material/styles';
-import { Button } from '@mui/material';
+import { styled, Button } from '@mui/material';
 
-const ButtonMore = styled(Button)(() => ({
+const ButtonMore = styled(Button)(({ theme }) => ({
   width: '288px',
   height: '48px',
+  padding: '8px 22px',
+  fontFamily: '"Montserrat", sans-serif',
   fontSize: '15px',
   textTransform: 'none',
   color: 'var(--mainColor)',
@@ -18,6 +19,15 @@ const ButtonMore = styled(Button)(() => ({
     color: 'var(--secondColor)',
     borderColor: 'var(--mainColor)',
     backgroundColor: 'var(--mainColor)',
+  },
+  [theme.breakpoints.up('md')]: {
+    backgroundColor: 'var(--mainColor)',
+    color: 'var(--secondColor)',
+    width: '177px',
+    height: '42px',
+    '&:hover': {
+      color: 'var(--mainColor)',
+    },
   },
 }));
 
