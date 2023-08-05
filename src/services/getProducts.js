@@ -22,5 +22,6 @@ export const getHotProducts = async limit => {
     params: { limit },
   });
   const { data } = response;
+  // eslint-disable-next-line no-console
   return data && data.error ? (console.error('Помилка при отриманні даних:', data.error), null) : data;
 };
