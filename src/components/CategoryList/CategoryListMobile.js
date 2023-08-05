@@ -8,7 +8,7 @@ import CategoryList from './CategoryList';
 import CategoryMoreButton from '../CategoryMoreButton/CategoryMoreButton';
 
 const CategoryListMobile = props => {
-  const { array, href, onClick } = props;
+  const { array, href } = props;
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.up('sm'));
   const md = useMediaQuery(theme.breakpoints.up('md'));
@@ -35,7 +35,6 @@ const CategoryListMobile = props => {
         href={href}
         rowGap={2.5}
         columnGap={1}
-        onClick={onClick}
       />
       <Grid sx={{ marginX: 'auto', marginTop: 2.5 }}>
         <CategoryMoreButton text={showMore ? 'Зменшити' : 'Більше категорій'} onClick={handleClickShowMore} />
