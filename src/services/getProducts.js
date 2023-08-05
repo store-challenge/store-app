@@ -18,13 +18,9 @@ export const getSearchProduct = searchValue => {
 };
 
 export const getHotProducts = async limit => {
-  await axiosClient
-    .get(getHotProductsEndpoint, {
-      params: { limit },
-    })
-    .then(response => response.data)
-    .catch(error => {
-      // eslint-disable-next-line no-console
-      console.error('Search Error:', error);
-    });
+  const response = await axiosClient.get(getHotProductsEndpoint, {
+    params: { limit },
+  });
+  const { data } = response;
+  return data && data.error ? (console.error('Помилка при отриманні даних:', data.error), null) : data;
 };
