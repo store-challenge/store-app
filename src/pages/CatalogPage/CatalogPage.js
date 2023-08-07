@@ -9,20 +9,28 @@ import Title from '../../components/Title/Title';
 import CatalogList from '../../components/CatalogList/CatalogList';
 
 import { RoutesLinks } from '../../constant/constant';
-import * as data from '../../data';
 import { advertising } from '../../data/images/index';
 
 import { getAllCategories } from '../../services/getCategories';
 import { getHotProducts } from '../../services/getProducts';
 
 const CatalogPage = ({ desktop }) => {
-  const [allCategories, setAllCategories] = useState(null);
-  const [hotProducts, setHotProducts] = useState(null);
+  const [allCategories, setAllCategories] = useState([]);
+  const [hotProducts, setHotProducts] = useState([]);
   const [limitHot, setLimitHot] = useState(9);
 
   useEffect(() => {
-    setAllCategories(getAllCategories());
-    setHotProducts(getHotProducts(limitHot));
+    Promise.all([getAllCategories(), getHotProducts(limitHot)])
+      .then(([categoriesResult, hotProductsResult]) => {
+        setAllCategories(categoriesResult);
+        setHotProducts(hotProductsResult);
+        return null;
+      })
+      .catch(error => {
+        // eslint-disable-next-line no-console
+        console.error('Виникла помилка при отриманні даних:', error);
+        return null;
+      });
   }, [limitHot]);
 
   return (
@@ -34,7 +42,7 @@ const CatalogPage = ({ desktop }) => {
         marginBottom={desktop && 1.75}>
         {desktop && (
           <CategoryList
-            array={data.categories}
+            array={allCategories}
             href={RoutesLinks.CATEGORY_PAGE}
             rowGap={6.25}
             columnGap={0}
@@ -47,9 +55,9 @@ const CatalogPage = ({ desktop }) => {
         )}
         <Stack maxWidth={'100%'} direction="column" alignItems={desktop ? 'flex-start' : 'center'}>
           <Advertising advertising={advertising} />
-          {!desktop && <CategoryListMobile array={data.categories} href={RoutesLinks.CATEGORY_PAGE} />}
+          {!desktop && <CategoryListMobile array={allCategories} href={RoutesLinks.CATEGORY_PAGE} />}
           <Title text="Топ продажів" />
-          <CatalogList products={data.products} />
+          <CatalogList products={hotProducts} />
         </Stack>
       </Stack>
     </Container>
