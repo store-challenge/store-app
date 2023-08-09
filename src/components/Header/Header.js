@@ -25,7 +25,7 @@ const Header = ({ desktop }) => {
     !isSearchVisible && <Language style={{ fontSize: desktop ? '28px' : undefined }} key="language" />,
     !isSearchVisible && (
       <HeaderButton
-        href="/cart"
+        href={RoutesLinks.CART}
         onClick={() => {}}
         icon="ion:cart-outline"
         style={{ fontSize: desktop ? '32px' : undefined }}
