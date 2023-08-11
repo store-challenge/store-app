@@ -23,7 +23,7 @@ module.exports = {
   },
   rules: {
     'import/no-extraneous-dependencies': 'off',
-    'prettier/prettier': 'error',
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
     'import/no-unresolved': 'off',
     'import/no-named-as-default': 0,
     'import/extensions': 'off',
@@ -61,6 +61,7 @@ module.exports = {
     // 'unused-imports/no-unused-imports': 'error',
     // 'unused-imports/no-unused-vars': 'error',
     'unicorn/no-null': 'off',
+    'linebreak-style': ['error', process.platform === 'win32' ? 'windows' : 'unix'],
   },
   settings: {
     react: {
