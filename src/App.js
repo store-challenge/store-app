@@ -7,6 +7,7 @@ import LangProvider from './providers/LangProvider';
 import Header from './components/Header/Header';
 import CatalogPage from './pages/CatalogPage/CatalogPage';
 import CategoryPage from './pages/CategoryPage/CategoryPage';
+import SubcategoryPage from './pages/SubcategoryPage/SubcategoryPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import Footer from './components/Footer/Footer';
 
@@ -34,7 +35,8 @@ function App() {
             <Routes>
               <Route path={RoutesLinks.HOMEPAGE} element={<CatalogPage desktop={desktop} />} />
               <Route path={RoutesLinks.CATEGORY_PAGE} element={<CategoryPage desktop={desktop} />} />
-              <Route path="*" element={<NotFoundPage />} />
+              <Route path={RoutesLinks.SUBCATEGORY_PAGE} element={<SubcategoryPage desktop={desktop} />} />
+              <Route path="*" element={<NotFoundPage desktop={desktop} />} />
             </Routes>
             <Footer />
           </BrowserRouter>
