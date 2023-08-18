@@ -32,7 +32,7 @@ function App() {
             <Header desktop={desktop} />
             <Routes>
               <Route path={RoutesLinks.HOMEPAGE} element={<CatalogPage desktop={desktop} />} />
-              <Route path={RoutesLinks.CATEGORY_PAGE} element={<CategoryPage desktop={desktop} />} />
+              <Route path={`${RoutesLinks.CATEGORY_PAGE}/:categoryId`} element={<CategoryPage desktop={desktop} />} />
             </Routes>
             <Footer />
           </BrowserRouter>
