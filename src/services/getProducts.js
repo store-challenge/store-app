@@ -17,9 +17,21 @@ export const getSearchProduct = searchValue => {
     });
 };
 
-export const getHotProducts = async limit => {
+export const getAllHotProducts = async limit => {
   const response = await axiosClient.get(getHotProductsEndpoint, {
     params: { limit },
+  });
+  const { data } = response;
+  // eslint-disable-next-line no-console
+  return data && data.error ? (console.error('Помилка при отриманні даних:', data.error), null) : data;
+};
+
+export const getHotProductsById = async (limit, catId) => {
+  const response = await axiosClient.get(getHotProductsEndpoint, {
+    params: {
+      limit,
+      catId,
+    },
   });
   const { data } = response;
   // eslint-disable-next-line no-console
