@@ -1,36 +1,19 @@
 import React from 'react';
 import { useLocation, Link as RouterLink } from 'react-router-dom';
 import { Icon } from '@iconify/react';
-import { styled, useTheme } from '@mui/material/styles';
-import { Breadcrumbs, Link, useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import { Link, useMediaQuery } from '@mui/material';
+import { CustomBreadcrumbs } from './BreadCrumbs.styled';
 import { RoutesLinks } from '../../constant/constant';
 
-const CustomBreadcrumbs = styled(Breadcrumbs)(({ theme }) => ({
-  fontFamily: 'Montserrat',
-  fontSize: '20px',
-  fontWeight: '300',
-  fontStyle: 'normal',
-  lineHeight: '130%',
-  color: 'var(--mainColor)',
-  '& .MuiBreadcrumbs-separator': {
-    marginLeft: '0',
-    marginRight: '0',
-  },
-  [theme.breakpoints.down('xl')]: {
-    fontSize: '15px',
-    fontWeight: '500',
-    '& .MuiBreadcrumbs-ol': {
-      flexDirection: 'row-reverse',
-      justifyContent: 'flex-end',
-    },
-  },
-}));
-
-const BreadCrumbs = () => {
+const BreadCrumbs = ({ breakpoint }) => {
   const theme = useTheme();
   const desktop = useMediaQuery(theme.breakpoints.up('xl'));
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter(Boolean);
+
+  console.log(location);
+  console.log(pathnames);
 
   return (
     <CustomBreadcrumbs
@@ -43,7 +26,7 @@ const BreadCrumbs = () => {
         component={RouterLink}
         to={RoutesLinks.HOMEPAGE}
         sx={{ display: 'flex', alignItems: 'center' }}>
-        {desktop ? (
+        {breakpoint ? (
           'Головна сторінка'
         ) : (
           <>
