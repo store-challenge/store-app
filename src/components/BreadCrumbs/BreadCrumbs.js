@@ -1,19 +1,13 @@
 import React from 'react';
 import { useLocation, Link as RouterLink } from 'react-router-dom';
 import { Icon } from '@iconify/react';
-import { useTheme } from '@mui/material/styles';
-import { Link, useMediaQuery } from '@mui/material';
+import { Link } from '@mui/material';
 import { CustomBreadcrumbs } from './BreadCrumbs.styled';
 import { RoutesLinks } from '../../constant/constant';
 
 const BreadCrumbs = ({ breakpoint }) => {
-  const theme = useTheme();
-  const desktop = useMediaQuery(theme.breakpoints.up('xl'));
   const location = useLocation();
-  const pathnames = location.pathname.split('/').filter(Boolean);
-
-  console.log(location);
-  console.log(pathnames);
+  const pathnames = location.pathname.split('/').filter(Boolean).slice(1);
 
   return (
     <CustomBreadcrumbs
@@ -35,9 +29,10 @@ const BreadCrumbs = ({ breakpoint }) => {
           </>
         )}
       </Link>
-      {desktop &&
+      {breakpoint &&
         pathnames.map((path, index) => {
           const lastIndex = index === pathnames.at(-1);
+          const label = path;
           const to = `/${pathnames.slice(0, index + 1).join('/')}`;
           const linkProps = {
             href: path.url,
@@ -46,13 +41,13 @@ const BreadCrumbs = ({ breakpoint }) => {
             style: {
               fontWeight: !lastIndex && '500',
               cursor: !lastIndex && 'default',
-              visibility: !desktop && !lastIndex && 'hidden',
+              visibility: !breakpoint && !lastIndex && 'hidden',
             },
           };
 
           return (
             <Link {...linkProps} component={RouterLink} to={to} key={index}>
-              {path}
+              {label}
             </Link>
           );
         })}
