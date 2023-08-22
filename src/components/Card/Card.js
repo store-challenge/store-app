@@ -5,15 +5,6 @@ import styles from './card.module.css';
 const Card = ({ product }) => {
   const { href, title, image, price } = product;
 
-  let maxTitleLength = 15;
-  if (window.innerWidth >= 630 && window.innerWidth <= 1023) {
-    maxTitleLength = 12;
-  } else if (window.innerWidth >= 1023) {
-    maxTitleLength = 19;
-  }
-
-  const trimmedTitle = title.length > maxTitleLength ? `${title.slice(0, maxTitleLength)}...` : title;
-
   return (
     <Link to={href}>
       <div className={styles.wrapper}>
@@ -23,7 +14,7 @@ const Card = ({ product }) => {
           </div>
         </div>
         <div className={styles.title}>
-          <h3 title={title}>{trimmedTitle}</h3>
+          <h3 title={title}>{title}</h3>
         </div>
         <div className={styles.info}>
           <div className={styles.priceGroup}>

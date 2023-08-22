@@ -56,6 +56,9 @@
 
 .title h3, .priceUah {
   font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .info {
