@@ -16,13 +16,16 @@ const CategoryPage = ({ desktop }) => {
   const [allSubCategories, setAllSubCategories] = useState([]);
   const [hotProducts, setHotProducts] = useState([]);
   const [limitHot, setLimitHot] = useState(4);
+  const [currentTitle, setCurrentTitle] = useState('');
 
   useEffect(() => {
     Promise.all([getAllSubCategories(categoryId), getHotProductsById(limitHot, categoryId)])
       .then(([subCategoriesResult, hotProductsResult]) => {
         setAllSubCategories(subCategoriesResult);
         setHotProducts(hotProductsResult);
-        return null;
+
+        const current = subCategoriesResult.find(element => Number(element.catId) === Number(categoryId));
+        return current ? setCurrentTitle(current.catIdName) : null;
       })
       .catch(error => {
         // eslint-disable-next-line no-console
@@ -34,9 +37,9 @@ const CategoryPage = ({ desktop }) => {
   return (
     <Container breakpoint={desktop}>
       <Stack>
-        <BreadCrumbs breakpoint={desktop} />
+        <BreadCrumbs current={currentTitle} breakpoint={desktop} />
         <Stack sx={{ alignItems: !desktop && 'center' }} marginBottom={desktop && 1.75}>
-          <Title text={categoryId} />
+          <Title text={currentTitle} />
           <CategoryList
             array={allSubCategories}
             href={RoutesLinks.SUBCATEGORY_PAGE}

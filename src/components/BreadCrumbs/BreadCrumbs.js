@@ -5,7 +5,7 @@ import { Link } from '@mui/material';
 import { CustomBreadcrumbs } from './BreadCrumbs.styled';
 import { RoutesLinks } from '../../constant/constant';
 
-const BreadCrumbs = ({ breakpoint }) => {
+const BreadCrumbs = ({ current, breakpoint }) => {
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter(Boolean).slice(1);
 
@@ -32,7 +32,7 @@ const BreadCrumbs = ({ breakpoint }) => {
       {breakpoint &&
         pathnames.map((path, index) => {
           const lastIndex = index === pathnames.at(-1);
-          const label = path;
+          const label = current;
           const to = `/${pathnames.slice(0, index + 1).join('/')}`;
           const linkProps = {
             href: path.url,
