@@ -12,18 +12,18 @@ import { RoutesLinks } from '../../constant/constant';
 import { advertising } from '../../data/images/index';
 
 import { getAllCategories } from '../../services/getCategories';
-import { getHotProducts } from '../../services/getProducts';
+import { getAllHotProducts } from '../../services/getProducts';
 
 const CatalogPage = ({ desktop }) => {
   const [allCategories, setAllCategories] = useState([]);
-  const [hotProducts, setHotProducts] = useState([]);
+  const [allHotProducts, setAllHotProducts] = useState([]);
   const [limitHot, setLimitHot] = useState(9);
 
   useEffect(() => {
-    Promise.all([getAllCategories(), getHotProducts(limitHot)])
+    Promise.all([getAllCategories(), getAllHotProducts(limitHot)])
       .then(([categoriesResult, hotProductsResult]) => {
         setAllCategories(categoriesResult);
-        setHotProducts(hotProductsResult);
+        setAllHotProducts(hotProductsResult);
         return null;
       })
       .catch(error => {
@@ -57,7 +57,7 @@ const CatalogPage = ({ desktop }) => {
           <Advertising advertising={advertising} />
           {!desktop && <CategoryListMobile array={allCategories} href={RoutesLinks.CATEGORY_PAGE} />}
           <Title text="Топ продажів" />
-          <CatalogList products={hotProducts} />
+          <CatalogList products={allHotProducts} />
         </Stack>
       </Stack>
     </Container>
