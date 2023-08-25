@@ -7,6 +7,7 @@ import LangProvider from './providers/LangProvider';
 import Header from './components/Header/Header';
 import CatalogPage from './pages/CatalogPage/CatalogPage';
 import CategoryPage from './pages/CategoryPage/CategoryPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import Footer from './components/Footer/Footer';
 
 const theme = createTheme({
@@ -33,6 +34,7 @@ function App() {
             <Routes>
               <Route path={RoutesLinks.HOMEPAGE} element={<CatalogPage desktop={desktop} />} />
               <Route path={`${RoutesLinks.CATEGORY_PAGE}/:categoryId`} element={<CategoryPage desktop={desktop} />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
             <Footer />
           </BrowserRouter>
