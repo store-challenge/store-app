@@ -3,7 +3,7 @@ import { Icon } from '@iconify/react';
 
 import { CustomSelect, CustomMenuItem } from './Sort.styled';
 
-const Sort = ({ breakpoint }) => {
+const Sort = ({ onSelect, breakpoint }) => {
   const [sortOption, setSortOption] = useState('newest');
 
   const valueOptions = [
@@ -36,6 +36,7 @@ const Sort = ({ breakpoint }) => {
 
   const handleSort = event => {
     const selectedOption = event.target.value;
+    onSelect(selectedOption);
     setSortOption(selectedOption);
   };
 
