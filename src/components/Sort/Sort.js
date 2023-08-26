@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 
-import { Radio } from '@mui/material';
 import { CustomSelect, CustomMenuItem } from './Sort.styled';
 
 const Sort = ({ breakpoint }) => {
@@ -42,7 +41,8 @@ const Sort = ({ breakpoint }) => {
 
   return (
     <CustomSelect
-      defaultValue={sortOption}
+      defaultValue={'newest'}
+      value={sortOption}
       onChange={handleSort}
       sx={{
         '& .MuiOutlinedInput-notchedOutline': {
@@ -51,21 +51,11 @@ const Sort = ({ breakpoint }) => {
       }}
       variant="outlined"
       MenuProps={menuPropsStyles}
-      IconComponent={() => <Icon icon={'iconamoon:arrow-down-2-duotone'} style={{ fontSize: '24px' }} />}>
+      IconComponent={props => (
+        <Icon icon={'iconamoon:arrow-down-2-duotone'} style={{ fontSize: breakpoint ? '24px' : '10px' }} {...props} />
+      )}>
       {valueOptions.map((element, index) => (
         <CustomMenuItem key={index} value={element.value}>
-          {!breakpoint && (
-            <Radio
-              size="small"
-              checked={sortOption === element.value}
-              sx={{
-                color: 'white',
-                '&.Mui-checked': {
-                  color: 'white',
-                },
-              }}
-            />
-          )}
           {element.text}
         </CustomMenuItem>
       ))}

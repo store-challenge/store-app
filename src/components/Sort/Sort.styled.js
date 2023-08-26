@@ -12,7 +12,6 @@ const styles = {
 export const CustomSelect = styled(Select)(({ theme }) => ({
   ...styles,
   padding: '8px',
-  // minWidth: '140px',
   width: '140px',
   border: '0.38px solid var(--mainColor)',
   borderRadius: '10px',
