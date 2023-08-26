@@ -14,13 +14,14 @@ export const CustomSelect = styled(Select)(({ theme }) => ({
   minWidth: '140px',
   border: '1px solid var(--mainColor)',
   borderRadius: '15px',
-  '&.MuiInputBase': {
+  '& .MuiInputBase-input': {
     padding: 0,
   },
   [theme.breakpoints.up('xl')]: {
     padding: '16px',
-    minWidth: '370px',
+    minWidth: '368px',
     fontSize: '16px',
+    border: '1px solid var(--mainColor)',
     borderRadius: '20px',
   },
 }));
@@ -30,23 +31,19 @@ export const CustomMenuItem = styled(MenuItem)(({ theme }) => ({
   padding: '12px',
   fontSize: '8.371px',
   fontWeight: '500',
-  '&.Mui-selected': {
-    backgroundColor: 'transparent !important',
-  },
-  '&:hover': {
-    fontSize: '10px',
-    color: 'var(--textColor)',
-    backgroundColor: 'var(--secondColor)',
-  },
   [theme.breakpoints.up('xl')]: {
     padding: '0',
     flexDirection: 'column',
     fontSize: '20px',
     fontWeight: '300',
-    '&:hover': {
-      fontSize: '22px',
+    '&.Mui-selected': {
       color: 'var(--secondColor)',
       backgroundColor: 'var(--mainColor)',
+    },
+    '&.Mui-selected:hover, &:hover': {
+      fontSize: '22px',
+      color: 'var(--secondColor)',
+      backgroundColor: 'var(--buttonHoverColor)',
     },
   },
 }));

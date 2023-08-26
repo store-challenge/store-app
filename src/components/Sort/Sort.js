@@ -42,7 +42,7 @@ const Sort = ({ breakpoint }) => {
 
   return (
     <CustomSelect
-      value={sortOption}
+      defaultValue={sortOption}
       onChange={handleSort}
       sx={{
         '& .MuiOutlinedInput-notchedOutline': {
