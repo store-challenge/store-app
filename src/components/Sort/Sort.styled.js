@@ -11,9 +11,11 @@ const styles = {
 
 export const CustomSelect = styled(Select)(({ theme }) => ({
   ...styles,
-  minWidth: '140px',
-  border: '1px solid var(--mainColor)',
-  borderRadius: '15px',
+  padding: '8px',
+  // minWidth: '140px',
+  width: '140px',
+  border: '0.38px solid var(--mainColor)',
+  borderRadius: '10px',
   '& .MuiInputBase-input': {
     padding: 0,
   },
@@ -28,9 +30,19 @@ export const CustomSelect = styled(Select)(({ theme }) => ({
 
 export const CustomMenuItem = styled(MenuItem)(({ theme }) => ({
   ...styles,
-  padding: '12px',
+  padding: '10px 16px',
+  minHeight: '10px',
   fontSize: '8.371px',
   fontWeight: '500',
+  '&.Mui-selected': {
+    color: 'var(--textColor)',
+    backgroundColor: 'var(--secondColor)',
+  },
+  '&.Mui-selected:hover, &:hover': {
+    fontSize: '10px',
+    color: 'var(--secondColor)',
+    backgroundColor: 'var(--buttonHoverColor)',
+  },
   [theme.breakpoints.up('xl')]: {
     padding: '0',
     flexDirection: 'column',
