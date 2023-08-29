@@ -3,6 +3,8 @@ import { Icon } from '@iconify/react';
 
 import HeaderButton from '../HeaderButton/HeaderButton';
 
+const AUTH0_CALLBACK_URL = process.env.REACT_APP_AUTH0_CALLBACK_URL;
+
 const Authentication = ({ style, breakpoint }) => {
   const { error, isLoading, isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
 
@@ -11,12 +13,12 @@ const Authentication = ({ style, breakpoint }) => {
   }
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>...</div>;
   }
 
   const handleClick = () => {
     if (isAuthenticated) {
-      logout({ returnTo: window.location.origin });
+      logout({ returnTo: AUTH0_CALLBACK_URL });
     } else {
       loginWithRedirect({ returnTo: '/profile' });
     }
