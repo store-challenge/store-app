@@ -18,7 +18,7 @@ const Authentication = ({ style, breakpoint }) => {
 
   const handleClick = () => {
     if (isAuthenticated) {
-      logout({ returnTo: AUTH0_CALLBACK_URL });
+      logout({ logoutParams: { returnTo: AUTH0_CALLBACK_URL } });
     } else {
       loginWithRedirect({ returnTo: '/profile' });
     }
