@@ -15,12 +15,15 @@ export const CustomSelect = styled(Select)(({ theme }) => ({
   width: '140px',
   border: '0.38px solid var(--mainColor)',
   borderRadius: '10px',
+  '&.MuiInputBase-root': {
+    cursor: 'pointer',
+  },
   '& .MuiInputBase-input': {
     padding: 0,
   },
   [theme.breakpoints.up('xl')]: {
     padding: '16px',
-    minWidth: '368px',
+    width: '368px',
     fontSize: '16px',
     border: '1px solid var(--mainColor)',
     borderRadius: '20px',
@@ -29,16 +32,17 @@ export const CustomSelect = styled(Select)(({ theme }) => ({
 
 export const CustomMenuItem = styled(MenuItem)(({ theme }) => ({
   ...styles,
-  padding: '10px 16px',
+  padding: '5px 20px',
   minHeight: '10px',
-  fontSize: '8.371px',
+  width: '100%',
+  fontSize: '10px',
   fontWeight: '500',
   '&.Mui-selected': {
     color: 'var(--textColor)',
     backgroundColor: 'var(--secondColor)',
   },
   '&.Mui-selected:hover, &:hover': {
-    fontSize: '10px',
+    fontSize: '11px',
     color: 'var(--secondColor)',
     backgroundColor: 'var(--buttonHoverColor)',
   },
@@ -49,12 +53,12 @@ export const CustomMenuItem = styled(MenuItem)(({ theme }) => ({
     fontWeight: '300',
     '&.Mui-selected': {
       color: 'var(--secondColor)',
-      backgroundColor: 'var(--mainColor)',
+      backgroundColor: 'var(--buttonHoverColor)',
     },
     '&.Mui-selected:hover, &:hover': {
       fontSize: '22px',
       color: 'var(--secondColor)',
-      backgroundColor: 'var(--buttonHoverColor)',
+      backgroundColor: 'var(--mainColor)',
     },
   },
 }));
