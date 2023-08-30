@@ -1,24 +1,24 @@
-import Box from '@mui/material/Box';
-import { Slider, Typography, styled } from '@mui/material';
-import Input from '@mui/material/Input';
-import { FilterTitle, FilterSlider, FilterSliderInput, SliderTypography } from './Filter.styled';
+import { Box, Slider, Typography, styled, TextField, Stack, Input } from '@mui/material';
+import {
+  FilterTitle,
+  FilterSlider,
+  FilterSliderInputMin,
+  FilterSliderInputMax,
+  SliderTypography,
+} from './Filter.styled';
 
 export default function RangeSlider({ priceRange, setPriceRange }) {
   const handleChange = (event, newValue) => {
     setPriceRange(newValue);
+    console.log(priceRange);
   };
 
   const handleBlur = () => {
     if (priceRange < 0) {
       setPriceRange(0);
-    } else if (priceRange > 100) {
-      setPriceRange(100);
+    } else if (priceRange > 20_000) {
+      setPriceRange(20_000);
     }
-  };
-
-  const handleInputChange = event => {
-    const { value } = event.target;
-    setPriceRange([value, priceRange[1]]);
   };
 
   return (
@@ -30,22 +30,26 @@ export default function RangeSlider({ priceRange, setPriceRange }) {
       </Box>
       <Box>
         <FilterSlider value={priceRange} max={20_000} onChange={handleChange} valueLabelDisplay="auto" />
-        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <FilterSliderInput
+        <Stack direction="row" justifyContent="space-between" alignItems="center">
+          <FilterSliderInputMin
             disableUnderline
-            type={'number'}
+            type="number"
             value={priceRange[0]}
             onBlur={handleBlur}
-            onChange={handleInputChange}
+            onChange={event => {
+              setPriceRange([Number(event.target.value), priceRange[1]]);
+            }}
           />
-          <FilterSliderInput
+          <FilterSliderInputMax
             disableUnderline
-            type={'number'}
+            type="number"
             value={priceRange[1]}
             onBlur={handleBlur}
-            onChange={handleInputChange}
+            onChange={event => {
+              setPriceRange([priceRange[0], Number(event.target.value)]);
+            }}
           />
-        </Box>
+        </Stack>
       </Box>
     </Box>
   );

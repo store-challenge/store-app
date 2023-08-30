@@ -34,8 +34,11 @@ function App() {
             <Header desktop={desktop} />
             <Routes>
               <Route path={RoutesLinks.HOMEPAGE} element={<CatalogPage desktop={desktop} />} />
-              <Route path={RoutesLinks.CATEGORY_PAGE} element={<CategoryPage desktop={desktop} />} />
-              <Route path={RoutesLinks.SUBCATEGORY_PAGE} element={<SubcategoryPage desktop={desktop} />} />
+              <Route path={`${RoutesLinks.CATEGORY_PAGE}/:categoryId`} element={<CategoryPage desktop={desktop} />} />
+              <Route
+                path={`${RoutesLinks.SUBCATEGORY_PAGE}/:subcategoryId`}
+                element={<SubcategoryPage desktop={desktop} />}
+              />
               <Route path="*" element={<NotFoundPage desktop={desktop} />} />
             </Routes>
             <Footer />
