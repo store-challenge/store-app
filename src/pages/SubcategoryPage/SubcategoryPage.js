@@ -7,6 +7,7 @@ import CatalogList from '../../components/CatalogList/CatalogList';
 import ButtonCustom from '../../components/Button/ButtonCustom';
 import FilterDesktop from '../../components/Filter/FilterDesktop';
 import FilterMobile from '../../components/Filter/FilterMobile';
+import Sort from '../../components/Sort/Sort';
 
 import * as data from '../../data';
 
@@ -34,12 +35,29 @@ const SubcategoryPage = ({ desktop }) => {
 
   const [priceRange, setPriceRange] = useState([0, 20_000]);
   const [selectedBrand, setSelectedBrand] = useState('');
+  const [sortOption, setSortOption] = useState('newest');
 
   return (
     <Container breakpoint={desktop}>
       <BreadCrumbs breakpoint={desktop} />
       <Title text="TITLE" />
-
+      <Stack
+        direction="row"
+        justifyContent={desktop ? 'flex-end' : 'center'}
+        alignItems="center"
+        gap={'8px'}
+        mb={desktop ? '50px' : '20px'}>
+        {!desktop && (
+          <FilterMobile
+            priceRange={priceRange}
+            setPriceRange={setPriceRange}
+            selectedBrand={selectedBrand}
+            setSelectedBrand={setSelectedBrand}
+            desktop={desktop}
+          />
+        )}
+        <Sort onSelect={sort => setSortOption(sort)} breakpoint={desktop} />
+      </Stack>
       <Stack
         direction={{ xs: 'column', xl: 'row' }}
         justifyContent="center"
@@ -51,17 +69,10 @@ const SubcategoryPage = ({ desktop }) => {
             setPriceRange={setPriceRange}
             selectedBrand={selectedBrand}
             setSelectedBrand={setSelectedBrand}
+            desktop={desktop}
           />
         )}
         <Stack maxWidth={'100%'} direction="column" alignItems={desktop ? 'flex-start' : 'center'}>
-          {!desktop && (
-            <FilterMobile
-              priceRange={priceRange}
-              setPriceRange={setPriceRange}
-              selectedBrand={selectedBrand}
-              setSelectedBrand={setSelectedBrand}
-            />
-          )}
           <CatalogList products={visibleProducts} />
           {sortedProducts.length > visibleProducts.length && (
             <ButtonCustom onClick={handleShowMore} text={'Показати ще'} />
