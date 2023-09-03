@@ -1,14 +1,15 @@
-import * as React from 'react';
 import { useState } from 'react';
-import Box from '@mui/material/Box';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import Chip from '@mui/material/Chip';
-import Checkbox from '@mui/material/Checkbox';
-import ListItemText from '@mui/material/ListItemText';
+import {
+  Box,
+  OutlinedInput,
+  InputLabel,
+  MenuItem,
+  FormControl,
+  Select,
+  Chip,
+  Checkbox,
+  ListItemText,
+} from '@mui/material';
 import { CustomFormControl, FilterTitle } from './Filter.styled';
 
 const brands = [
@@ -66,16 +67,13 @@ export default function FilterBrandList({ onSelect, breakpoint }) {
     const {
       target: { value },
     } = event;
-    setPersonName(
-      // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
-    );
+    setPersonName(typeof value === 'string' ? value.split(',') : value);
   };
 
   return (
     <div>
       <FilterTitle>Бренд</FilterTitle>
-      <FormControl sx={{ width: '100%' }}>
+      <FormControl sx={{ width: breakpoint ? '100%' : '280px' }}>
         <InputLabel id="demo-multiple-chip-label">Вибери бренд</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"

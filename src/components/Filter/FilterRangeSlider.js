@@ -7,7 +7,7 @@ import {
   SliderTypography,
 } from './Filter.styled';
 
-export default function RangeSlider({ priceRange, setPriceRange }) {
+export default function RangeSlider({ priceRange, setPriceRange, desktop }) {
   const handleChange = (event, newValue) => {
     setPriceRange(newValue);
     console.log(priceRange);
@@ -28,7 +28,7 @@ export default function RangeSlider({ priceRange, setPriceRange }) {
         <SliderTypography>Від</SliderTypography>
         <SliderTypography>До</SliderTypography>
       </Box>
-      <Box>
+      <Stack sx={{ gap: desktop ? '0px' : '20px' }}>
         <FilterSlider value={priceRange} max={20_000} onChange={handleChange} valueLabelDisplay="auto" />
         <Stack direction="row" justifyContent="space-between" alignItems="center">
           <FilterSliderInputMin
@@ -50,7 +50,7 @@ export default function RangeSlider({ priceRange, setPriceRange }) {
             }}
           />
         </Stack>
-      </Box>
+      </Stack>
     </Box>
   );
 }

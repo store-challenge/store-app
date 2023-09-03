@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Stack } from '@mui/material';
+import { Stack, Grid } from '@mui/material';
 import Container from '../../components/Container/Container';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import Title from '../../components/Title/Title';
@@ -40,13 +40,13 @@ const SubcategoryPage = ({ desktop }) => {
   return (
     <Container breakpoint={desktop}>
       <BreadCrumbs breakpoint={desktop} />
-      <Title text="TITLE" />
+      {desktop && <Title text="TITLE" />}
       <Stack
         direction="row"
         justifyContent={desktop ? 'flex-end' : 'center'}
         alignItems="center"
         gap={'8px'}
-        mb={desktop ? '50px' : '20px'}>
+        marginY={desktop ? '50px' : '20px'}>
         {!desktop && (
           <FilterMobile
             priceRange={priceRange}
@@ -75,7 +75,9 @@ const SubcategoryPage = ({ desktop }) => {
         <Stack maxWidth={'100%'} direction="column" alignItems={desktop ? 'flex-start' : 'center'}>
           <CatalogList products={visibleProducts} />
           {sortedProducts.length > visibleProducts.length && (
-            <ButtonCustom onClick={handleShowMore} text={'Показати ще'} />
+            <Stack mt={desktop ? '50px' : '20px'}>
+              <ButtonCustom onClick={handleShowMore} text={'Показати ще'} />
+            </Stack>
           )}
         </Stack>
       </Stack>

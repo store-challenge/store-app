@@ -5,7 +5,7 @@ import ButtonCustom from '../Button/ButtonCustom';
 
 const FilterDesktop = ({ priceRange, setPriceRange, selectedBrand, setSelectedBrand, desktop }) => (
   <FilterContainer>
-    <FilterRangeSlider priceRange={priceRange} setPriceRange={setPriceRange} />
+    <FilterRangeSlider priceRange={priceRange} setPriceRange={setPriceRange} desktop={desktop} />
     <FilterBrandList setSelectedBrand={setSelectedBrand} breakpoint={desktop} />
     <ButtonCustom text={'Застосувати'} type={'submit'} disableElevation desktop={desktop} />
     <ButtonCustom

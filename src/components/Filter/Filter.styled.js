@@ -1,8 +1,6 @@
-import { Typography, Slider, FormControl, MenuItem, useAutocomplete } from '@mui/material';
+import { Typography, Slider, FormControl, MenuItem, Input } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { autocompleteClasses } from '@mui/material/Autocomplete';
 import { Box } from '@mui/system';
-import Input from '@mui/material/Input';
 
 const styles = {
   fontFamily: 'Montserrat',
@@ -13,11 +11,13 @@ const styles = {
 };
 
 export const FilterContainer = styled(Box)(({ theme }) => ({
+  boxSizing: 'border-box',
   flexDirection: 'column',
   width: '320px',
-  height: '651px',
+  height: '100%',
   display: 'flex',
   gap: '20px',
+  padding: '20px',
   backgroundColor: 'var(--mainColor)',
   [theme.breakpoints.up('xl')]: {
     width: '272px',
@@ -25,25 +25,44 @@ export const FilterContainer = styled(Box)(({ theme }) => ({
     backgroundColor: 'var(--secondColor)',
     gap: '50px',
     marginRight: '20px',
+    padding: '0px',
   },
 }));
 
 export const FilterTitle = styled(Typography)(({ theme }) => ({
   fontFamily: 'Montserrat',
-  fontSize: '20px',
+  fontSize: '15px',
   fontStyle: 'normal',
   fontWeight: 500,
   lineHeight: '130%',
-  marginBottom: '50px',
+  marginBottom: '20px',
+  color: 'var(--secondColor)',
+  [theme.breakpoints.up('xl')]: {
+    fontSize: '20px',
+    marginBottom: '50px',
+    color: 'var(--textColor)',
+  },
 }));
 
 // Range Slider
+export const SliderTypography = styled(Typography)(({ theme }) => ({
+  fontFamily: 'Montserrat',
+  fontSize: '16px',
+  fontStyle: 'normal',
+  fontWeight: 300,
+  lineHeight: '130%',
+  color: 'var(--secondColor)',
+  [theme.breakpoints.up('xl')]: {
+    color: 'var(--textColor)',
+  },
+}));
+
 export const FilterSliderInputMin = styled(Input)(({ theme }) => ({
   fontFamily: 'Montserrat',
-  fontSize: '20px',
+  fontSize: '16px',
   textDecoration: 'underline',
-  textDecorationColor: 'var(--mainColor)',
-  margin: '0',
+  color: 'var(--secondColor)',
+
   '& .MuiInputBase-input': {
     textAlign: 'left',
   },
@@ -53,13 +72,18 @@ export const FilterSliderInputMin = styled(Input)(({ theme }) => ({
   '& input[type=number]': {
     MozAppearance: 'textfield',
   },
+  [theme.breakpoints.up('xl')]: {
+    fontSize: '20px',
+    color: 'var(--mainColor)',
+  },
 }));
 
 export const FilterSliderInputMax = styled(Input)(({ theme }) => ({
   fontFamily: 'Montserrat',
-  fontSize: '20px',
+  fontSize: '16px',
   textDecoration: 'underline',
-  margin: '0',
+
+  color: 'var(--secondColor)',
   '& .MuiInputBase-input': {
     textAlign: 'right',
   },
@@ -69,23 +93,24 @@ export const FilterSliderInputMax = styled(Input)(({ theme }) => ({
   '& input[type=number]': {
     MozAppearance: 'textfield',
   },
+  [theme.breakpoints.up('xl')]: {
+    fontSize: '20px',
+    color: 'var(--mainColor)',
+  },
 }));
 
 export const FilterSlider = styled(Slider)(({ theme }) => ({
-  color: 'var(--mainColor)',
-  width: '250px',
+  color: 'var(--secondColor)',
+  width: '270px',
   textAlign: 'center',
   display: 'block',
   margin: '0 auto',
-  marginTop: '50px',
-}));
-
-export const SliderTypography = styled(Typography)(({ theme }) => ({
-  fontFamily: 'Montserrat',
-  fontSize: '16px',
-  fontStyle: 'normal',
-  fontWeight: 300,
-  lineHeight: '130%',
+  marginTop: '20px',
+  [theme.breakpoints.up('xl')]: {
+    color: 'var(--mainColor)',
+    width: '250px',
+    marginTop: '50px',
+  },
 }));
 
 // FilterBrandList
