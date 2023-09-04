@@ -9,7 +9,7 @@
 
 .card {
   height: 150px;
-  background: rgba(107, 76, 125, 0.25);
+  background: #ffffff;
   border: 2.36px solid var(--mainColor);
   transition: background-color 0.5s ease;
   position: relative;
@@ -21,10 +21,6 @@
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
-}
-
-.wrapper:hover .card {
-  background: var(--mainColor);
 }
 
 .card .productImage {
@@ -40,6 +36,7 @@
 
 .productImage img {
   width: 60%;
+  max-height: 200px;
 }
 
 .wrapper:hover .productImage {
@@ -54,7 +51,8 @@
   margin-top: 2.5px;
 }
 
-.title h3, .priceUah {
+.title h3,
+.priceUah {
   font-size: 13px;
   white-space: nowrap;
   overflow: hidden;
@@ -79,7 +77,9 @@
   height: 16px;
   display: flex;
   align-items: center;
-  transition: background-color 0.5s ease, border-radius 0.5s ease;
+  transition:
+    background-color 0.5s ease,
+    border-radius 0.5s ease;
   border-radius: 0;
 }
 
@@ -120,6 +120,7 @@
 
   .productImage img {
     width: 60%;
+    max-height: 300px;
   }
 
   .wrapper:hover .productImage {
@@ -128,13 +129,14 @@
     -moz-transform: scale(1.15);
     -ms-transform: scale(1.15);
     -o-transform: scale(1.15);
-}
+  }
 
   .title {
     margin-top: 20px;
   }
 
-  .title h3, .priceUah {
+  .title h3,
+  .priceUah {
     font-size: 16.5px;
   }
 
@@ -166,6 +168,7 @@
 
   .productImage img {
     width: 60%;
+    max-height: 340px;
   }
 
   .wrapper:hover .productImage {
@@ -174,13 +177,14 @@
     -moz-transform: scale(1.2);
     -ms-transform: scale(1.2);
     -o-transform: scale(1.2);
-}
+  }
 
   .title {
     margin-top: 37px;
   }
 
-  .title h3, .priceUah {
+  .title h3,
+  .priceUah {
     font-size: 20px;
   }
 
