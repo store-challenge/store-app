@@ -30,26 +30,32 @@
   font-size: 15px;
   font-weight: 300;
   line-height: 130%;
-  cursor:default
+  cursor: default;
 }
 
 .info {
   margin-bottom: 10px;
 }
 
-.info ul, .deliveryAndPayment ul  {
-  display: grid;
-  gap: 1rem;
+.info ul,
+.deliveryAndPayment ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   color: var(--secondColor);
-  cursor:default
+  cursor: default;
 }
 
-.info li, .deliveryAndPayment li {
+.info li,
+.deliveryAndPayment li {
+  display: flex;
+  align-items: center;
   color: var(--secondColor);
   font-weight: 300;
 }
 
-.info a, .deliveryAndPayment a  {
+.info a,
+.deliveryAndPayment a {
   text-decoration: none;
   color: var(--secondColor);
 }
@@ -63,7 +69,7 @@
   font-size: 10px;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  cursor:default
+  cursor: default;
 }
 
 @media only screen and (min-width: 520px) {
@@ -131,8 +137,19 @@
     font-size: 20px;
   }
 
-  .info ul, .deliveryAndPayment ul {
+  .info ul,
+  .deliveryAndPayment ul {
     gap: 12px;
+  }
+
+  .info li,
+  .deliveryAndPayment li {
+    gap: 10px;
+  }
+
+  .icon {
+    width: 28px;
+    height: 28px;
   }
 
   .license {
