@@ -58,7 +58,6 @@ const Header = ({ desktop }) => {
           <Box
             sx={{
               width: desktop ? '109px' : '46px',
-              height: '100%',
               padding: 0,
               marginRight: desktop ? '100px' : undefined,
               '&:hover, &:focus, &:active': {
@@ -66,7 +65,11 @@ const Header = ({ desktop }) => {
               },
             }}>
             <Link to={RoutesLinks.HOMEPAGE}>
-              <img src={logo} alt="MEGASTORE" style={{ width: !desktop && '57px', paddingTop: '10px' }} />
+              <img
+                src={logo}
+                alt="MEGASTORE"
+                style={{ width: !desktop && '57px', paddingTop: desktop ? '14px' : '6px' }}
+              />
             </Link>
           </Box>
 
