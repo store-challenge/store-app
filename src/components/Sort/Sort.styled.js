@@ -13,6 +13,7 @@ export const CustomSelect = styled(Select)(({ theme }) => ({
   ...styles,
   padding: '8px',
   width: '140px',
+  maxHeight: '29px',
   border: '0.38px solid var(--mainColor)',
   borderRadius: '10px',
   '&.MuiInputBase-root': {
