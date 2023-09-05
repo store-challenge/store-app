@@ -7,18 +7,21 @@ const FilterDesktop = ({ priceRange, setPriceRange, selectedBrand, setSelectedBr
   <FilterContainer>
     <FilterRangeSlider priceRange={priceRange} setPriceRange={setPriceRange} desktop={desktop} />
     <FilterBrandList setSelectedBrand={setSelectedBrand} breakpoint={desktop} />
-    <ButtonCustom text={'Застосувати'} type={'submit'} disableElevation desktop={desktop} />
+    <ButtonCustom
+      text={'Застосувати'}
+      type={'submit'}
+      sx={{
+        backgroundColor: desktop ? 'var(--mainColor)' : 'var(--secondColor)',
+        color: desktop ? 'var(--secondColor)' : 'var(--mainColor)',
+      }}
+    />
     <ButtonCustom
       text={'Скинути фільтри'}
       type={'button'}
-      disableElevation
       sx={{
-        backgroundColor: desktop ? 'var(--mainColor)' : 'var(--secondColor)',
+        backgroundColor: desktop ? 'var(--secondColor)' : 'var(--mainColor)',
         color: desktop ? 'var(--mainColor)' : 'var(--secondColor)',
         padding: '8px',
-        '& .MuiInputBase-input': {
-          padding: 0,
-        },
       }}
     />
   </FilterContainer>

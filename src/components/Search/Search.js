@@ -46,7 +46,17 @@ const Search = props => {
           </InputAdornment>
         }
       />
-      {breakpoint && <ButtonCustom text={'Пошук'} type={'submit'} disableElevation onClick={handleFormSubmit} />}
+      {breakpoint && (
+        <ButtonCustom
+          text={'Пошук'}
+          type={'submit'}
+          onClick={handleFormSubmit}
+          sx={{
+            backgroundColor: breakpoint ? 'var(--mainColor)' : 'var(--secondColor)',
+            color: breakpoint ? 'var(--secondColor)' : 'var(--mainColor)',
+          }}
+        />
+      )}
     </form>
   );
 

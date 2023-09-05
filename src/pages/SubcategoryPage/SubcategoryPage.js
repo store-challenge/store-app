@@ -75,9 +75,15 @@ const SubcategoryPage = ({ desktop }) => {
         <Stack maxWidth={'100%'} direction="column" alignItems={desktop ? 'flex-start' : 'center'}>
           <CatalogList products={visibleProducts} />
           {sortedProducts.length > visibleProducts.length && (
-            <Stack mt={desktop ? '50px' : '20px'}>
-              <ButtonCustom onClick={handleShowMore} text={'Показати ще'} />
-            </Stack>
+            <ButtonCustom
+              sx={{
+                backgroundColor: desktop ? 'var(--mainColor)' : 'var(--secondColor)',
+                color: desktop ? 'var(--secondColor)' : 'var(--mainColor)',
+                // padding: '8px',
+              }}
+              onClick={handleShowMore}
+              text={'Показати ще'}
+            />
           )}
         </Stack>
       </Stack>
