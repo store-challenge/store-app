@@ -17,6 +17,7 @@ const Sort = ({ onSelect, breakpoint }) => {
   const menuPropsStyles = {
     PaperProps: {
       style: {
+        maxWidth: '100%',
         display: 'flex',
         justifyContent: 'center',
         borderRadius: breakpoint ? '20px' : '15px',
