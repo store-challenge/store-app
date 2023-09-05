@@ -26,9 +26,9 @@ export const getAllHotProducts = async limit => {
   return data && data.error ? (console.error('Помилка при отриманні даних:', data.error), null) : data;
 };
 
-export const getHotProductsById = async (limit, catId) => {
+export const getHotProductsById = async (limit, categoryId) => {
   const response = await axiosClient.get(getHotProductsEndpoint, {
-    params: { limit, catId },
+    params: { limit, categoryId },
   });
   const { data } = response;
   // eslint-disable-next-line no-console

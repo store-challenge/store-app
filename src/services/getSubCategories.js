@@ -2,9 +2,9 @@ import axiosClient from './axiosClient';
 
 const getAllSubCategoriesEndpoint = 'api/v1/sub-category/list';
 
-export const getAllSubCategories = async catId => {
+export const getAllSubCategories = async categoryId => {
   const response = await axiosClient.get(getAllSubCategoriesEndpoint, {
-    params: { catId },
+    params: { categoryId },
   });
   const { data } = response.data;
   // eslint-disable-next-line no-console

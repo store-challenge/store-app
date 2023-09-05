@@ -24,7 +24,7 @@ const CategoryPage = ({ desktop }) => {
         setAllSubCategories(subCategoriesResult);
         setHotProducts(hotProductsResult);
 
-        const current = subCategoriesResult.find(element => Number(element.catId) === Number(categoryId));
+        const current = subCategoriesResult.find(element => Number(element.categoryId) === Number(categoryId));
         return current ? setCurrentTitle(current.catIdName) : null;
       })
       .catch(error => {
