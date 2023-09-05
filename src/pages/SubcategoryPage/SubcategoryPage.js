@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Stack, Grid } from '@mui/material';
+import { Stack } from '@mui/material';
 import Container from '../../components/Container/Container';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import Title from '../../components/Title/Title';
@@ -46,7 +46,7 @@ const SubcategoryPage = ({ desktop }) => {
         justifyContent={desktop ? 'flex-end' : 'center'}
         alignItems="center"
         gap={'8px'}
-        marginY={desktop ? '50px' : '20px'}>
+        marginTop={!desktop && '22.5px'}>
         {!desktop && (
           <FilterMobile
             priceRange={priceRange}
@@ -62,7 +62,7 @@ const SubcategoryPage = ({ desktop }) => {
         direction={{ xs: 'column', xl: 'row' }}
         justifyContent="center"
         alignItems={{ xs: 'center', xl: 'flex-start' }}
-        marginBottom={desktop && 1.75}>
+        marginTop={desktop ? '50px' : '20px'}>
         {desktop && (
           <FilterDesktop
             priceRange={priceRange}
@@ -72,13 +72,14 @@ const SubcategoryPage = ({ desktop }) => {
             desktop={desktop}
           />
         )}
-        <Stack maxWidth={'100%'} direction="column" alignItems={desktop ? 'flex-start' : 'center'}>
+        <Stack maxWidth={'100%'} direction="column" alignItems={desktop ? 'flex-end' : 'center'}>
           <CatalogList products={visibleProducts} />
           {sortedProducts.length > visibleProducts.length && (
             <ButtonCustom
               sx={{
                 backgroundColor: desktop ? 'var(--mainColor)' : 'var(--secondColor)',
                 color: desktop ? 'var(--secondColor)' : 'var(--mainColor)',
+                marginTop: desktop ? '50px' : '20px',
               }}
               onClick={handleShowMore}
               text={'Показати ще'}
