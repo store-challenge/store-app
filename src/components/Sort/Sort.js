@@ -17,13 +17,11 @@ const Sort = ({ onSelect, breakpoint }) => {
   const menuPropsStyles = {
     PaperProps: {
       style: {
-        maxWidth: '100%',
         display: 'flex',
         justifyContent: 'center',
         borderRadius: breakpoint ? '20px' : '15px',
         color: !breakpoint && 'var(--secondColor)',
         backgroundColor: breakpoint ? 'var(--secondColor)' : 'var(--mainColor)',
-        boxShadow: 'none',
       },
     },
     MenuListProps: {
