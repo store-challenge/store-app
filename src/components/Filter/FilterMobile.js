@@ -20,7 +20,7 @@ const FilterMobile = ({ priceRange, setPriceRange, selectedBrand, setSelectedBra
         type={'button'}
         disableElevation
         sx={{
-          fontSize: '15px',
+          fontSize: '10px',
           lineHeight: '26px',
           textTransform: 'none',
           width: '140px',
