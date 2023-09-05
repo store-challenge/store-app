@@ -8,7 +8,7 @@ import CategoryList from './CategoryList';
 import ButtonCustom from '../Button/ButtonCustom';
 
 const CategoryListMobile = props => {
-  const { array, href } = props;
+  const { array, href, desktop } = props;
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.up('sm'));
   const md = useMediaQuery(theme.breakpoints.up('md'));
@@ -37,7 +37,14 @@ const CategoryListMobile = props => {
         columnGap={1}
       />
       <Grid sx={{ marginX: 'auto', marginTop: 2.5 }}>
-        <ButtonCustom text={showMore ? 'Зменшити' : 'Більше категорій'} onClick={handleClickShowMore} />
+        <ButtonCustom
+          text={showMore ? 'Зменшити' : 'Більше категорій'}
+          onClick={handleClickShowMore}
+          sx={{
+            backgroundColor: desktop ? 'var(--mainColor)' : 'var(--secondColor)',
+            color: desktop ? 'var(--secondColor)' : 'var(--mainColor)',
+          }}
+        />
       </Grid>
     </Grid>
   );

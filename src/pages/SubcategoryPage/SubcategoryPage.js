@@ -79,7 +79,6 @@ const SubcategoryPage = ({ desktop }) => {
               sx={{
                 backgroundColor: desktop ? 'var(--mainColor)' : 'var(--secondColor)',
                 color: desktop ? 'var(--secondColor)' : 'var(--mainColor)',
-                // padding: '8px',
               }}
               onClick={handleShowMore}
               text={'Показати ще'}

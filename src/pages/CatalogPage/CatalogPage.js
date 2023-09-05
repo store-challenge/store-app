@@ -55,7 +55,7 @@ const CatalogPage = ({ desktop }) => {
         )}
         <Stack maxWidth={'100%'} direction="column" alignItems={desktop ? 'flex-start' : 'center'}>
           <Advertising advertising={advertising} />
-          {!desktop && <CategoryListMobile array={allCategories} href={RoutesLinks.CATEGORY_PAGE} />}
+          {!desktop && <CategoryListMobile array={allCategories} href={RoutesLinks.CATEGORY_PAGE} desktop={desktop} />}
           <Title text="Топ продажів" />
           <CatalogList products={allHotProducts} />
         </Stack>
