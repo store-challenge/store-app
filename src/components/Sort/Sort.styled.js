@@ -11,11 +11,11 @@ const styles = {
 
 export const CustomSelect = styled(Select)(({ theme }) => ({
   ...styles,
-  padding: '8px',
+  padding: '8px 12px',
   width: '140px',
-  maxHeight: '29px',
+  height: '29px',
   border: '0.38px solid var(--mainColor)',
-  borderRadius: '10px',
+  borderRadius: '8px',
   '&.MuiInputBase-root': {
     cursor: 'pointer',
   },
@@ -25,6 +25,7 @@ export const CustomSelect = styled(Select)(({ theme }) => ({
   [theme.breakpoints.up('xl')]: {
     padding: '16px',
     width: '368px',
+    height: '58px',
     fontSize: '16px',
     border: '1px solid var(--mainColor)',
     borderRadius: '20px',
