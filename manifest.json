@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Mega Store",
+  "name": "Mega Store",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,14 +8,19 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "favicon.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "favicon_apple.png",
       "type": "image/png",
       "sizes": "512x512"
+    },
+    {
+      "src": "favicon_150x150.png",
+      "type": "image/png",
+      "sizes": "150x150"
     }
   ],
   "start_url": ".",
