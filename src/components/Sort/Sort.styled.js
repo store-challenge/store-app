@@ -37,7 +37,7 @@ export const CustomMenuItem = styled(MenuItem)(({ theme }) => ({
   width: '100%',
   fontSize: '10px',
   fontWeight: '500',
-  '&.Mui-selected': {
+  '&.MuiMenuItem-root.Mui-selected': {
     color: 'var(--textColor)',
     backgroundColor: 'var(--secondColor)',
   },
@@ -51,7 +51,7 @@ export const CustomMenuItem = styled(MenuItem)(({ theme }) => ({
     flexDirection: 'column',
     fontSize: '20px',
     fontWeight: '300',
-    '&.Mui-selected': {
+    '&.MuiMenuItem-root.Mui-selected': {
       color: 'var(--secondColor)',
       backgroundColor: 'var(--buttonHoverColor)',
     },
