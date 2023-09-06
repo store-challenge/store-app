@@ -50,6 +50,7 @@
 .deliveryAndPayment li {
   display: flex;
   align-items: center;
+  gap: 2px;
   color: var(--secondColor);
   font-weight: 300;
 }
@@ -70,6 +71,10 @@
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   cursor: default;
+}
+
+.icon {
+  margin-top: 2px;
 }
 
 @media only screen and (min-width: 520px) {
