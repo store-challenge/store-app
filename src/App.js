@@ -7,6 +7,7 @@ import { RoutesLinks } from './constant/constant';
 import LangProvider from './providers/LangProvider';
 import Loading from './components/Loading/Loading';
 import Header from './components/Header/Header';
+import Container from './components/Container/Container';
 import Footer from './components/Footer/Footer';
 
 const CatalogPage = lazy(() => import('./pages/CatalogPage/CatalogPage' /* webpackChunkName: "CatalogPage" */));
@@ -40,17 +41,22 @@ function App() {
         <div className="App">
           <BrowserRouter>
             <Header desktop={desktop} />
-            <Suspense fallback={<Loading />}>
-              <Routes>
-                <Route path={RoutesLinks.HOMEPAGE} element={<CatalogPage desktop={desktop} />} />
-                <Route path={`${RoutesLinks.CATEGORY_PAGE}/:categoryId`} element={<CategoryPage desktop={desktop} />} />
-                <Route
-                  path={`${RoutesLinks.SUBCATEGORY_PAGE}/:subcategoryId`}
-                  element={<SubcategoryPage desktop={desktop} />}
-                />
-                <Route path="*" element={<NotFoundPage />} />
-              </Routes>
-            </Suspense>
+            <Container breakpoint={desktop}>
+              <Suspense fallback={<Loading />}>
+                <Routes>
+                  <Route path={RoutesLinks.HOMEPAGE} element={<CatalogPage desktop={desktop} />} />
+                  <Route
+                    path={`${RoutesLinks.CATEGORY_PAGE}/:categoryId`}
+                    element={<CategoryPage desktop={desktop} />}
+                  />
+                  <Route
+                    path={`${RoutesLinks.SUBCATEGORY_PAGE}/:subcategoryId`}
+                    element={<SubcategoryPage desktop={desktop} />}
+                  />
+                  <Route path="*" element={<NotFoundPage />} />
+                </Routes>
+              </Suspense>
+            </Container>
             <Footer />
           </BrowserRouter>
         </div>
