@@ -17,7 +17,6 @@ const AuthProvider = ({ children }) => {
         axiosClient.interceptors.request.use(config => {
           // eslint-disable-next-line no-param-reassign
           config.headers.Authorization = `Bearer ${token}`;
-          return config;
         }),
       )
       // eslint-disable-next-line no-console
