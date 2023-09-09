@@ -7,7 +7,7 @@ const Authentication = ({ style }) => {
   const { error, isLoading, isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
 
   if (error) {
-    return <div>Oops... {error.message}</div>;
+    return <div> Oops... {error.message}</div>;
   }
 
   if (isLoading) {
