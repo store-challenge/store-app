@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Stack } from '@mui/material';
 
-import Container from '../../components/Container/Container';
 import Advertising from '../../components/Advertising/Advertising';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import CategoryListMobile from '../../components/CategoryList/CategoryListMobile';
@@ -34,33 +33,31 @@ const CatalogPage = ({ desktop }) => {
   }, [limitHot]);
 
   return (
-    <Container breakpoint={desktop}>
-      <Stack
-        direction={{ xs: 'column', xl: 'row' }}
-        justifyContent="center"
-        alignItems={{ xs: 'center', xl: 'flex-start' }}
-        marginBottom={desktop && 1.75}>
-        {desktop && (
-          <CategoryList
-            array={allCategories}
-            href={RoutesLinks.CATEGORY_PAGE}
-            rowGap={6.25}
-            columnGap={0}
-            breakpoints={{ xl: 12 }}
-            sx={{
-              flexDirection: 'column',
-              marginRight: 14,
-            }}
-          />
-        )}
-        <Stack maxWidth={'100%'} direction="column" alignItems={desktop ? 'flex-start' : 'center'}>
-          <Advertising advertising={advertising} />
-          {!desktop && <CategoryListMobile array={allCategories} href={RoutesLinks.CATEGORY_PAGE} />}
-          <Title text="Топ продажів" />
-          <CatalogList products={allHotProducts} />
-        </Stack>
+    <Stack
+      direction={{ xs: 'column', xl: 'row' }}
+      justifyContent="center"
+      alignItems={{ xs: 'center', xl: 'flex-start' }}
+      marginBottom={desktop && 1.75}>
+      {desktop && (
+        <CategoryList
+          array={allCategories}
+          href={RoutesLinks.CATEGORY_PAGE}
+          rowGap={6.25}
+          columnGap={0}
+          breakpoints={{ xl: 12 }}
+          sx={{
+            flexDirection: 'column',
+            marginRight: 14,
+          }}
+        />
+      )}
+      <Stack maxWidth={'100%'} direction="column" alignItems={desktop ? 'flex-start' : 'center'}>
+        <Advertising advertising={advertising} />
+        {!desktop && <CategoryListMobile array={allCategories} href={RoutesLinks.CATEGORY_PAGE} />}
+        <Title text="Топ продажів" />
+        <CatalogList products={allHotProducts} />
       </Stack>
-    </Container>
+    </Stack>
   );
 };
 export default CatalogPage;
