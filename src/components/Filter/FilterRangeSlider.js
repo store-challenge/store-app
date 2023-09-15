@@ -10,7 +10,6 @@ import {
 export default function RangeSlider({ priceRange, setPriceRange, desktop }) {
   const handleChange = (event, newValue) => {
     setPriceRange(newValue);
-    console.log(priceRange);
   };
 
   const handleBlur = () => {
