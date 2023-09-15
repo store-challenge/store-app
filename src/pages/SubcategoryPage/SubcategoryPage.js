@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Stack } from '@mui/material';
-import Container from '../../components/Container/Container';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import Title from '../../components/Title/Title';
 import CatalogList from '../../components/CatalogList/CatalogList';
@@ -38,7 +37,7 @@ const SubcategoryPage = ({ desktop }) => {
   const [sortOption, setSortOption] = useState('newest');
 
   return (
-    <Container breakpoint={desktop}>
+    <Stack>
       <BreadCrumbs breakpoint={desktop} />
       {desktop && <Title text="TITLE" />}
       <Stack
@@ -87,7 +86,7 @@ const SubcategoryPage = ({ desktop }) => {
           )}
         </Stack>
       </Stack>
-    </Container>
+    </Stack>
   );
 };
 export default SubcategoryPage;
