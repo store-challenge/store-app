@@ -18,6 +18,8 @@ const SubcategoryPage = lazy(() =>
   import('./pages/SubcategoryPage/SubcategoryPage' /* webpackChunkName: "SubcategoryPage" */),
 );
 
+const ProductPage = lazy(() => import('./pages/ProductPage/ProductPage' /* webpackChunkName: "ProductPage" */));
+
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage' /* webpackChunkName: "NotFoundPage" */));
 
 const theme = createTheme({
@@ -53,6 +55,7 @@ function App() {
                     path={`${RoutesLinks.SUBCATEGORY_PAGE}/:subcategoryId`}
                     element={<SubcategoryPage desktop={desktop} />}
                   />
+                  <Route path={`${RoutesLinks.PRODUCT_PAGE}/:id`} element={<ProductPage desktop={desktop} />} />
                   <Route path="*" element={<NotFoundPage />} />
                 </Routes>
               </Suspense>
