@@ -1,12 +1,15 @@
 :root {
-    --mainColor: #6B4C7D;
-    --secondColor: #FFE9FF;
-    --textColor: #000000;
-    --priceTextColor: #FF0000;
-    --buttonHoverColor: #B18CC6;
-    --buttonClickColor: #482B58;
+  --mainColor: #6b4c7d;
+  --secondColor: #ffe9ff;
+  --textColor: #000000;
+  --priceTextColor: #ff0000;
+  --buttonHoverColor: #b18cc6;
+  --buttonClickColor: #482b58;
 }
 
 .App {
   background-color: var(--secondColor);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
