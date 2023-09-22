@@ -13,7 +13,6 @@ const BreadCrumbs = ({ currentPath, breakpoint }) => {
       separator={breakpoint ? <Icon icon={'iconamoon:arrow-right-2-duotone'} style={{ fontSize: '24px' }} /> : null}>
       {pathToUse.map((element, index) => {
         const lastIndex = index === pathToUse.length - 1;
-        console.log(element.name);
         const linkProps = {
           color: 'inherit',
           underline: 'none',
