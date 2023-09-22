@@ -38,6 +38,11 @@
   object-fit: contain;
 }
 
+.image {
+  width: 100px;
+  height: 120px;
+}
+
 .wrapper:hover .productImage {
   transform: scale(1.15);
   -webkit-transform: scale(1.15);
