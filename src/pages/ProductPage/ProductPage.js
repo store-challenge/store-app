@@ -97,7 +97,6 @@ const ProductPage = ({ desktop }) => {
             color={'var(--mainColor)'}
             fontSize={!desktop && '13px'}
             fontWeight={desktop && '300px'}>
-            {/* {parse(description)} */}
             {parse(description)}
           </Typography>
         </Grid>
