@@ -18,6 +18,11 @@ const CategoryPage = ({ desktop }) => {
   const [limitHot, setLimitHot] = useState(4);
   const [currentTitle, setCurrentTitle] = useState('');
 
+  const path = [
+    { path: `${RoutesLinks.HOMEPAGE}`, name: 'Головна сторінка' },
+    { path: `${RoutesLinks.CATEGORY_PAGE}/${categoryId}`, name: currentTitle },
+  ];
+
   useEffect(() => {
     Promise.all([getAllSubCategories(categoryId), getHotProductsById(limitHot, categoryId)])
       .then(([subCategoriesResult, hotProductsResult]) => {
@@ -36,7 +41,7 @@ const CategoryPage = ({ desktop }) => {
 
   return (
     <Stack>
-      <BreadCrumbs current={currentTitle} breakpoint={desktop} />
+      <BreadCrumbs currentPath={path} breakpoint={desktop} />
       <Stack sx={{ alignItems: !desktop && 'center' }} marginBottom={desktop && 1.75}>
         <Title text={currentTitle} />
         <CategoryList
