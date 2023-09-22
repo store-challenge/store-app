@@ -1,7 +1,8 @@
 import axiosClient from './axiosClient';
 
-const getProductEndpoint = 'api/v1/product/list';
-const getHotProductsEndpoint = 'api/v1/product/hot';
+const getProductEndpoint = 'api/v1/product';
+const getProductListEndpoint = `${getProductEndpoint}/list`;
+const getHotProductsEndpoint = `${getProductEndpoint}/hot`;
 
 export const getSearchProduct = searchValue => {
   axiosClient
@@ -29,6 +30,15 @@ export const getAllHotProducts = async limit => {
 export const getHotProductsById = async (limit, categoryId) => {
   const response = await axiosClient.get(getHotProductsEndpoint, {
     params: { limit, categoryId },
+  });
+  const { data } = response;
+  // eslint-disable-next-line no-console
+  return data && data.error ? (console.error('Помилка при отриманні даних:', data.error), null) : data;
+};
+
+export const getProductList = async (limit, subcategoryId) => {
+  const response = await axiosClient.get(getProductListEndpoint, {
+    params: { limit, subcategoryId },
   });
   const { data } = response;
   // eslint-disable-next-line no-console

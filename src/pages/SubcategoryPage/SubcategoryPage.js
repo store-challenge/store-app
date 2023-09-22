@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Stack } from '@mui/material';
+import { useParams } from 'react-router-dom';
+import { RoutesLinks } from '../../constant/constant';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import Title from '../../components/Title/Title';
 import CatalogList from '../../components/CatalogList/CatalogList';
@@ -8,33 +10,46 @@ import FilterDesktop from '../../components/Filter/FilterDesktop';
 import FilterMobile from '../../components/Filter/FilterMobile';
 import Sort from '../../components/Sort/Sort';
 
-import * as data from '../../data';
+import { getProductList } from '../../services/getProducts';
 
 const SubcategoryPage = ({ desktop }) => {
-  const { products } = data;
-  const currentItems = 3;
-  const [currentProducts, setCurrentProducts] = useState([]);
+  const { subcategoryId } = useParams();
+  const [limit, setLimit] = useState(9);
+  const [products, setProducts] = useState([]);
+  const [brands, setBrands] = useState([]);
   const [sortedProducts, setSortedProducts] = useState([]);
   const [visibleProducts, setVisibleProducts] = useState([]);
+  const [priceRange, setPriceRange] = useState([0, 20_000]);
+  const [selectedBrand, setSelectedBrand] = useState('');
+  const [sortOption, setSortOption] = useState('newest');
+
+  // const path = [
+  //   { path: `${RoutesLinks.HOMEPAGE}`, name: 'Головна сторінка' },
+  //   { path: `${RoutesLinks.CATEGORY_PAGE}/${categoryId}`, name: categoryName },
+  //   { path: `${RoutesLinks.SUBCATEGORY_PAGE}/${subcategoryId}`, name: subcategoryName },
+  // ];
 
   useEffect(() => {
-    const fetchedProducts = products;
-    const sorted = [...fetchedProducts].sort((a, b) => a.price - b.price);
-    setCurrentProducts(fetchedProducts);
-    setSortedProducts(sorted);
-    setVisibleProducts(sorted.slice(0, currentItems));
-  }, [products]);
+    const fetchData = async () => {
+      try {
+        const data = await getProductList(limit, subcategoryId);
+        setBrands(data['brands-list']);
+        setProducts(data['products-list']);
+      } catch (error) {
+        console.error('Виникла помилка при отриманні даних:', error);
+      }
+    };
+
+    fetchData();
+  }, [limit, subcategoryId]);
 
   const handleShowMore = () => {
     setVisibleProducts(previousVisible => [
       ...previousVisible,
-      ...sortedProducts.slice(previousVisible.length, previousVisible.length + currentItems),
+      ...sortedProducts.slice(previousVisible.length, previousVisible.length + limit),
     ]);
   };
 
-  const [priceRange, setPriceRange] = useState([0, 20_000]);
-  const [selectedBrand, setSelectedBrand] = useState('');
-  const [sortOption, setSortOption] = useState('newest');
 
   return (
     <Stack>
@@ -72,7 +87,7 @@ const SubcategoryPage = ({ desktop }) => {
           />
         )}
         <Stack maxWidth={'100%'} direction="column" alignItems={desktop ? 'flex-end' : 'center'}>
-          <CatalogList products={visibleProducts} />
+          <CatalogList products={products} />
           {sortedProducts.length > visibleProducts.length && (
             <ButtonCustom
               sx={{
