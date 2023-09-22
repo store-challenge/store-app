@@ -50,7 +50,6 @@ const SubcategoryPage = ({ desktop }) => {
     ]);
   };
 
-
   return (
     <Stack>
       <BreadCrumbs breakpoint={desktop} />
