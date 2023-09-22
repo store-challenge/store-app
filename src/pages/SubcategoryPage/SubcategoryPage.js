@@ -52,7 +52,7 @@ const SubcategoryPage = ({ desktop }) => {
 
   return (
     <Stack>
-      <BreadCrumbs breakpoint={desktop} />
+      {/* <BreadCrumbs currentPath={path} breakpoint={desktop} /> */}
       {desktop && <Title text="TITLE" />}
       <Stack
         direction="row"

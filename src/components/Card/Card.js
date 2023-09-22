@@ -1,16 +1,17 @@
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
 import styles from './card.module.css';
+import { RoutesLinks } from '../../constant/constant';
 
 const Card = ({ product }) => {
-  const { href, title, image, price } = product;
+  const { id, title, image, price } = product;
 
   return (
-    <Link to={href}>
+    <Link to={`${RoutesLinks.PRODUCT_PAGE}/${id}`}>
       <div className={styles.wrapper}>
         <div className={styles.card}>
           <div className={styles.productImage}>
-            <img src={image} alt={'product image'} width="100" height="120" className={styles.image} />
+            <img src={image} alt={'product image'} width="100%" height="100%" className={styles.image} />
           </div>
         </div>
         <div className={styles.title}>
