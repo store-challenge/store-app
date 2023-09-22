@@ -11,7 +11,7 @@ const Card = ({ product }) => {
       <div className={styles.wrapper}>
         <div className={styles.card}>
           <div className={styles.productImage}>
-            <img src={image} alt={'product image'} width="100" height="120" className={styles.image} />
+            <img src={image} alt={'product image'} width="100%" height="100%" className={styles.image} />
           </div>
         </div>
         <div className={styles.title}>
