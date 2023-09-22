@@ -3,19 +3,18 @@ import { Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 
 import Quantity from '../Quantity/Quantity';
-// import ButtonCustom from '../Button/ButtonCustom';
-
-const styles = {
-  fontFamily: 'Montserrat',
-  fontSize: '13px',
-  fontWeight: '500',
-  fontStyle: 'normal',
-  lineHeight: '130%',
-};
+import ButtonCustom from '../Button/ButtonCustom';
 
 const PriceSection = props => {
   const { available, price, breakpoint } = props;
   const [cartQuantity, setCartQuantity] = useState(0);
+
+  const styles = {
+    fontFamily: 'Montserrat',
+    fontSize: breakpoint ? '20px' : '13px',
+    fontStyle: 'normal',
+    lineHeight: '130%',
+  };
 
   const handleBuyClick = () => {
     if (cartQuantity < available) {
@@ -32,7 +31,11 @@ const PriceSection = props => {
       marginLeft={breakpoint && 10}
       width={breakpoint ? '176px' : '288px'}>
       <Grid>
-        <Typography variant="paragraph" style={styles} color={available ? 'var(--mainColor)' : '#6b4c7d40'}>
+        <Typography
+          variant="paragraph"
+          style={styles}
+          color={available ? 'var(--mainColor)' : '#6b4c7d40'}
+          sx={{ fontWeight: breakpoint && '300' }}>
           {available ? `В наявності ${available}` : 'Не в наявності'}
         </Typography>
       </Grid>
@@ -45,7 +48,7 @@ const PriceSection = props => {
         <Quantity style={styles} currentQuantity={available} />
       </Grid>
       <Grid>
-        {/* <ButtonCustom
+        <ButtonCustom
           disabled={cartQuantity >= available}
           onClick={handleBuyClick}
           text={'Купити'}
@@ -54,11 +57,10 @@ const PriceSection = props => {
             color: 'var(--secondColor)',
             margin: 0,
             '&.Mui-disabled': {
-              // opacity: 0.5,
               backgroundColor: '#6b4c7d40',
             },
           }}
-        /> */}
+        />
       </Grid>
     </Grid>
   );
