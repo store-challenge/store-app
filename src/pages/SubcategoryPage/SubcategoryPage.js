@@ -36,6 +36,7 @@ const SubcategoryPage = ({ desktop }) => {
         setBrands(data['brands-list']);
         setProducts(data['products-list']);
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error('Виникла помилка при отриманні даних:', error);
       }
     };
