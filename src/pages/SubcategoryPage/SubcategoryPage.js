@@ -44,10 +44,7 @@ const SubcategoryPage = ({ desktop }) => {
   }, [limit, subcategoryId]);
 
   const handleShowMore = () => {
-    setVisibleProducts(previousVisible => [
-      ...previousVisible,
-      ...sortedProducts.slice(previousVisible.length, previousVisible.length + limit),
-    ]);
+    setLimit(previousLimit => previousLimit + 9);
   };
 
   return (
@@ -87,17 +84,17 @@ const SubcategoryPage = ({ desktop }) => {
         )}
         <Stack maxWidth={'100%'} direction="column" alignItems={desktop ? 'flex-end' : 'center'}>
           <CatalogList products={products} />
-          {sortedProducts.length > visibleProducts.length && (
-            <ButtonCustom
-              sx={{
-                backgroundColor: desktop ? 'var(--mainColor)' : 'var(--secondColor)',
-                color: desktop ? 'var(--secondColor)' : 'var(--mainColor)',
-                marginTop: desktop ? '50px' : '20px',
-              }}
-              onClick={handleShowMore}
-              text={'Показати ще'}
-            />
-          )}
+          {/* {sortedProducts.length > visibleProducts.length && ( */}
+          <ButtonCustom
+            sx={{
+              backgroundColor: desktop ? 'var(--mainColor)' : 'var(--secondColor)',
+              color: desktop ? 'var(--secondColor)' : 'var(--mainColor)',
+              marginTop: desktop ? '50px' : '20px',
+            }}
+            onClick={handleShowMore}
+            text={'Показати ще'}
+          />
+          {/* )} */}
         </Stack>
       </Stack>
     </Stack>

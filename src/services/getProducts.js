@@ -20,7 +20,6 @@ export const getAllImages = async (id, images) => {
   return data && data.error ? (console.error('Помилка при отриманні даних:', data.error), null) : data;
 };
 
-
 export const getSearchProduct = searchValue => {
   axiosClient
     .get(getProductListEndpoint, {
