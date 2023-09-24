@@ -5,7 +5,7 @@ import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import parse from 'html-react-parser';
 
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
-
+import ImagesGallery from '../../components/ImagesGallery/ImagesGallery';
 import InfoSection from '../../components/InfoSection/InfoSection';
 import PriceSection from '../../components/PriceSection/PriceSection';
 import Title from '../../components/Title/Title';
@@ -64,17 +64,7 @@ const ProductPage = ({ desktop }) => {
       <BreadCrumbs currentPath={path} breakpoint={desktop} />
       <Grid container rowGap={0} columnGap={13.75} flexDirection={!desktop && 'column'}>
         <Grid>
-          <div
-            style={{
-              width: '368px',
-              height: '380px',
-              marginTop: '50px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            ImageGallery
-          </div>
+          <ImagesGallery images={imagesGallery} breakpoint={desktop} />
         </Grid>
         <Grid>
           <Box maxWidth={'290px'}>
