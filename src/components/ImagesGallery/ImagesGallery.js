@@ -1,10 +1,10 @@
 import { useState, forwardRef } from 'react';
-import { Card, CardMedia, CardContent, Dialog, Box, DialogContent, IconButton, Zoom, Stack } from '@mui/material';
+import { CardMedia, Dialog, Zoom, Stack } from '@mui/material';
 import { Icon } from '@iconify/react';
 
 import Slider from '../Slider/Slider';
 
-import s from './ImagesGallery.module.css';
+import { CustomCard, CustomDialogContent, CustomIconButton } from './ImagesGallery.styled';
 
 const Transition = forwardRef((props, reference) => <Zoom ref={reference} {...props} />);
 
@@ -37,7 +37,7 @@ const ImagesGallery = ({ images, breakpoint }) => {
 
   return (
     <Stack sx={{ marginTop: breakpoint ? 6.25 : 2.5, alignItems: !breakpoint && 'center' }}>
-      <Card sx={{ width: breakpoint ? 310 : 132, height: breakpoint ? 322 : 138 }} className={s.card} elevation={0}>
+      <CustomCard elevation={0}>
         <CardMedia
           component="img"
           height={breakpoint ? 265 : 132}
@@ -47,7 +47,7 @@ const ImagesGallery = ({ images, breakpoint }) => {
           onClick={() => handleOpen(currentImageIndex)}
         />
         {breakpoint && renderSlider()}
-      </Card>
+      </CustomCard>
       {!breakpoint && renderSlider()}
 
       <Dialog
@@ -56,20 +56,12 @@ const ImagesGallery = ({ images, breakpoint }) => {
         TransitionComponent={Transition}
         maxWidth="md"
         fullWidth
-        // scroll="body"
         PaperProps={paperPropsStyles}>
-        <DialogContent
-          sx={{
-            padding: 0,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
+        <CustomDialogContent>
           {breakpoint && (
-            <IconButton onClick={handleClose} className={s.buttonClose}>
+            <CustomIconButton onClick={handleClose}>
               <Icon icon="iconamoon:close" color="var(--mainColor)" width="100%" height="100%" />
-            </IconButton>
+            </CustomIconButton>
           )}
           <CardMedia
             component="img"
@@ -79,7 +71,7 @@ const ImagesGallery = ({ images, breakpoint }) => {
             onClick={() => handleOpen(currentImageIndex)}
           />
           {breakpoint && renderSlider()}
-        </DialogContent>
+        </CustomDialogContent>
         {!breakpoint && renderSlider()}
       </Dialog>
     </Stack>
