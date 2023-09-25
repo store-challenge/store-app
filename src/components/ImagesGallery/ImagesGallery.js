@@ -2,7 +2,7 @@ import { useState, forwardRef } from 'react';
 import { CardMedia, Dialog, Zoom, Stack } from '@mui/material';
 import { Icon } from '@iconify/react';
 
-import Slider from '../Slider/Slider';
+import Stepper from '../Stepper/Stepper';
 
 import { CustomCard, CustomDialogContent, CustomIconButton } from './ImagesGallery.styled';
 
@@ -20,7 +20,7 @@ const ImagesGallery = ({ images, breakpoint }) => {
   const handleClose = () => setOpenModal(false);
 
   const renderSlider = () =>
-    images && <Slider array={images} currentIndex={currentImageIndex} setCurrentIndex={setCurrentImageIndex} />;
+    images && <Stepper array={images} currentIndex={currentImageIndex} setCurrentIndex={setCurrentImageIndex} />;
 
   const paperPropsStyles = {
     style: {
@@ -40,7 +40,7 @@ const ImagesGallery = ({ images, breakpoint }) => {
       <CustomCard elevation={0}>
         <CardMedia
           component="img"
-          height={breakpoint ? 265 : 132}
+          height={breakpoint ? 265 : 102}
           sx={{ objectFit: 'contain' }}
           image={images.length > 0 ? images[currentImageIndex] : ''}
           alt={`Image ${currentImageIndex + 1}`}
@@ -58,11 +58,9 @@ const ImagesGallery = ({ images, breakpoint }) => {
         fullWidth
         PaperProps={paperPropsStyles}>
         <CustomDialogContent>
-          {breakpoint && (
-            <CustomIconButton onClick={handleClose}>
-              <Icon icon="iconamoon:close" color="var(--mainColor)" width="100%" height="100%" />
-            </CustomIconButton>
-          )}
+          <CustomIconButton onClick={handleClose}>
+            <Icon icon="iconamoon:close" color="var(--mainColor)" width="100%" height="100%" />
+          </CustomIconButton>
           <CardMedia
             component="img"
             height={breakpoint ? 567 : 208}
