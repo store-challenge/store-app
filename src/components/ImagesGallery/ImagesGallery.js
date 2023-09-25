@@ -63,7 +63,7 @@ const ImagesGallery = ({ images, breakpoint }) => {
           </CustomIconButton>
           <CardMedia
             component="img"
-            height={breakpoint ? 567 : 208}
+            height={breakpoint ? 550 : 208}
             image={images.length > 0 ? images[currentImageIndex] : ''}
             alt={`Image ${currentImageIndex + 1}`}
             onClick={() => handleOpen(currentImageIndex)}
