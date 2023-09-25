@@ -33,8 +33,8 @@ const SubcategoryPage = ({ desktop }) => {
     const fetchData = async () => {
       try {
         const data = await getProductList(limit, subcategoryId);
-        setBrands(data['brands-list']);
-        setProducts(data['products-list']);
+        // setBrands(data['brands-list']);
+        setProducts(data);
       } catch (error) {
         // eslint-disable-next-line no-console
         console.error('Виникла помилка при отриманні даних:', error);
@@ -85,7 +85,6 @@ const SubcategoryPage = ({ desktop }) => {
         )}
         <Stack maxWidth={'100%'} direction="column" alignItems={desktop ? 'flex-end' : 'center'}>
           <CatalogList products={products} />
-          {/* {sortedProducts.length > visibleProducts.length && ( */}
           <ButtonCustom
             sx={{
               backgroundColor: desktop ? 'var(--mainColor)' : 'var(--secondColor)',
@@ -95,7 +94,6 @@ const SubcategoryPage = ({ desktop }) => {
             onClick={handleShowMore}
             text={'Показати ще'}
           />
-          {/* )} */}
         </Stack>
       </Stack>
     </Stack>
