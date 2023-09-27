@@ -12,11 +12,9 @@ export const CustomTypography = styled(Typography)(({ theme }) => ({
   ...styles,
   marginTop: '20px',
   marginBottom: '20px',
-  fontSize: '18px',
   fontWeight: 700,
   [theme.breakpoints.up('xl')]: {
     marginTop: '50px',
     marginBottom: '50px',
-    fontSize: '25px',
   },
 }));
