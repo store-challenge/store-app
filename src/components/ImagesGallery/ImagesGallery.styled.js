@@ -2,13 +2,13 @@ import { styled } from '@mui/material/styles';
 import { Card, DialogContent, IconButton } from '@mui/material';
 
 export const CustomCard = styled(Card)(({ theme }) => ({
-  padding: '20px',
-  width: '92px',
-  height: '98px',
+  padding: '10px',
+  width: '112px',
+  height: '118px',
   display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
+  flexWrap: 'wrap',
+  alignContent: 'center',
+  gap: '10px',
   borderRadius: '30px',
   border: '4px solid var(--mainColor)',
   backgroundColor: '#FFF',
@@ -21,26 +21,26 @@ export const CustomCard = styled(Card)(({ theme }) => ({
 
 export const CustomDialogContent = styled(DialogContent)(() => ({
   padding: 0,
+  gap: '20px',
   display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
+  flexWrap: 'wrap',
   justifyContent: 'center',
 }));
 
 export const CustomIconButton = styled(IconButton)(({ theme }) => ({
   padding: '0',
   position: 'absolute',
-  top: '10px',
-  right: '10px',
-  width: '25px',
-  height: '25px',
+  top: '20px',
+  right: '20px',
+  width: '40px',
+  height: '40px',
   '& Mui-IconButton:hover': {
     backgroundColor: 'var(--buttonHoverColor)',
   },
-  [theme.breakpoints.up('xl')]: {
-    width: '50px',
-    height: '50px',
-    top: '20px',
-    right: '20px',
+  [theme.breakpoints.down('xl')]: {
+    width: '30px',
+    height: '30px',
+    top: '10px',
+    right: '10px',
   },
 }));

@@ -25,10 +25,7 @@ const ImagesGallery = ({ images, breakpoint }) => {
   const paperPropsStyles = {
     style: {
       width: breakpoint ? 614 : 280,
-      height: breakpoint ? 636 : 280,
-      padding: '20px',
-      display: 'flex',
-      flexDirection: 'column',
+      padding: breakpoint ? '50px' : '20px',
       alignItems: 'center',
       border: '4px solid var(--mainColor)',
       borderRadius: '30px',
@@ -40,7 +37,7 @@ const ImagesGallery = ({ images, breakpoint }) => {
       <CustomCard elevation={0}>
         <CardMedia
           component="img"
-          height={breakpoint ? 265 : 102}
+          height={'100%'}
           sx={{ objectFit: 'contain' }}
           image={images.length > 0 ? images[currentImageIndex] : ''}
           alt={`Image ${currentImageIndex + 1}`}
@@ -55,15 +52,15 @@ const ImagesGallery = ({ images, breakpoint }) => {
         onClose={handleClose}
         TransitionComponent={Transition}
         maxWidth="md"
-        fullWidth
         PaperProps={paperPropsStyles}>
+        <CustomIconButton onClick={handleClose}>
+          <Icon icon="iconamoon:close" color="var(--mainColor)" width="100%" height="100%" />
+        </CustomIconButton>
         <CustomDialogContent>
-          <CustomIconButton onClick={handleClose}>
-            <Icon icon="iconamoon:close" color="var(--mainColor)" width="100%" height="100%" />
-          </CustomIconButton>
           <CardMedia
             component="img"
             height={breakpoint ? 550 : 208}
+            sx={{ objectFit: 'contain' }}
             image={images.length > 0 ? images[currentImageIndex] : ''}
             alt={`Image ${currentImageIndex + 1}`}
             onClick={() => handleOpen(currentImageIndex)}
