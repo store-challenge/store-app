@@ -19,7 +19,7 @@ const ImagesGallery = ({ images, breakpoint }) => {
 
   const handleClose = () => setOpenModal(false);
 
-  const renderSlider = () =>
+  const renderStepper = () =>
     images && <Stepper array={images} currentIndex={currentImageIndex} setCurrentIndex={setCurrentImageIndex} />;
 
   const paperPropsStyles = {
@@ -43,9 +43,9 @@ const ImagesGallery = ({ images, breakpoint }) => {
           alt={`Image ${currentImageIndex + 1}`}
           onClick={() => handleOpen(currentImageIndex)}
         />
-        {breakpoint && renderSlider()}
+        {breakpoint && renderStepper()}
       </CustomCard>
-      {!breakpoint && renderSlider()}
+      {!breakpoint && renderStepper()}
 
       <Dialog
         open={openModal}
@@ -65,9 +65,9 @@ const ImagesGallery = ({ images, breakpoint }) => {
             alt={`Image ${currentImageIndex + 1}`}
             onClick={() => handleOpen(currentImageIndex)}
           />
-          {breakpoint && renderSlider()}
+          {breakpoint && renderStepper()}
         </CustomDialogContent>
-        {!breakpoint && renderSlider()}
+        {!breakpoint && renderStepper()}
       </Dialog>
     </Stack>
   );

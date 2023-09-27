@@ -8,7 +8,6 @@ export const CustomCard = styled(Card)(({ theme }) => ({
   display: 'flex',
   flexWrap: 'wrap',
   alignContent: 'center',
-  gap: '10px',
   borderRadius: '30px',
   border: '4px solid var(--mainColor)',
   backgroundColor: '#FFF',

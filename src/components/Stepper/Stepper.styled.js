@@ -1,7 +1,8 @@
 import { styled } from '@mui/material/styles';
 import { MobileStepper, IconButton } from '@mui/material';
 
-export const CustomMobileStepper = styled(MobileStepper)(() => ({
+export const CustomMobileStepper = styled(MobileStepper)(({ theme }) => ({
+  marginTop: '10px',
   padding: '0',
   width: '170px',
   maxHeight: '35px',
@@ -24,6 +25,9 @@ export const CustomMobileStepper = styled(MobileStepper)(() => ({
     height: '9px',
     backgroundColor: 'var(--mainColor)',
     borderRadius: '50%',
+  },
+  [theme.breakpoints.up('xl')]: {
+    marginTop: '0',
   },
 }));
 
