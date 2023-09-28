@@ -1,5 +1,6 @@
 export const RoutesLinks = {
-  HOMEPAGE: '/store-app',
+  MAINPAGE: '/store-app',
+  HOMEPAGE: '/',
   CATEGORY_PAGE: '/category',
   SUBCATEGORY_PAGE: '/subcategory',
   CART: '/cart',
