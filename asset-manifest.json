@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/store-app/static/css/main.80b334ce.css",
-    "main.js": "/store-app/static/js/main.fe782a0d.js",
+    "main.js": "/store-app/static/js/main.e9aab097.js",
     "CatalogPage.css": "/store-app/static/css/CatalogPage.402b424d.chunk.css",
     "CatalogPage.js": "/store-app/static/js/CatalogPage.d63b6fc3.chunk.js",
     "CategoryPage.css": "/store-app/static/css/CategoryPage.6b431b96.chunk.css",
@@ -21,7 +21,7 @@
     "static/media/logo.svg": "/store-app/static/media/logo.b3585c1dc456bd1304da7252a5843d67.svg",
     "index.html": "/store-app/index.html",
     "main.80b334ce.css.map": "/store-app/static/css/main.80b334ce.css.map",
-    "main.fe782a0d.js.map": "/store-app/static/js/main.fe782a0d.js.map",
+    "main.e9aab097.js.map": "/store-app/static/js/main.e9aab097.js.map",
     "CatalogPage.402b424d.chunk.css.map": "/store-app/static/css/CatalogPage.402b424d.chunk.css.map",
     "CatalogPage.d63b6fc3.chunk.js.map": "/store-app/static/js/CatalogPage.d63b6fc3.chunk.js.map",
     "CategoryPage.6b431b96.chunk.css.map": "/store-app/static/css/CategoryPage.6b431b96.chunk.css.map",
@@ -38,6 +38,6 @@
   },
   "entrypoints": [
     "static/css/main.80b334ce.css",
-    "static/js/main.fe782a0d.js"
+    "static/js/main.e9aab097.js"
   ]
 }
