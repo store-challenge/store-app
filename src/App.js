@@ -39,7 +39,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <LangProvider>
         <div className="App">
-          <BrowserRouter basename="https://store-challenge.github.io/store-app/">
+          <BrowserRouter basename="/store-app">
             <Header desktop={desktop} />
             <Container breakpoint={desktop}>
               <Suspense fallback={<Loading />}>
