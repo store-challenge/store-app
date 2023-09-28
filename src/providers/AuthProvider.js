@@ -11,7 +11,6 @@ const AuthProvider = ({ children }) => {
     getAccessTokenSilently({
       authorizationParams: {
         audience: AUTH0_USER_AUDIENCE,
-        redirect_uri: window.location.pathname,
       },
     })
       .then(token =>
