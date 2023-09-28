@@ -41,7 +41,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <LangProvider>
         <div className="App">
-          <BrowserRouter>
+          <BrowserRouter basename={RoutesLinks.MAINPAGE}>
             <Header desktop={desktop} />
             <Container breakpoint={desktop}>
               <Suspense fallback={<Loading />}>
