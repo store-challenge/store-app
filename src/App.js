@@ -39,7 +39,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <LangProvider>
         <div className="App">
-          <BrowserRouter basename="/store-app">
+          <BrowserRouter basename="">
             <Header desktop={desktop} />
             <Container breakpoint={desktop}>
               <Suspense fallback={<Loading />}>
