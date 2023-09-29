@@ -5,16 +5,18 @@ import { useTheme } from '@mui/material/styles';
 import { AppBar, Toolbar, Box, Container, useMediaQuery } from '@mui/material';
 import logo from '../../logo.svg';
 import { RoutesLinks } from '../../constant/constant';
+import { useCart } from '../../providers/CartProvider';
 
 import Search from '../Search/Search';
 import Language from '../Language/Language';
-import HeaderButton from '../HeaderButton/HeaderButton';
+import CartWithBadge from '../CartWithBadge/CartWithBadge';
 import Authentication from '../Authentication/Authentication';
 
 const Header = ({ desktop }) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('xl'));
   const [isSearchVisible, setIsSearchVisible] = useState(false);
+  const { quantity } = useCart();
 
   const toggleSearchField = () => {
     setIsSearchVisible(!isSearchVisible);
@@ -23,15 +25,7 @@ const Header = ({ desktop }) => {
   const pages = [
     <Search breakpoint={desktop} isVisible={isSearchVisible} onClick={toggleSearchField} key="search" />,
     !isSearchVisible && <Language style={{ fontSize: desktop ? '28px' : undefined }} key="language" />,
-    !isSearchVisible && (
-      <HeaderButton
-        href={RoutesLinks.CART}
-        onClick={() => {}}
-        icon="ion:cart-outline"
-        style={{ fontSize: desktop ? '32px' : undefined }}
-        key="cart"
-      />
-    ),
+    !isSearchVisible && <CartWithBadge quantity={quantity} breakpoint={desktop} />,
     !isSearchVisible && (
       <Authentication style={{ fontSize: desktop ? '30px' : undefined }} key="authentication" breakpoint={desktop} />
     ),
