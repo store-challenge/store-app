@@ -30,6 +30,7 @@ const SubcategoryPage = ({ desktop }) => {
     { name: 'newest', sortBy: 'p.updated', orderBy: 'DESC' },
   ];
   const [sort, setSort] = useState(sortOptions.length - 1);
+  const [disable, setDisable] = useState(false);
 
   const path = [
     { path: `${RoutesLinks.HOMEPAGE}`, name: 'Головна сторінка' },
@@ -59,6 +60,7 @@ const SubcategoryPage = ({ desktop }) => {
   const handleShowMore = () => {
     setLimit(limit + 9);
   };
+
   const handleSortChange = selectedOption => {
     sortOptions.map(element => element.name === selectedOption && setSort(element));
   };
@@ -109,7 +111,7 @@ const SubcategoryPage = ({ desktop }) => {
                 backgroundColor: '#6b4c7d40',
               },
             }}
-            disabled={products}
+            disabled={products.length < 9 || limit < 9}
             onClick={handleShowMore}
             text={'Показати ще'}
           />
