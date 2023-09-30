@@ -17,41 +17,56 @@ const SubcategoryPage = ({ desktop }) => {
   const [limit, setLimit] = useState(9);
   const [products, setProducts] = useState([]);
   const [brands, setBrands] = useState([]);
-  const [sortedProducts, setSortedProducts] = useState([]);
-  const [visibleProducts, setVisibleProducts] = useState([]);
   const [priceRange, setPriceRange] = useState([0, 20_000]);
   const [selectedBrand, setSelectedBrand] = useState('');
-  const [sortOption, setSortOption] = useState('newest');
+  const [currentInfo, setCurrentInfo] = useState([]);
+  const { brandId, brandName, categoryId, categoryName, subcategoryName } = currentInfo;
 
-  // const path = [
-  //   { path: `${RoutesLinks.HOMEPAGE}`, name: 'Головна сторінка' },
-  //   { path: `${RoutesLinks.CATEGORY_PAGE}/${categoryId}`, name: categoryName },
-  //   { path: `${RoutesLinks.SUBCATEGORY_PAGE}/${subcategoryId}`, name: subcategoryName },
-  // ];
+  const sortOptions = [
+    { name: 'asc', sortBy: 'p.product_price', orderBy: 'ASC' },
+    { name: 'desc', sortBy: 'p.product_price', orderBy: 'DESC' },
+    { name: 'az', sortBy: 'p.product_title', orderBy: 'ASC' },
+    { name: 'za', sortBy: 'p.product_title', orderBy: 'DESC' },
+    { name: 'newest', sortBy: 'p.updated', orderBy: 'DESC' },
+  ];
+  const [sort, setSort] = useState(sortOptions.length - 1);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getProductList(limit, subcategoryId);
-        // setBrands(data['brands-list']);
+  const path = [
+    { path: `${RoutesLinks.HOMEPAGE}`, name: 'Головна сторінка' },
+    { path: `${RoutesLinks.CATEGORY_PAGE}/${categoryId}`, name: categoryName },
+    { path: `${RoutesLinks.SUBCATEGORY_PAGE}/${subcategoryId}`, name: subcategoryName },
+  ];
+
+  const fetchData = () => {
+    getProductList(limit, subcategoryId, sort.sortBy, sort.orderBy)
+      .then(data => {
         setProducts(data);
-      } catch (error) {
+
+        const current = data.find(element => Number(element.subcategoryId) === Number(subcategoryId));
+        return current ? setCurrentInfo(current) : null;
+      })
+      .catch(error => {
         // eslint-disable-next-line no-console
         console.error('Виникла помилка при отриманні даних:', error);
-      }
-    };
+        return null;
+      });
+  };
 
+  useEffect(() => {
     fetchData();
-  }, [limit, subcategoryId]);
+  }, [limit, subcategoryId, sort.sortBy, sort.orderBy]);
 
   const handleShowMore = () => {
-    setLimit(previousLimit => previousLimit + 9);
+    setLimit(limit + 9);
+  };
+  const handleSortChange = selectedOption => {
+    sortOptions.map(element => element.name === selectedOption && setSort(element));
   };
 
   return (
     <Stack>
-      {/* <BreadCrumbs currentPath={path} breakpoint={desktop} /> */}
-      {desktop && <Title text="TITLE" />}
+      <BreadCrumbs currentPath={path} breakpoint={desktop} />
+      {desktop && <Title text={subcategoryName} />}
       <Stack
         direction="row"
         justifyContent={desktop ? 'flex-end' : 'center'}
@@ -67,7 +82,7 @@ const SubcategoryPage = ({ desktop }) => {
             desktop={desktop}
           />
         )}
-        <Sort onSelect={sort => setSortOption(sort)} breakpoint={desktop} />
+        <Sort onSelect={handleSortChange} breakpoint={desktop} />
       </Stack>
       <Stack
         direction={{ xs: 'column', xl: 'row' }}
@@ -90,7 +105,11 @@ const SubcategoryPage = ({ desktop }) => {
               backgroundColor: desktop ? 'var(--mainColor)' : 'var(--secondColor)',
               color: desktop ? 'var(--secondColor)' : 'var(--mainColor)',
               marginTop: desktop ? '50px' : '20px',
+              '&.Mui-disabled': {
+                backgroundColor: '#6b4c7d40',
+              },
             }}
+            disabled={products}
             onClick={handleShowMore}
             text={'Показати ще'}
           />
