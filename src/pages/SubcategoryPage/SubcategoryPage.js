@@ -23,11 +23,11 @@ const SubcategoryPage = ({ desktop }) => {
   const { brandId, brandName, categoryId, categoryName, subcategoryName } = currentInfo;
 
   const sortOptions = [
-    { name: 'asc', sortBy: 'p.product_price', orderBy: 'ASC' },
-    { name: 'desc', sortBy: 'p.product_price', orderBy: 'DESC' },
-    { name: 'az', sortBy: 'p.product_title', orderBy: 'ASC' },
-    { name: 'za', sortBy: 'p.product_title', orderBy: 'DESC' },
-    { name: 'newest', sortBy: 'p.updated', orderBy: 'DESC' },
+    { name: 'asc', sortBy: 'product_price', orderBy: 'ASC' },
+    { name: 'desc', sortBy: 'product_price', orderBy: 'DESC' },
+    { name: 'az', sortBy: 'product_title', orderBy: 'ASC' },
+    { name: 'za', sortBy: 'product_title', orderBy: 'DESC' },
+    { name: 'newest', sortBy: 'updated', orderBy: 'DESC' },
   ];
   const [sort, setSort] = useState(sortOptions.length - 1);
   const [disable, setDisable] = useState(false);
@@ -111,7 +111,7 @@ const SubcategoryPage = ({ desktop }) => {
                 backgroundColor: '#6b4c7d40',
               },
             }}
-            disabled={products.length < 9 || limit < 9}
+            disabled={limit < 9 || products.length % 9 !== 0}
             onClick={handleShowMore}
             text={'Показати ще'}
           />
