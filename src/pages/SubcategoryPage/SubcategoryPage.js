@@ -30,7 +30,6 @@ const SubcategoryPage = ({ desktop }) => {
     { name: 'newest', sortBy: 'updated', orderBy: 'DESC' },
   ];
   const [sort, setSort] = useState(sortOptions.length - 1);
-  const [disable, setDisable] = useState(false);
 
   const path = [
     { path: `${RoutesLinks.HOMEPAGE}`, name: 'Головна сторінка' },
