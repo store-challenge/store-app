@@ -2,7 +2,7 @@ import { styled } from '@mui/material/styles';
 import { ButtonGroup, Typography } from '@mui/material';
 
 export const CustomButtonGroup = styled(ButtonGroup)(({ theme }) => ({
-  width: '176px',
+  width: '175px',
   height: '40px',
   justifyContent: 'center',
   alignItems: 'center',
