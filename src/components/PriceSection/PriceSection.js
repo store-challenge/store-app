@@ -10,7 +10,9 @@ import ButtonCustom from '../Button/ButtonCustom';
 const PriceSection = props => {
   const { available, price, breakpoint } = props;
   const [selectedQuantity, setSelectedQuantity] = useState(1);
-  const { addToCart } = useCart();
+  const { quantity, addToCart } = useCart();
+
+  const isDisabled = selectedQuantity + quantity > available;
 
   const styles = {
     fontFamily: 'Montserrat',
@@ -41,16 +43,16 @@ const PriceSection = props => {
       <Box display={'flex'} flexDirection={'column'} alignItems={'center'} rowGap={'20px'}>
         <Quantity
           style={styles}
+          isDisabled={isDisabled}
           currentQuantity={selectedQuantity}
           onChange={newQuantity => setSelectedQuantity(newQuantity)}
           available={available}
         />
         <ButtonCustom
-          disabled={selectedQuantity > available}
+          disabled={isDisabled}
           onClick={() => handleBuyClick(1)}
           text={'Купити'}
           sx={{
-            margin: 0,
             backgroundColor: 'var(--mainColor)',
             color: 'var(--secondColor)',
             '&.Mui-disabled': {
