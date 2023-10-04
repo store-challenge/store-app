@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
+
+import { useCart } from '../../providers/CartProvider';
 
 import Quantity from '../Quantity/Quantity';
 import ButtonCustom from '../Button/ButtonCustom';
 
 const PriceSection = props => {
   const { available, price, breakpoint } = props;
-  const [cartQuantity, setCartQuantity] = useState(0);
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
+  const { addToCart } = useCart();
 
   const styles = {
     fontFamily: 'Montserrat',
@@ -16,41 +19,35 @@ const PriceSection = props => {
     lineHeight: '130%',
   };
 
-  const handleBuyClick = () => {
-    if (cartQuantity < available) {
-      setCartQuantity(cartQuantity + 1);
+  const handleBuyClick = quantityToAdd => {
+    if (quantityToAdd <= available) {
+      addToCart(selectedQuantity);
+      setSelectedQuantity(1);
     }
   };
 
   return (
-    <Grid
-      container
-      rowGap={breakpoint ? 6.25 : 2.5}
-      columnGap={20}
-      marginTop={breakpoint ? 6.25 : 2.5}
-      marginLeft={breakpoint && 10}
-      width={breakpoint ? '176px' : '288px'}>
-      <Grid>
-        <Typography
-          variant="paragraph"
+    <Grid container flexDirection={'column'} rowGap={breakpoint ? 6.25 : 2.5} maxWidth={'100%'}>
+      <Typography
+        variant="paragraph"
+        style={styles}
+        color={available ? 'var(--mainColor)' : '#6b4c7d40'}
+        sx={{ fontWeight: breakpoint && '300' }}>
+        {available ? `В наявності ${available}` : 'Не в наявності'}
+      </Typography>
+      <Typography variant="paragraph" style={styles} color={'var(--priceTextColor)'}>
+        {price && `${price.toLocaleString()} ₴`}
+      </Typography>
+      <Box display={'flex'} flexDirection={'column'} alignItems={'center'} rowGap={'20px'}>
+        <Quantity
           style={styles}
-          color={available ? 'var(--mainColor)' : '#6b4c7d40'}
-          sx={{ fontWeight: breakpoint && '300' }}>
-          {available ? `В наявності ${available}` : 'Не в наявності'}
-        </Typography>
-      </Grid>
-      <Grid>
-        <Typography variant="paragraph" style={styles} color={'var(--priceTextColor)'}>
-          {price && `${price.toLocaleString()} ₴`}
-        </Typography>
-      </Grid>
-      <Grid>
-        <Quantity style={styles} currentQuantity={available} />
-      </Grid>
-      <Grid>
+          currentQuantity={selectedQuantity}
+          onChange={newQuantity => setSelectedQuantity(newQuantity)}
+          available={available}
+        />
         <ButtonCustom
-          disabled={cartQuantity >= available}
-          onClick={handleBuyClick}
+          disabled={selectedQuantity > available}
+          onClick={() => handleBuyClick(1)}
           text={'Купити'}
           sx={{
             backgroundColor: 'var(--mainColor)',
@@ -61,7 +58,7 @@ const PriceSection = props => {
             },
           }}
         />
-      </Grid>
+      </Box>
     </Grid>
   );
 };
