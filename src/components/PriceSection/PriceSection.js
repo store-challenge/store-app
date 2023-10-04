@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { Typography, Box } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 
+import { useCart } from '../../providers/CartProvider';
+
 import Quantity from '../Quantity/Quantity';
 import ButtonCustom from '../Button/ButtonCustom';
 
 const PriceSection = props => {
   const { available, price, breakpoint } = props;
-  const [cartQuantity, setCartQuantity] = useState(0);
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
+  const { addToCart } = useCart();
 
   const styles = {
     fontFamily: 'Montserrat',
@@ -16,9 +19,10 @@ const PriceSection = props => {
     lineHeight: '130%',
   };
 
-  const handleBuyClick = () => {
-    if (cartQuantity < available) {
-      setCartQuantity(cartQuantity + 1);
+  const handleBuyClick = quantityToAdd => {
+    if (quantityToAdd <= available) {
+      addToCart(selectedQuantity);
+      setSelectedQuantity(1);
     }
   };
 
@@ -35,10 +39,15 @@ const PriceSection = props => {
         {price && `${price.toLocaleString()} ₴`}
       </Typography>
       <Box display={'flex'} flexDirection={'column'} alignItems={'center'} rowGap={'20px'}>
-        <Quantity style={styles} currentQuantity={available} />
+        <Quantity
+          style={styles}
+          currentQuantity={selectedQuantity}
+          onChange={newQuantity => setSelectedQuantity(newQuantity)}
+          available={available}
+        />
         <ButtonCustom
-          disabled={cartQuantity >= available}
-          onClick={handleBuyClick}
+          disabled={selectedQuantity > available}
+          onClick={() => handleBuyClick(1)}
           text={'Купити'}
           sx={{
             margin: 0,
