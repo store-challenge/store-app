@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { Badge } from '@mui/material';
+import { Container, Badge, Dialog, Typography, IconButton, DialogTitle } from '@mui/material';
 
 export const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -22,4 +22,25 @@ export const StyledBadge = styled(Badge)(({ theme }) => ({
       fontSize: '18px',
     },
   },
+}));
+
+export const CartModal = styled(Dialog)(({ theme }) => ({}));
+
+export const CartTitleWrapper = styled(Container)(({ theme }) => ({
+  padding: 20,
+  display: 'flex',
+  justifyContent: 'space-around',
+  alignItems: 'center',
+}));
+
+export const CartTitle = styled(Typography)(({ theme }) => ({
+  color: 'var(--mainColor)',
+  fontSize: '15px',
+  fontFamily: 'Montserrat',
+  fontWeight: '500',
+  lineHeight: '130%',
+}));
+
+export const Close = styled(IconButton)(({ theme }) => ({
+  color: 'var(--mainColor)',
 }));
