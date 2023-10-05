@@ -10,12 +10,6 @@ export const CustomButtonGroup = styled(ButtonGroup)(({ theme }) => ({
   borderRadius: '15px',
   color: 'var(--mainColor)',
   backgroundColor: 'var(--secondColor)',
-  '& .MuiButtonBase-root.MuiIconButton-root': {
-    color: 'var(--mainColor)',
-  },
-  '& .MuiButtonBase-root.MuiIconButton-root.Mui-disabled': {
-    color: '#6b4c7d40',
-  },
   [theme.breakpoints.down('xl')]: {
     width: '286px',
     fontSize: '15px',
