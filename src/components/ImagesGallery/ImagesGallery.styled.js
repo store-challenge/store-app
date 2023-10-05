@@ -7,7 +7,7 @@ export const CustomCard = styled(Card)(({ theme }) => ({
   height: '118px',
   display: 'flex',
   flexWrap: 'wrap',
-  alignContent: 'space-between',
+  alignContent: 'center',
   borderRadius: '30px',
   border: '4px solid var(--mainColor)',
   backgroundColor: '#FFF',
@@ -15,6 +15,7 @@ export const CustomCard = styled(Card)(({ theme }) => ({
     padding: '25px',
     width: '310px',
     height: '322px',
+    alignContent: 'space-between',
   },
 }));
 
