@@ -37,7 +37,7 @@ const ImagesGallery = ({ images, breakpoint }) => {
       <CustomCard elevation={0}>
         <CardMedia
           component="img"
-          height={'100%'}
+          height={'85%'}
           sx={{ objectFit: 'contain' }}
           image={images.length > 0 ? images[currentImageIndex] : ''}
           alt={`Image ${currentImageIndex + 1}`}
