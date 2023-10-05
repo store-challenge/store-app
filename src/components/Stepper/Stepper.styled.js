@@ -29,7 +29,6 @@ export const CustomMobileStepper = styled(MobileStepper)(({ theme }) => ({
   [theme.breakpoints.up('xl')]: {
     marginTop: '0',
   },
-}));
 
 export const CustomIconButton = styled(IconButton)(() => ({
   width: '30px',
