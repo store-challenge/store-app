@@ -1,4 +1,4 @@
-import { Typography, Slider, FormControl, MenuItem, Input } from '@mui/material';
+import { Typography, Slider, FormControl, MenuItem, Input, OutlinedInput } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/system';
 
@@ -158,6 +158,25 @@ export const CustomMenuItem = styled(MenuItem)(({ theme }) => ({
     },
     '&.Mui-selected:hover, &:hover': {
       fontSize: '22px',
+      color: 'var(--secondColor)',
+      backgroundColor: 'var(--buttonHoverColor)',
+    },
+  },
+}));
+
+export const CustomOutlinedInput = styled(OutlinedInput)(({ theme }) => ({
+  ...styles,
+  // padding: '10px 16px',
+  '&.Mui-selected:hover, &:hover': {
+    color: 'var(--secondColor)',
+    backgroundColor: 'var(--buttonHoverColor)',
+  },
+  [theme.breakpoints.up('xl')]: {
+    padding: '18px 15px',
+    height: '57px',
+    border: '1px solid var(--mainColor)',
+    borderRadius: '20px',
+    '&.Mui-selected:hover, &:hover': {
       color: 'var(--secondColor)',
       backgroundColor: 'var(--buttonHoverColor)',
     },

@@ -10,7 +10,7 @@ import {
   Checkbox,
   ListItemText,
 } from '@mui/material';
-import { CustomFormControl, FilterTitle } from './Filter.styled';
+import { CustomFormControl, CustomOutlinedInput, FilterTitle } from './Filter.styled';
 
 const brands = [
   { key: 0, brand: 'H&M' },
@@ -81,7 +81,7 @@ export default function FilterBrandList({ onSelect, breakpoint }) {
           multiple
           value={personName}
           onChange={handleChange}
-          input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+          input={<CustomOutlinedInput id="select-multiple-chip" label="Chip" />}
           renderValue={selected => (
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
               {selected.map(value => (
