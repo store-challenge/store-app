@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 
 import { useCart } from '../../providers/CartProvider';
@@ -50,9 +50,9 @@ const PriceSection = props => {
           onClick={() => handleBuyClick(1)}
           text={'Купити'}
           sx={{
+            margin: 0,
             backgroundColor: 'var(--mainColor)',
             color: 'var(--secondColor)',
-            margin: 0,
             '&.Mui-disabled': {
               backgroundColor: '#6b4c7d40',
             },

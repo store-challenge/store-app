@@ -23,7 +23,6 @@ export const CustomButton = styled(Button)(({ theme }) => ({
     backgroundColor: 'var(--buttonClickColor)',
   },
   [theme.breakpoints.up('xl')]: {
-    marginRight: '10px',
     width: '177px',
     height: '42px',
     boxShadow:

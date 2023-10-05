@@ -1,8 +1,6 @@
 import { styled, Box, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 
-import Title from '../Title/Title';
-
 const CustomTypography = styled(Typography)(({ theme }) => ({
   fontFamily: 'Montserrat',
   fontSize: '13px',
@@ -17,11 +15,10 @@ const CustomTypography = styled(Typography)(({ theme }) => ({
 }));
 
 const InfoSection = props => {
-  const { title, array, columnGap, sx, breakpoint } = props;
+  const { array, columnGap, sx, breakpoint } = props;
 
   return (
     <Box>
-      <Title text={title} variant={'h4'} sx={{ fontSize: breakpoint ? '20px' : '13px', fontWeight: 500 }} />
       <Grid container rowGap={3} columnGap={columnGap} sx={sx} maxWidth={'100%'}>
         <Grid container direction={'column'} rowGap={breakpoint ? 6.25 : 2.5}>
           {array.map((option, index) => (
@@ -30,7 +27,7 @@ const InfoSection = props => {
             </Grid>
           ))}
         </Grid>
-        <Grid container direction={'column'} rowGap={breakpoint ? 6.25 : 2.5} maxWidth={!breakpoint && '90px'}>
+        <Grid container direction={'column'} rowGap={breakpoint ? 6.25 : 2.5} maxWidth={breakpoint ? '170px' : '90px'}>
           {array.map((option, index) => (
             <Grid key={index}>
               <Typography

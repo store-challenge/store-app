@@ -4,7 +4,7 @@ import { CustomTypography } from './Title.styled';
 const Title = props => {
   const { text, variant, sx } = props;
   return (
-    <Box sx={{ width: '100%', maxWidth: 500 }}>
+    <Box sx={{ width: '100%' }}>
       <CustomTypography variant={variant} gutterBottom sx={sx}>
         {text}
       </CustomTypography>
