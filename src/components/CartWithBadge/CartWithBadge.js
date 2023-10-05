@@ -2,10 +2,19 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-
 import { RoutesLinks } from '../../constant/constant';
-import { StyledBadge, CartModal, CartTitleWrapper, CartTitle } from './CartWithBadge.styled';
+import {
+  StyledBadge,
+  StyedDialog,
+  StyedDialogTitle,
+  StyedTitleText,
+  StyedCloseIcon,
+  StyedContentWrapper,
+  StyedEmptyCart,
+  StyedTypography,
+} from './CartWithBadge.styled';
 import HeaderButton from '../HeaderButton/HeaderButton';
+import CartImage from '../../data/images/Cart.png';
 
 const CartWithBadge = props => {
   const { quantity, style, breakpoint } = props;
@@ -32,11 +41,24 @@ const CartWithBadge = props => {
         <HeaderButton icon="ion:cart-outline" style={{ fontSize: breakpoint ? '32px' : undefined }} key="cart" />
       </StyledBadge>
 
-      <CartModal fullScreen={fullScreen} open={open} onClose={handleOpenModal}>
-        <CartTitleWrapper>
-          <CartTitle variant="h2">Кошик</CartTitle>
-        </CartTitleWrapper>
-      </CartModal>
+      <StyedDialog
+        open={open}
+        onClose={handleOpenModal}
+        fullScreen={fullScreen}
+        aria-labelledby="responsive-dialog-title">
+        <StyedDialogTitle>
+          <StyedTitleText>Кошик</StyedTitleText>
+          <StyedCloseIcon onClick={handleOpenModal} />
+        </StyedDialogTitle>
+        <StyedContentWrapper>
+          <StyedEmptyCart>
+            <img style={{ width: '158px', height: '126px' }} src={CartImage} alt="Cart image" />
+            <StyedTitleText marginY={{ xs: 2.5, md: 6.25 }}>Кошик порожній</StyedTitleText>
+            <StyedTypography>{`Завжди є час на виправлення :)`}</StyedTypography>
+            <StyedTypography>{`Скористуйся Пошуком або Каталогом, щоб виправити це!`}</StyedTypography>
+          </StyedEmptyCart>
+        </StyedContentWrapper>
+      </StyedDialog>
     </>
   );
 };
