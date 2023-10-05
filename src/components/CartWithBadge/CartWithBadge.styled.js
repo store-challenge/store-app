@@ -44,7 +44,7 @@ export const StyedDialog = styled(Dialog)(({ theme }) => ({
     [theme.breakpoints.up('md')]: {
       width: '100%',
       maxWidth: 1136,
-      height: 590,
+      height: 900,
       borderRadius: 30,
     },
   },
