@@ -38,7 +38,7 @@ const ImagesGallery = ({ images, breakpoint }) => {
         <CardMedia
           component="img"
           height={'85%'}
-          sx={{ objectFit: 'contain' }}
+          sx={{ objectFit: 'contain', cursor: 'pointer' }}
           image={images.length > 0 ? images[currentImageIndex] : ''}
           alt={`Image ${currentImageIndex + 1}`}
           onClick={() => handleOpen(currentImageIndex)}
