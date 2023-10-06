@@ -20,8 +20,7 @@ const SubcategoryPage = ({ desktop }) => {
   const [brands, setBrands] = useState([]);
   const [priceRange, setPriceRange] = useState([0, 20_000]);
   const [selectedBrand, setSelectedBrand] = useState([]);
-  const [currentInfo, setCurrentInfo] = useState([]);
-  const [currentTitle, setCurrentTitle] = useState('');
+  const [currentInfo, setCurrentInfo] = useState({});
   const { brandId, brandName, categoryId, categoryName, subcategoryName } = currentInfo;
 
   const sortOptions = [
@@ -46,7 +45,7 @@ const SubcategoryPage = ({ desktop }) => {
         setBrands(brandsResult);
 
         const current = productsResult.find(element => Number(element.subcategoryId) === Number(subcategoryId));
-        return current ? setCurrentTitle(current.subcategoryName) : null;
+        return current ? setCurrentInfo(current) : null;
       })
       .catch(error => {
         // eslint-disable-next-line no-console
@@ -66,7 +65,7 @@ const SubcategoryPage = ({ desktop }) => {
   return (
     <Stack>
       <BreadCrumbs currentPath={path} breakpoint={desktop} />
-      {desktop && <Title text={currentTitle} />}
+      {desktop && <Title text={subcategoryName} />}
       <Stack
         direction="row"
         justifyContent={desktop ? 'flex-end' : 'center'}
