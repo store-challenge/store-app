@@ -1,17 +1,10 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
-
-import { RoutesLinks } from '../../constant/constant';
-import { StyledBadge, CartModal, CartTitleWrapper, CartTitle } from './CartWithBadge.styled';
+import { StyledBadge } from './CartWithBadge.styled';
 import HeaderButton from '../HeaderButton/HeaderButton';
+import CartModalContainer from './CartModalContainer';
 
 const CartWithBadge = props => {
   const { quantity, style, breakpoint } = props;
-
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
   const [open, setOpen] = useState(false);
 
@@ -32,11 +25,7 @@ const CartWithBadge = props => {
         <HeaderButton icon="ion:cart-outline" style={{ fontSize: breakpoint ? '32px' : undefined }} key="cart" />
       </StyledBadge>
 
-      <CartModal fullScreen={fullScreen} open={open} onClose={handleOpenModal}>
-        <CartTitleWrapper>
-          <CartTitle variant="h2">Кошик</CartTitle>
-        </CartTitleWrapper>
-      </CartModal>
+      <CartModalContainer isOpen={open} setIsOpen={handleOpenModal} />
     </>
   );
 };
