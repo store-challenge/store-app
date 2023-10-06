@@ -4,5 +4,4 @@ export const RoutesLinks = {
   CATEGORY_PAGE: '/category',
   SUBCATEGORY_PAGE: '/subcategory',
   PRODUCT_PAGE: '/product',
-  CART: '/cart',
 };
