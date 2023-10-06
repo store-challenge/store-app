@@ -7,7 +7,7 @@ import FilterRangeSlider from './FilterRangeSlider';
 import ButtonCustom from '../Button/ButtonCustom';
 import FilterDrawer from './FilterDrawer';
 
-const FilterMobile = ({ priceRange, setPriceRange, selectedBrand, setSelectedBrand, desktop }) => {
+const FilterMobile = ({ priceRange, setPriceRange, brandList, selectedBrand, setSelectedBrand, desktop }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -39,9 +39,10 @@ const FilterMobile = ({ priceRange, setPriceRange, selectedBrand, setSelectedBra
         onClick={handleDrawerToggle}
       />
       <FilterDrawer
+        brandList={brandList}
         priceRange={priceRange}
-        setPriceRange={setPriceRange}
         selectedBrand={selectedBrand}
+        setPriceRange={setPriceRange}
         setSelectedBrand={setSelectedBrand}
         drawerOpen={drawerOpen}
         handleDrawerToggle={handleDrawerToggle}

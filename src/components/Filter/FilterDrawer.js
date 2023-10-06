@@ -7,20 +7,23 @@ import FilterRangeSlider from './FilterRangeSlider';
 import ButtonCustom from '../Button/ButtonCustom';
 
 export default function FilterDrawer({
+  brandList,
   priceRange,
-  setPriceRange,
   selectedBrand,
+  setPriceRange,
   setSelectedBrand,
   drawerOpen,
   handleDrawerToggle,
 }) {
-  // const handleDrawerToggle = () => {};
+  const resetSelectedBrands = () => {
+    setSelectedBrand([]);
+  };
 
   return (
     <Drawer open={drawerOpen} onClose={handleDrawerToggle}>
       <FilterContainer>
         <FilterRangeSlider priceRange={priceRange} setPriceRange={setPriceRange} />
-        <FilterBrandList selectedBrand={selectedBrand} setSelectedBrand={setSelectedBrand} />
+        <FilterBrandList brandList={brandList} selectedBrand={selectedBrand} setSelectedBrand={setSelectedBrand} />
         <ButtonCustom
           text={'Застосувати'}
           type={'submit'}
@@ -41,7 +44,7 @@ export default function FilterDrawer({
           text={'Скинути фільтри'}
           type={'reset'}
           disableElevation
-          onClick={''}
+          onClick={resetSelectedBrands}
           sx={{
             backgroundColor: 'var(--mainColor)',
             color: 'var(--secondColor)',

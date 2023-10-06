@@ -10,40 +10,10 @@ import {
   Checkbox,
   ListItemText,
 } from '@mui/material';
-import { CustomFormControl, FilterTitle } from './Filter.styled';
+import { StyledFormControl, FilterTitle, StyledCheckbox } from './Filter.styled';
 
-const brands = [
-  { key: 0, brand: 'H&M' },
-  { key: 1, brand: 'Bershka' },
-  { key: 2, brand: 'P&B' },
-  { key: 3, brand: 'MANGO' },
-  { key: 4, brand: 'H&B' },
-  { key: 5, brand: 'Massimo Dutti' },
-  { key: 6, brand: 'H&C' },
-  { key: 7, brand: 'Forever 21' },
-  { key: 8, brand: 'GAP' },
-  { key: 9, brand: 'Nike' },
-  { key: 10, brand: 'Adidas' },
-  { key: 11, brand: 'Puma' },
-  { key: 12, brand: "Levi's" },
-  { key: 13, brand: 'Calvin Klein' },
-  { key: 14, brand: 'Tommy Hilfiger' },
-  { key: 15, brand: 'Louis Vuitton' },
-  { key: 16, brand: 'Gucci' },
-  { key: 17, brand: 'Prada' },
-  { key: 18, brand: 'Chanel' },
-  { key: 19, brand: 'Versace' },
-  { key: 20, brand: 'Dior' },
-  { key: 21, brand: 'Balenciaga' },
-  { key: 22, brand: 'Givenchy' },
-  { key: 23, brand: 'Fendi' },
-  { key: 24, brand: 'Valentino' },
-  { key: 25, brand: 'Yves Saint Laurent' },
-  { key: 26, brand: 'Balmain' },
-];
-
-export default function FilterBrandList({ onSelect, breakpoint }) {
-  const [personName, setPersonName] = useState([]);
+export default function FilterBrandList({ brandList, selectedBrand, setSelectedBrand, breakpoint }) {
+  const [selectedBrands, setSelectedBrands] = useState([]);
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;
   const menuPropsStyles = {
@@ -60,50 +30,45 @@ export default function FilterBrandList({ onSelect, breakpoint }) {
   };
 
   const handleDelete = brandToDelete => () => {
-    setPersonName(previousSelected => previousSelected.filter(brand => brand !== brandToDelete));
+    setSelectedBrand(previousSelected => previousSelected.filter(brand => brand !== brandToDelete));
   };
 
   const handleChange = event => {
     const {
       target: { value },
     } = event;
-    setPersonName(typeof value === 'string' ? value.split(',') : value);
+    setSelectedBrand(value);
   };
 
   return (
     <div>
       <FilterTitle>Бренд</FilterTitle>
       <FormControl sx={{ width: breakpoint ? '100%' : '280px' }}>
-        <InputLabel id="demo-multiple-chip-label">Вибери бренд</InputLabel>
+        <InputLabel>Вибери бренд</InputLabel>
         <Select
-          labelId="demo-multiple-chip-label"
-          id="demo-multiple-chip"
           multiple
-          value={personName}
+          value={selectedBrand}
           onChange={handleChange}
-          input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+          // input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
           renderValue={selected => (
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-              {selected.map(value => (
+              {selected.map(brand => (
                 <Chip
+                  key={brand}
                   onMouseDown={event => {
                     event.stopPropagation();
                   }}
-                  label={value}
-                  onDelete={handleDelete(value)}
+                  label={brand}
+                  onDelete={handleDelete(brand)}
                 />
               ))}
             </Box>
           )}
           MenuProps={menuPropsStyles}>
-          {brands.map((name, index) => (
-            <MenuItem
-              key={index}
-              value={name.brand}
-              // style={getStyles(name, personName, theme)}
-            >
-              <Checkbox checked={personName.includes(name.brand)} />
-              <ListItemText primary={name.brand} />
+          {brandList.map(brand => (
+            <MenuItem key={brand.brandName} value={brand.brandName}>
+              <StyledCheckbox checked={selectedBrand.includes(brand.brandName)} />
+              <ListItemText primary={brand.brandName} />
             </MenuItem>
           ))}
         </Select>

@@ -1,4 +1,16 @@
-import { Typography, Slider, FormControl, MenuItem, Input } from '@mui/material';
+import {
+  OutlinedInput,
+  InputLabel,
+  Select,
+  Chip,
+  Checkbox,
+  ListItemText,
+  Typography,
+  Slider,
+  FormControl,
+  MenuItem,
+  Input,
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/system';
 
@@ -115,14 +127,15 @@ export const FilterSlider = styled(Slider)(({ theme }) => ({
 
 // FilterBrandList
 
-export const CustomFormControl = styled(FormControl)(({ theme }) => ({
-  ...styles,
+export const StyledFormControl = styled(FormControl)(({ theme }) => ({
+  boxSizing: 'border-box',
   padding: '8px 20px',
   width: '288px',
   border: '0.38px solid var(--mainColor)',
   borderRadius: '10px',
   '& .MuiInputBase-input': {
-    padding: 0,
+    ...styles,
+    // border: 0,
   },
   [theme.breakpoints.up('xl')]: {
     padding: '18px',
@@ -161,5 +174,12 @@ export const CustomMenuItem = styled(MenuItem)(({ theme }) => ({
       color: 'var(--secondColor)',
       backgroundColor: 'var(--buttonHoverColor)',
     },
+  },
+}));
+
+export const StyledCheckbox = styled(Checkbox)(({ theme }) => ({
+  color: 'var(--mainColor)',
+  '&.Mui-checked': {
+    color: 'var(--mainColor)',
   },
 }));
