@@ -1,15 +1,6 @@
-import { styled, useTheme } from '@mui/material/styles';
-import { Container, Badge } from '@mui/material';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+import { styled } from '@mui/material/styles';
+import { Badge, Box, Dialog, DialogContentText, DialogTitle, Stack, Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 export const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -44,7 +35,7 @@ export const StyedDialog = styled(Dialog)(({ theme }) => ({
     [theme.breakpoints.up('md')]: {
       width: '100%',
       maxWidth: 1136,
-      height: 900,
+      height: 913,
       borderRadius: 30,
     },
   },
@@ -103,6 +94,7 @@ export const StyedContentWrapper = styled(Stack)(({ theme }) => ({
   flexDirection: 'column',
   alignItems: 'center',
   width: '100%',
+  height: '100%',
   padding: 20,
   [theme.breakpoints.up('md')]: {
     padding: 50,
@@ -113,9 +105,21 @@ export const StyedEmptyCart = styled(Stack)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  justifyContent: 'center',
   width: '100%',
   height: '100%',
+}));
+
+export const StyledImage = styled(Box)(({ theme }) => ({
+  width: '158px',
+  height: '126px',
+  animation: 'mover 0.4s infinite  alternate',
+  '@keyframes mover': {
+    '0%': { transform: 'translateY(0)' },
+    '100%': { transform: 'translateY(-4px)' },
+  },
   [theme.breakpoints.up('md')]: {
-    // padding: 50,
+    width: '314px',
+    height: '248px',
   },
 }));
