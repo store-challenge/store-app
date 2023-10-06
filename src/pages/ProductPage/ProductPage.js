@@ -5,7 +5,7 @@ import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import parse from 'html-react-parser';
 
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
-
+import ImagesGallery from '../../components/ImagesGallery/ImagesGallery';
 import InfoSection from '../../components/InfoSection/InfoSection';
 import PriceSection from '../../components/PriceSection/PriceSection';
 import Title from '../../components/Title/Title';
@@ -62,45 +62,34 @@ const ProductPage = ({ desktop }) => {
   return (
     <Stack>
       <BreadCrumbs currentPath={path} breakpoint={desktop} />
-      <Grid container rowGap={0} columnGap={13.75} flexDirection={!desktop && 'column'}>
-        <Grid>
-          <div
-            style={{
-              width: '368px',
-              height: '380px',
-              marginTop: '50px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            ImageGallery
-          </div>
-        </Grid>
-        <Grid>
-          <Box maxWidth={'290px'}>
-            <InfoSection title={title} array={mainInfo} columnGap={0.5} breakpoint={desktop} />
-            <InfoSection
-              title={'Характеристики:'}
-              array={characteristics}
-              columnGap={desktop ? 19 : 2.5}
-              breakpoint={desktop}
-            />
-          </Box>
-        </Grid>
-        <Grid>
-          <PriceSection available={productAvailable} price={price} breakpoint={desktop} />
-        </Grid>
-        <Grid>
-          <Title text={'Про товар'} variant={'h4'} sx={{ fontSize: desktop ? '20px' : '13px', fontWeight: 500 }} />
-          <Typography
-            variant="paragraph"
-            color={'var(--mainColor)'}
-            fontSize={!desktop && '13px'}
-            fontWeight={desktop && '300px'}>
-            {parse(description)}
-          </Typography>
-        </Grid>
+      <Grid container columnGap={13.75} flexWrap={desktop && 'nowrap'} justifyContent={'center'}>
+        <ImagesGallery images={imagesGallery} breakpoint={desktop} />
+        <Box width={'100%'}>
+          <Title text={title} variant={'h4'} sx={{ fontSize: desktop ? '20px' : '13px', fontWeight: 500 }} />
+          <Grid container rowGap={!desktop && 2.5} justifyContent={'space-between'} width={'100%'}>
+            <Box>
+              <InfoSection array={mainInfo} columnGap={0.5} breakpoint={desktop} />
+              <Title
+                text={'Характеристики:'}
+                variant={'h4'}
+                sx={{ fontSize: desktop ? '20px' : '13px', fontWeight: 500 }}
+              />
+              <InfoSection array={characteristics} columnGap={2.5} breakpoint={desktop} />
+            </Box>
+            <PriceSection available={productAvailable} price={price} breakpoint={desktop} />
+          </Grid>
+        </Box>
       </Grid>
+      <Box>
+        <Title text={'Про товар'} variant={'h4'} sx={{ fontSize: desktop ? '20px' : '13px', fontWeight: 500 }} />
+        <Typography
+          variant="paragraph"
+          color={'var(--mainColor)'}
+          fontSize={!desktop && '13px'}
+          fontWeight={desktop && '300px'}>
+          {parse(description)}
+        </Typography>
+      </Box>
     </Stack>
   );
 };

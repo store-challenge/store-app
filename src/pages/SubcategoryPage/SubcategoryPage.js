@@ -63,7 +63,6 @@ const SubcategoryPage = ({ desktop }) => {
     sortOptions.map(element => element.name === selectedOption && setSort(element));
   };
 
-  console.log(selectedBrand);
   return (
     <Stack>
       <BreadCrumbs currentPath={path} breakpoint={desktop} />
