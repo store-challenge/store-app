@@ -11,6 +11,7 @@ import FilterMobile from '../../components/Filter/FilterMobile';
 import Sort from '../../components/Sort/Sort';
 
 import { getProductList } from '../../services/getProducts';
+import { getBrandsList } from '../../services/getBrands';
 
 const SubcategoryPage = ({ desktop }) => {
   const { subcategoryId } = useParams();
@@ -18,8 +19,9 @@ const SubcategoryPage = ({ desktop }) => {
   const [products, setProducts] = useState([]);
   const [brands, setBrands] = useState([]);
   const [priceRange, setPriceRange] = useState([0, 20_000]);
-  const [selectedBrand, setSelectedBrand] = useState('');
+  const [selectedBrand, setSelectedBrand] = useState([]);
   const [currentInfo, setCurrentInfo] = useState([]);
+  const [currentTitle, setCurrentTitle] = useState('');
   const { brandId, brandName, categoryId, categoryName, subcategoryName } = currentInfo;
 
   const sortOptions = [
@@ -37,23 +39,20 @@ const SubcategoryPage = ({ desktop }) => {
     { path: `${RoutesLinks.SUBCATEGORY_PAGE}/${subcategoryId}`, name: subcategoryName },
   ];
 
-  const fetchData = () => {
-    getProductList(limit, subcategoryId, sort.sortBy, sort.orderBy)
-      .then(data => {
-        setProducts(data);
+  useEffect(() => {
+    Promise.all([getProductList(limit, subcategoryId, sort.sortBy, sort.orderBy), getBrandsList(subcategoryId)])
+      .then(([productsResult, brandsResult]) => {
+        setProducts(productsResult);
+        setBrands(brandsResult);
 
-        const current = data.find(element => Number(element.subcategoryId) === Number(subcategoryId));
-        return current ? setCurrentInfo(current) : null;
+        const current = productsResult.find(element => Number(element.subcategoryId) === Number(subcategoryId));
+        return current ? setCurrentTitle(current.subcategoryName) : null;
       })
       .catch(error => {
         // eslint-disable-next-line no-console
         console.error('Виникла помилка при отриманні даних:', error);
         return null;
       });
-  };
-
-  useEffect(() => {
-    fetchData();
   }, [limit, subcategoryId, sort.sortBy, sort.orderBy]);
 
   const handleShowMore = () => {
@@ -64,10 +63,11 @@ const SubcategoryPage = ({ desktop }) => {
     sortOptions.map(element => element.name === selectedOption && setSort(element));
   };
 
+  console.log(selectedBrand);
   return (
     <Stack>
       <BreadCrumbs currentPath={path} breakpoint={desktop} />
-      {desktop && <Title text={subcategoryName} />}
+      {desktop && <Title text={currentTitle} />}
       <Stack
         direction="row"
         justifyContent={desktop ? 'flex-end' : 'center'}
@@ -76,6 +76,7 @@ const SubcategoryPage = ({ desktop }) => {
         marginTop={!desktop && '22.5px'}>
         {!desktop && (
           <FilterMobile
+            brandList={brands}
             priceRange={priceRange}
             setPriceRange={setPriceRange}
             selectedBrand={selectedBrand}
@@ -92,9 +93,10 @@ const SubcategoryPage = ({ desktop }) => {
         marginTop={desktop ? '50px' : '20px'}>
         {desktop && (
           <FilterDesktop
+            brandList={brands}
             priceRange={priceRange}
-            setPriceRange={setPriceRange}
             selectedBrand={selectedBrand}
+            setPriceRange={setPriceRange}
             setSelectedBrand={setSelectedBrand}
             desktop={desktop}
           />
