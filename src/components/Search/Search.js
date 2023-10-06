@@ -52,6 +52,7 @@ const Search = props => {
           type={'submit'}
           onClick={handleFormSubmit}
           sx={{
+            marginRight: '10px',
             backgroundColor: breakpoint ? 'var(--mainColor)' : 'var(--secondColor)',
             color: breakpoint ? 'var(--secondColor)' : 'var(--mainColor)',
           }}
