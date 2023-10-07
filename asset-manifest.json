@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/store-app/static/css/main.80b334ce.css",
-    "main.js": "/store-app/static/js/main.aa0e8ec8.js",
+    "main.js": "/store-app/static/js/main.bbdfe5a1.js",
     "CatalogPage.css": "/store-app/static/css/CatalogPage.402b424d.chunk.css",
     "CatalogPage.js": "/store-app/static/js/CatalogPage.2cdfcc64.chunk.js",
     "CategoryPage.css": "/store-app/static/css/CategoryPage.6b431b96.chunk.css",
     "CategoryPage.js": "/store-app/static/js/CategoryPage.6c9ffa38.chunk.js",
     "SubcategoryPage.js": "/store-app/static/js/SubcategoryPage.96fc137b.chunk.js",
-    "ProductPage.js": "/store-app/static/js/ProductPage.7b275fa7.chunk.js",
+    "ProductPage.js": "/store-app/static/js/ProductPage.0376496c.chunk.js",
     "NotFoundPage.js": "/store-app/static/js/NotFoundPage.e156e47b.chunk.js",
     "static/js/308.f6113d08.chunk.js": "/store-app/static/js/308.f6113d08.chunk.js",
     "static/js/998.9fa2e30a.chunk.js": "/store-app/static/js/998.9fa2e30a.chunk.js",
@@ -20,13 +20,13 @@
     "static/media/logo.svg": "/store-app/static/media/logo.b3585c1dc456bd1304da7252a5843d67.svg",
     "index.html": "/store-app/index.html",
     "main.80b334ce.css.map": "/store-app/static/css/main.80b334ce.css.map",
-    "main.aa0e8ec8.js.map": "/store-app/static/js/main.aa0e8ec8.js.map",
+    "main.bbdfe5a1.js.map": "/store-app/static/js/main.bbdfe5a1.js.map",
     "CatalogPage.402b424d.chunk.css.map": "/store-app/static/css/CatalogPage.402b424d.chunk.css.map",
     "CatalogPage.2cdfcc64.chunk.js.map": "/store-app/static/js/CatalogPage.2cdfcc64.chunk.js.map",
     "CategoryPage.6b431b96.chunk.css.map": "/store-app/static/css/CategoryPage.6b431b96.chunk.css.map",
     "CategoryPage.6c9ffa38.chunk.js.map": "/store-app/static/js/CategoryPage.6c9ffa38.chunk.js.map",
     "SubcategoryPage.96fc137b.chunk.js.map": "/store-app/static/js/SubcategoryPage.96fc137b.chunk.js.map",
-    "ProductPage.7b275fa7.chunk.js.map": "/store-app/static/js/ProductPage.7b275fa7.chunk.js.map",
+    "ProductPage.0376496c.chunk.js.map": "/store-app/static/js/ProductPage.0376496c.chunk.js.map",
     "NotFoundPage.e156e47b.chunk.js.map": "/store-app/static/js/NotFoundPage.e156e47b.chunk.js.map",
     "308.f6113d08.chunk.js.map": "/store-app/static/js/308.f6113d08.chunk.js.map",
     "998.9fa2e30a.chunk.js.map": "/store-app/static/js/998.9fa2e30a.chunk.js.map",
@@ -36,6 +36,6 @@
   },
   "entrypoints": [
     "static/css/main.80b334ce.css",
-    "static/js/main.aa0e8ec8.js"
+    "static/js/main.bbdfe5a1.js"
   ]
 }
