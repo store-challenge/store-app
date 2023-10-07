@@ -74,6 +74,7 @@ export const StyedTypography = styled(Typography)(({ theme }) => ({
   color: 'var(--mainColor)',
   [theme.breakpoints.up('md')]: {
     fontSize: '20px',
+    fontWeight: '300',
   },
 }));
 
