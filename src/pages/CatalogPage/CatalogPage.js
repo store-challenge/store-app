@@ -4,7 +4,7 @@ import { Stack } from '@mui/material';
 import Advertising from '../../components/Advertising/Advertising';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import CategoryListMobile from '../../components/CategoryList/CategoryListMobile';
-import Title from '../../components/Title/Title';
+import { Title } from '../../components/Title/Title';
 import CatalogList from '../../components/CatalogList/CatalogList';
 
 import { RoutesLinks } from '../../constant/constant';
