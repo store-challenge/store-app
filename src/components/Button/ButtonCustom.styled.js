@@ -15,7 +15,7 @@ export const CustomButton = styled(Button)(({ theme }) => ({
   borderRadius: '15px',
   '&:hover': {
     borderColor: 'var(--mainColor)',
-    backgroundColor: 'var(--secondColor)',
+    backgroundColor: 'transparent',
   },
   '&:active': {
     color: 'var(--secondColor)',
@@ -29,7 +29,6 @@ export const CustomButton = styled(Button)(({ theme }) => ({
       '0px 3px 1px -2px rgba(0, 0, 0, 0.20), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12)',
     '&:hover': {
       border: 'inherit',
-      backgroundColor: 'var(--buttonHoverColor)',
     },
     '&:active,&:focus-visible': {
       backgroundColor: 'var(--buttonClickColor)',
