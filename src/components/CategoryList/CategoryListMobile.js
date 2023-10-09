@@ -5,7 +5,7 @@ import { useMediaQuery } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 
 import CategoryList from './CategoryList';
-import CategoryMoreButton from '../CategoryMoreButton/CategoryMoreButton';
+import ButtonCustom from '../Button/ButtonCustom';
 
 const CategoryListMobile = props => {
   const { array, href } = props;
@@ -37,7 +37,14 @@ const CategoryListMobile = props => {
         columnGap={1}
       />
       <Grid sx={{ marginX: 'auto', marginTop: 2.5 }}>
-        <CategoryMoreButton text={showMore ? 'Зменшити' : 'Більше категорій'} onClick={handleClickShowMore} />
+        <ButtonCustom
+          text={showMore ? 'Зменшити' : 'Більше категорій'}
+          onClick={handleClickShowMore}
+          sx={{
+            color: 'var(--mainColor)',
+            backgroundColor: 'var(--secondColor)',
+          }}
+        />
       </Grid>
     </Grid>
   );
