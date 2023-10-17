@@ -1,6 +1,6 @@
 import { styled, Box, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import CategoryMoreButton from '../../components/CategoryMoreButton/CategoryMoreButton';
+import ButtonCustom from '../../components/Button/ButtonCustom';
 
 const breakpoints = {
   md: 'md',
@@ -59,7 +59,7 @@ const CustomTypography = styled(Typography)(({ theme, variant }) => {
   return styles[variant];
 });
 
-const NotFoundPage = () => {
+const NotFoundPage = ({ desktop }) => {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
@@ -81,7 +81,14 @@ const NotFoundPage = () => {
       <CustomTypography variant="p">
         Вибачте, але ми не змогли знайти сторінку, яку ви шукаєте. Схоже, що сталася помилка або сторінка була видалена.
       </CustomTypography>
-      <CategoryMoreButton onClick={handleGoBack} text={'Назад'} />
+      <ButtonCustom
+        onClick={handleGoBack}
+        text={'Назад'}
+        sx={{
+          color: desktop ? 'var(--secondColor)' : 'var(--mainColor)',
+          backgroundColor: desktop ? 'var(--mainColor)' : 'var(--secondColor)',
+        }}
+      />
     </Box>
   );
 };

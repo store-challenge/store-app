@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Stack } from '@mui/material';
 
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
-import Title from '../../components/Title/Title';
+import { Title } from '../../components/Title/Title';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import CatalogList from '../../components/CatalogList/CatalogList';
 

@@ -5,6 +5,7 @@
   --priceTextColor: #ff0000;
   --buttonHoverColor: #b18cc6;
   --buttonClickColor: #482b58;
+  --buttonDisabled: #6b4c7d40;
 }
 
 .App {

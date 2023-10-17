@@ -31,7 +31,7 @@ const PriceSection = props => {
       <Typography
         variant="paragraph"
         style={styles}
-        color={available ? 'var(--mainColor)' : '#6b4c7d40'}
+        color={available ? 'var(--mainColor)' : 'var(--buttonDisabled)'}
         sx={{ fontWeight: breakpoint && '300' }}>
         {available ? `В наявності ${available}` : 'Не в наявності'}
       </Typography>
@@ -55,10 +55,10 @@ const PriceSection = props => {
             color: 'var(--secondColor)',
             '&:hover': {
               border: 'inherit',
-              backgroundColor: 'var(--buttonHoverColor)',
+              backgroundColor: breakpoint ? 'var(--buttonHoverColor)' : 'var(--mainColor)',
             },
             '&.Mui-disabled': {
-              backgroundColor: '#6b4c7d40',
+              backgroundColor: 'var(--buttonDisabled)',
             },
           }}
         />

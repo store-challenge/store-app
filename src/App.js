@@ -58,7 +58,7 @@ function App() {
                       element={<SubcategoryPage desktop={desktop} />}
                     />
                     <Route path={`${RoutesLinks.PRODUCT_PAGE}/:id`} element={<ProductPage desktop={desktop} />} />
-                    <Route path="*" element={<NotFoundPage />} />
+                    <Route path="*" element={<NotFoundPage desktop={desktop} />} />
                   </Routes>
                 </Suspense>
               </Container>

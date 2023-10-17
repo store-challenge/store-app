@@ -8,7 +8,7 @@ import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import ImagesGallery from '../../components/ImagesGallery/ImagesGallery';
 import InfoSection from '../../components/InfoSection/InfoSection';
 import PriceSection from '../../components/PriceSection/PriceSection';
-import Title from '../../components/Title/Title';
+import { Title, SubTitle } from '../../components/Title/Title';
 
 import { RoutesLinks } from '../../constant/constant';
 import { getProductById } from '../../services/getProducts';
@@ -65,15 +65,11 @@ const ProductPage = ({ desktop }) => {
       <Grid container columnGap={13.75} flexWrap={desktop && 'nowrap'} justifyContent={'center'}>
         <ImagesGallery images={imagesGallery} breakpoint={desktop} />
         <Box width={'100%'}>
-          <Title text={title} variant={'h4'} sx={{ fontSize: desktop ? '20px' : '13px', fontWeight: 500 }} />
+          <Title text={title} />
           <Grid container rowGap={!desktop && 2.5} justifyContent={'space-between'} width={'100%'}>
             <Box>
               <InfoSection array={mainInfo} columnGap={0.5} breakpoint={desktop} />
-              <Title
-                text={'Характеристики:'}
-                variant={'h4'}
-                sx={{ fontSize: desktop ? '20px' : '13px', fontWeight: 500 }}
-              />
+              <SubTitle text={'Характеристики:'} />
               <InfoSection array={characteristics} columnGap={2.5} breakpoint={desktop} />
             </Box>
             <PriceSection available={productAvailable} price={price} breakpoint={desktop} />
@@ -81,7 +77,7 @@ const ProductPage = ({ desktop }) => {
         </Box>
       </Grid>
       <Box>
-        <Title text={'Про товар'} variant={'h4'} sx={{ fontSize: desktop ? '20px' : '13px', fontWeight: 500 }} />
+        <SubTitle text={'Про товар'} />
         <Typography
           variant="paragraph"
           color={'var(--mainColor)'}
