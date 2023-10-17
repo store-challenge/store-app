@@ -1,53 +1,41 @@
-import React, { useState } from 'react';
 import { Typography, Box } from '@mui/material';
+import { useParams } from 'react-router-dom';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 
 import { useCart } from '../../providers/CartProvider';
-
 import Quantity from '../Quantity/Quantity';
 import ButtonCustom from '../Button/ButtonCustom';
 
 const PriceSection = props => {
-  const { available, price, breakpoint } = props;
-  const [selectedQuantity, setSelectedQuantity] = useState(1);
-  const { quantity, addToCart } = useCart();
+  const { selectedQuantity, setSelectedQuantity, available, price, breakpoint, handleClick } = props;
+  const { id } = useParams();
+  const { itemQuantities } = useCart();
 
-  const styles = {
-    fontFamily: 'Montserrat',
-    fontSize: breakpoint ? '20px' : '13px',
-    fontStyle: 'normal',
-    lineHeight: '130%',
-  };
+  const isButtonDisabled = selectedQuantity + (itemQuantities[id] || 0) > available || available === 0;
 
-  const handleBuyClick = quantityToAdd => {
-    if (quantityToAdd <= available) {
-      addToCart(selectedQuantity);
-      setSelectedQuantity(1);
+  const handleBuyClick = () => {
+    if (!isButtonDisabled) {
+      handleClick(selectedQuantity);
     }
   };
 
   return (
     <Grid container flexDirection={'column'} rowGap={breakpoint ? 6.25 : 2.5} maxWidth={'100%'}>
-      <Typography
-        variant="paragraph"
-        style={styles}
-        color={available ? 'var(--mainColor)' : 'var(--buttonDisabled)'}
-        sx={{ fontWeight: breakpoint && '300' }}>
+      <Typography variant="paragraph" color={available ? 'var(--mainColor)' : '#6b4c7d40'}>
         {available ? `В наявності ${available}` : 'Не в наявності'}
       </Typography>
-      <Typography variant="paragraph" style={styles} color={'var(--priceTextColor)'}>
+      <Typography variant="paragraph" color={'var(--priceTextColor)'}>
         {price && `${price.toLocaleString()} ₴`}
       </Typography>
       <Box display={'flex'} flexDirection={'column'} alignItems={'center'} rowGap={'20px'}>
         <Quantity
-          style={styles}
           currentQuantity={selectedQuantity}
           onChange={newQuantity => setSelectedQuantity(newQuantity)}
-          available={available}
+          available={itemQuantities[id] ? available - itemQuantities[id] : available}
         />
         <ButtonCustom
-          disabled={selectedQuantity + quantity > available}
-          onClick={() => handleBuyClick(1)}
+          disabled={isButtonDisabled}
+          onClick={handleBuyClick}
           text={'Купити'}
           sx={{
             margin: 0,

@@ -13,6 +13,8 @@ import { Title, SubTitle } from '../../components/Title/Title';
 import { RoutesLinks } from '../../constant/constant';
 import { getProductById } from '../../services/getProducts';
 
+import { useCart } from '../../providers/CartProvider';
+
 const ProductPage = ({ desktop }) => {
   const { id } = useParams();
   const [productInfo, setProductInfo] = useState({});
@@ -29,6 +31,8 @@ const ProductPage = ({ desktop }) => {
   } = productInfo;
   const [imagesGallery, setImagesGallery] = useState([]);
   const [description, setDescription] = useState('');
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
+  const { addToCart } = useCart();
 
   const mainInfo = [{ label: 'article', name: 'Артикул:', value: productArticle }];
 
@@ -59,6 +63,11 @@ const ProductPage = ({ desktop }) => {
       });
   }, [id]);
 
+  const handleBuyClick = () => {
+    addToCart(productInfo, selectedQuantity);
+    setSelectedQuantity(1);
+  };
+
   return (
     <Stack>
       <BreadCrumbs currentPath={path} breakpoint={desktop} />
@@ -72,7 +81,14 @@ const ProductPage = ({ desktop }) => {
               <SubTitle text={'Характеристики:'} />
               <InfoSection array={characteristics} columnGap={2.5} breakpoint={desktop} />
             </Box>
-            <PriceSection available={productAvailable} price={price} breakpoint={desktop} />
+            <PriceSection
+              selectedQuantity={selectedQuantity}
+              setSelectedQuantity={setSelectedQuantity}
+              available={productAvailable}
+              price={price}
+              handleClick={handleBuyClick}
+              breakpoint={desktop}
+            />
           </Grid>
         </Box>
       </Grid>
