@@ -46,7 +46,7 @@ const PriceSection = props => {
             color: 'var(--secondColor)',
             '&:hover': {
               border: 'inherit',
-              backgroundColor: breakpoint ? 'var(--buttonHoverColor)' : 'var(--mainColor)',
+              backgroundColor: 'var(--buttonHoverColor)',
             },
             '&.Mui-disabled': {
               backgroundColor: 'var(--buttonDisabled)',
