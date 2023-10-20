@@ -21,7 +21,10 @@ const PriceSection = props => {
 
   return (
     <Grid container flexDirection={'column'} rowGap={breakpoint ? 6.25 : 2.5} maxWidth={'100%'}>
-      <Typography variant="paragraph" color={available ? 'var(--mainColor)' : '#6b4c7d40'}>
+      <Typography
+        variant="paragraph"
+        color={available ? 'var(--mainColor)' : 'var(--buttonDisabled)'}
+        sx={{ fontWeight: breakpoint && '300' }}>
         {available ? `В наявності ${available}` : 'Не в наявності'}
       </Typography>
       <Typography variant="paragraph" color={'var(--priceTextColor)'}>
