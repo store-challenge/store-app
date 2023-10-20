@@ -22,7 +22,7 @@ const Quantity = props => {
       <IconButton aria-label="reduce" onClick={handleDecrement} sx={{ padding: 0 }}>
         <Icon icon={'bi:dash-circle-fill'} width={'18px'} height={'18px'} color="var(--mainColor)" />
       </IconButton>
-      <CustomTypography marginX={'30px'}>{currentQuantity}</CustomTypography>
+      <CustomTypography>{currentQuantity}</CustomTypography>
       <IconButton aria-label="increase" onClick={handleIncrement} sx={{ padding: 0 }}>
         <Icon icon={'bi:plus-circle-fill'} width={'18px'} height={'18px'} color="var(--mainColor)" />
       </IconButton>
