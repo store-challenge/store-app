@@ -20,12 +20,20 @@ const ImagesGallery = ({ images, breakpoint }) => {
   const handleClose = () => setOpenModal(false);
 
   const renderStepper = () =>
-    images && <Stepper array={images} currentIndex={currentImageIndex} setCurrentIndex={setCurrentImageIndex} />;
+    images && (
+      <Stepper
+        array={images}
+        currentIndex={currentImageIndex}
+        setCurrentIndex={setCurrentImageIndex}
+        breakpoint={breakpoint}
+      />
+    );
 
   const paperPropsStyles = {
     style: {
-      width: breakpoint ? 614 : 280,
-      padding: breakpoint ? '50px' : '20px',
+      margin: 0,
+      width: 584,
+      padding: '35px',
       alignItems: 'center',
       border: '4px solid var(--mainColor)',
       borderRadius: '30px',
@@ -43,32 +51,32 @@ const ImagesGallery = ({ images, breakpoint }) => {
           alt={`Image ${currentImageIndex + 1}`}
           onClick={() => handleOpen(currentImageIndex)}
         />
-        {breakpoint && renderStepper()}
+        {renderStepper()}
       </CustomCard>
-      {!breakpoint && renderStepper()}
 
-      <Dialog
-        open={openModal}
-        onClose={handleClose}
-        TransitionComponent={Transition}
-        maxWidth="md"
-        PaperProps={paperPropsStyles}>
-        <CustomIconButton onClick={handleClose}>
-          <Icon icon="iconamoon:close" color="var(--mainColor)" width="100%" height="100%" />
-        </CustomIconButton>
-        <CustomDialogContent>
-          <CardMedia
-            component="img"
-            height={breakpoint ? 550 : 208}
-            sx={{ objectFit: 'contain' }}
-            image={images.length > 0 ? images[currentImageIndex] : ''}
-            alt={`Image ${currentImageIndex + 1}`}
-            onClick={() => handleOpen(currentImageIndex)}
-          />
-          {breakpoint && renderStepper()}
-        </CustomDialogContent>
-        {!breakpoint && renderStepper()}
-      </Dialog>
+      {breakpoint && (
+        <Dialog
+          open={openModal}
+          onClose={handleClose}
+          TransitionComponent={Transition}
+          maxWidth="md"
+          PaperProps={paperPropsStyles}>
+          <CustomIconButton onClick={handleClose}>
+            <Icon icon="iconamoon:close" color="var(--mainColor)" width="100%" height="100%" />
+          </CustomIconButton>
+          <CustomDialogContent>
+            <CardMedia
+              component="img"
+              height={breakpoint ? 550 : 208}
+              sx={{ objectFit: 'contain' }}
+              image={images.length > 0 ? images[currentImageIndex] : ''}
+              alt={`Image ${currentImageIndex + 1}`}
+              onClick={() => handleOpen(currentImageIndex)}
+            />
+            {renderStepper()}
+          </CustomDialogContent>
+        </Dialog>
+      )}
     </Stack>
   );
 };

@@ -2,29 +2,35 @@ import { styled } from '@mui/material/styles';
 import { Card, DialogContent, IconButton } from '@mui/material';
 
 export const CustomCard = styled(Card)(({ theme }) => ({
-  padding: '10px',
-  width: '112px',
-  height: '118px',
+  width: '264px',
+  height: '250px',
+  padding: '20px',
   display: 'flex',
-  flexWrap: 'wrap',
-  alignContent: 'center',
+  flexDirection: 'column',
+  justifyContent: 'flex-end',
+  alignItems: 'center',
+  gap: '10px',
   borderRadius: '30px',
-  border: '4px solid var(--mainColor)',
+  border: '2px solid var(--mainColor)',
   backgroundColor: '#FFF',
   [theme.breakpoints.up('xl')]: {
-    padding: '25px',
-    width: '310px',
-    height: '322px',
-    alignContent: 'space-between',
+    width: '328px',
+    height: '340px',
+    gap: '20px',
+    border: '4px solid var(--mainColor)',
   },
 }));
 
-export const CustomDialogContent = styled(DialogContent)(() => ({
+export const CustomDialogContent = styled(DialogContent)(({ theme }) => ({
   padding: 0,
-  gap: '20px',
+  gap: '10px',
   display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent: 'center',
+  flexDirection: 'column',
+  justifyContent: 'flex-end',
+  alignItems: 'center',
+  [theme.breakpoints.up('xl')]: {
+    gap: '30px',
+  },
 }));
 
 export const CustomIconButton = styled(IconButton)(({ theme }) => ({
@@ -34,8 +40,8 @@ export const CustomIconButton = styled(IconButton)(({ theme }) => ({
   right: '20px',
   width: '40px',
   height: '40px',
-  '& Mui-IconButton:hover': {
-    backgroundColor: 'var(--buttonHoverColor)',
+  '&:hover': {
+    backgroundColor: 'transparent',
   },
   [theme.breakpoints.down('xl')]: {
     width: '30px',
