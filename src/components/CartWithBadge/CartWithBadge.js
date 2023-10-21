@@ -21,6 +21,7 @@ const CartWithBadge = props => {
         max={99}
         invisible={quantity === 0 && true}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        sx={{ cursor: 'pointer' }}
         badgeContent={quantity}>
         <HeaderButton icon="ion:cart-outline" style={{ fontSize: breakpoint ? '32px' : undefined }} key="cart" />
       </StyledBadge>
