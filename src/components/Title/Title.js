@@ -1,15 +1,20 @@
 import { Box } from '@mui/material';
-import { CustomTypography } from './Title.styled';
+import { CustomTypographyTitle, CustomTypographySubTitle } from './Title.styled';
 
-const Title = props => {
-  const { text, variant, sx } = props;
-  return (
-    <Box sx={{ width: '100%' }}>
-      <CustomTypography variant={variant} gutterBottom sx={sx}>
-        {text}
-      </CustomTypography>
-    </Box>
-  );
-};
+const Title = ({ text, sx }) => (
+  <Box sx={{ width: '100%' }}>
+    <CustomTypographyTitle variant={'h3'} gutterBottom sx={sx}>
+      {text}
+    </CustomTypographyTitle>
+  </Box>
+);
 
-export default Title;
+const SubTitle = ({ text, sx }) => (
+  <Box sx={{ width: '100%' }}>
+    <CustomTypographySubTitle variant={'h4'} gutterBottom sx={sx}>
+      {text}
+    </CustomTypographySubTitle>
+  </Box>
+);
+
+export { Title, SubTitle };

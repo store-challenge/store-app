@@ -41,8 +41,8 @@ const CategoryListMobile = props => {
           text={showMore ? 'Зменшити' : 'Більше категорій'}
           onClick={handleClickShowMore}
           sx={{
-            backgroundColor: desktop ? 'var(--mainColor)' : 'var(--secondColor)',
-            color: desktop ? 'var(--secondColor)' : 'var(--mainColor)',
+            color: 'var(--mainColor)',
+            backgroundColor: 'var(--secondColor)',
           }}
         />
       </Grid>
