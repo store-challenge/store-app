@@ -3,7 +3,7 @@ import { Stack } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { RoutesLinks } from '../../constant/constant';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
-import Title from '../../components/Title/Title';
+import { Title } from '../../components/Title/Title';
 import CatalogList from '../../components/CatalogList/CatalogList';
 import ButtonCustom from '../../components/Button/ButtonCustom';
 import FilterDesktop from '../../components/Filter/FilterDesktop';
