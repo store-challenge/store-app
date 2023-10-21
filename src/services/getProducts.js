@@ -51,3 +51,12 @@ export const getHotProductsById = async (limit, categoryId) => {
   // eslint-disable-next-line no-console
   return data && data.error ? (console.error('Помилка при отриманні даних:', data.error), null) : data;
 };
+
+export const getProductList = async (limit, subcategoryId, sortBy, orderBy) => {
+  const response = await axiosClient.get(getProductListEndpoint, {
+    params: { limit, subcategoryId, sortBy, orderBy },
+  });
+  const { data } = response;
+  // eslint-disable-next-line no-console
+  return data && data.error ? (console.error('Помилка при отриманні даних:', data.error), null) : data;
+};

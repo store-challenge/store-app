@@ -1,33 +1,12 @@
 import { useState } from 'react';
 
-import { styled } from '@mui/material/styles';
-import { InputBase, InputAdornment, Button, useMediaQuery } from '@mui/material';
+import { InputBase, InputAdornment } from '@mui/material';
 import { Icon } from '@iconify/react';
 
+import ButtonCustom from '../Button/ButtonCustom';
 import s from './Search.module.css';
 
 import { getSearchProduct } from '../../services/getProducts';
-
-const StyledButton = styled(Button)(() => ({
-  marginRight: '10px',
-  width: '177px',
-  height: '42px',
-  fontFamily: 'Montserrat',
-  fontSize: '15px',
-  lineHeight: '26px',
-  textTransform: 'capitalize',
-  color: 'var(--secondColor)',
-  backgroundColor: 'var(--mainColor)',
-  borderRadius: '15px',
-  '&:hover': {
-    backgroundColor: 'var(--buttonHoverColor)',
-    boxShadow:
-      '0px 3px 1px -2px rgba(0, 0, 0, 0.20), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12)',
-  },
-  '&:active': {
-    backgroundColor: 'var(--buttonClickColor)',
-  },
-}));
 
 const Search = props => {
   const { breakpoint, isVisible, onClick } = props;
@@ -68,9 +47,16 @@ const Search = props => {
         }
       />
       {breakpoint && (
-        <StyledButton type="submit" variant="contained" disableElevation onClick={handleFormSubmit}>
-          Пошук
-        </StyledButton>
+        <ButtonCustom
+          text={'Пошук'}
+          type={'submit'}
+          onClick={handleFormSubmit}
+          sx={{
+            marginRight: '10px',
+            backgroundColor: breakpoint ? 'var(--mainColor)' : 'var(--secondColor)',
+            color: breakpoint ? 'var(--secondColor)' : 'var(--mainColor)',
+          }}
+        />
       )}
     </form>
   );

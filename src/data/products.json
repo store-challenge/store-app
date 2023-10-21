@@ -36,28 +36,28 @@
   },
   {
     "id": 6,
-    "title": "Product 2",
+    "title": "Product 6",
     "image": "http://placekitten.com/150/150",
     "alt": "Product 2",
     "price": 100
   },
   {
     "id": 7,
-    "title": "Product 3",
+    "title": "Product 7",
     "image": "http://placekitten.com/150/150",
     "alt": "Product 3",
     "price": 500
   },
   {
     "id": 8,
-    "title": "Product 4",
+    "title": "Product 8",
     "image": "http://placekitten.com/150/150",
     "alt": "Product 4",
     "price": 750
   },
   {
     "id": 9,
-    "title": "Product 5",
+    "title": "Product 9",
     "image": "http://placekitten.com/150/150",
     "alt": "Product 5",
     "price": 1200

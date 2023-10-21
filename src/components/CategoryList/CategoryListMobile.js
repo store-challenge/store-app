@@ -8,7 +8,7 @@ import CategoryList from './CategoryList';
 import ButtonCustom from '../Button/ButtonCustom';
 
 const CategoryListMobile = props => {
-  const { array, href } = props;
+  const { array, href, desktop } = props;
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.up('sm'));
   const md = useMediaQuery(theme.breakpoints.up('md'));
