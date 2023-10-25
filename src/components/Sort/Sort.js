@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 
-import { CustomSelect, CustomMenuItem } from './Sort.styled';
+import { Select } from '@mui/material';
+
+import { CustomFormControl, CustomSelect, CustomMenuItem } from './Sort.styled';
 
 const Sort = ({ onSelect, breakpoint }) => {
   const [sortOption, setSortOption] = useState('newest');
@@ -39,26 +41,27 @@ const Sort = ({ onSelect, breakpoint }) => {
   };
 
   return (
-    <CustomSelect
-      defaultValue={'newest'}
-      value={sortOption}
-      onChange={handleSort}
-      sx={{
-        '& .MuiOutlinedInput-notchedOutline': {
-          border: 'none',
-        },
-      }}
-      variant="outlined"
-      MenuProps={menuPropsStyles}
-      IconComponent={props => (
-        <Icon icon={'iconamoon:arrow-down-2-duotone'} style={{ fontSize: breakpoint ? '24px' : '10px' }} {...props} />
-      )}>
-      {valueOptions.map((element, index) => (
-        <CustomMenuItem key={index} value={element.value}>
-          {element.text}
-        </CustomMenuItem>
-      ))}
-    </CustomSelect>
+    <CustomFormControl>
+      <CustomSelect
+        defaultValue={'newest'}
+        value={sortOption}
+        onChange={handleSort}
+        variant="outlined"
+        MenuProps={menuPropsStyles}
+        IconComponent={props => (
+          <Icon
+            icon={'iconamoon:arrow-down-2-duotone'}
+            style={{ fontSize: breakpoint ? '22px' : '10px', marginRight: breakpoint ? '18px' : '6px' }}
+            {...props}
+          />
+        )}>
+        {valueOptions.map((element, index) => (
+          <CustomMenuItem key={index} value={element.value}>
+            {element.text}
+          </CustomMenuItem>
+        ))}
+      </CustomSelect>
+    </CustomFormControl>
   );
 };
 
