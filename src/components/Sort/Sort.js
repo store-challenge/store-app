@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 
-import { Select } from '@mui/material';
-
 import { CustomFormControl, CustomSelect, CustomMenuItem } from './Sort.styled';
 
 const Sort = ({ onSelect, breakpoint }) => {
