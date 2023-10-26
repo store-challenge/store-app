@@ -48,7 +48,7 @@ const PriceSection = props => {
               border: 'inherit',
               backgroundColor: 'var(--buttonHoverColor)',
             },
-            '&.Mui-disabled': {
+            '&:disabled': {
               backgroundColor: 'var(--buttonDisabled)',
             },
           }}
