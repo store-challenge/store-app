@@ -38,7 +38,7 @@ export const CustomIconButton = styled(IconButton)(() => ({
   padding: '0',
   backgroundColor: 'var(--mainColor)',
   borderRadius: '50%',
-  '&.MuiIconButton-root:hover': {
+  '&:hover': {
     backgroundColor: 'var(--buttonHoverColor)',
   },
   '&:disabled': {
