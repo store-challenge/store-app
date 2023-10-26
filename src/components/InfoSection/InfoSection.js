@@ -34,6 +34,7 @@ const InfoSection = props => {
                 variant="paragraph"
                 color={'var(--mainColor)'}
                 fontWeight={'500'}
+                sx={sx}
                 fontSize={breakpoint ? '20px' : '13px'}>
                 {option.value}
               </Typography>
