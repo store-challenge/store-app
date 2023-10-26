@@ -2,8 +2,8 @@ import { styled } from '@mui/material/styles';
 import { ButtonGroup, Typography } from '@mui/material';
 
 export const CustomButtonGroup = styled(ButtonGroup)(({ theme }) => ({
-  padding: '8px 50px',
-  width: '188px',
+  padding: '8px 24px',
+  width: '238px',
   height: '24px',
   fontSize: '15px',
   fontWeight: '500',
@@ -14,8 +14,7 @@ export const CustomButtonGroup = styled(ButtonGroup)(({ theme }) => ({
   color: 'var(--mainColor)',
   backgroundColor: 'var(--secondColor)',
   [theme.breakpoints.up('640')]: {
-    padding: '8px 30px',
-    width: '116px',
+    width: '126px',
   },
 }));
 
