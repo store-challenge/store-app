@@ -2,6 +2,8 @@ import { useState, forwardRef } from 'react';
 import { CardMedia, Dialog, Zoom, Stack } from '@mui/material';
 import { Icon } from '@iconify/react';
 
+import SwipeableViews from 'react-swipeable-views';
+
 import Stepper from '../Stepper/Stepper';
 
 import { CustomCard, CustomDialogContent, CustomIconButton } from './ImagesGallery.styled';
@@ -19,6 +21,10 @@ const ImagesGallery = ({ images, breakpoint }) => {
 
   const handleClose = () => setOpenModal(false);
 
+  const isImageZoomed = index => index === currentImageIndex;
+
+  const toggleZoom = index => isImageZoomed && (openModal ? handleClose() : handleOpen(index));
+
   const renderStepper = () =>
     images && (
       <Stepper
@@ -28,6 +34,17 @@ const ImagesGallery = ({ images, breakpoint }) => {
         breakpoint={breakpoint}
       />
     );
+
+  const renderCard = (height, image, sx) => (
+    <CardMedia
+      component="img"
+      height={height}
+      sx={sx}
+      image={image}
+      alt={`Image ${currentImageIndex + 1}`}
+      onClick={() => handleOpen(currentImageIndex)}
+    />
+  );
 
   const paperPropsStyles = {
     style: {
@@ -43,14 +60,21 @@ const ImagesGallery = ({ images, breakpoint }) => {
   return (
     <Stack sx={{ marginTop: breakpoint ? 6.25 : 2.5, alignItems: !breakpoint && 'center' }}>
       <CustomCard elevation={0}>
-        <CardMedia
-          component="img"
-          height={'85%'}
-          sx={{ objectFit: 'contain', cursor: 'pointer' }}
-          image={images.length > 0 ? images[currentImageIndex] : ''}
-          alt={`Image ${currentImageIndex + 1}`}
-          onClick={() => handleOpen(currentImageIndex)}
-        />
+        {breakpoint ? (
+          renderCard('85%', images.length > 0 ? images[currentImageIndex] : '', {
+            objectFit: 'contain',
+            cursor: 'zoom-in',
+          })
+        ) : (
+          <SwipeableViews
+            index={currentImageIndex}
+            enableMouseEvents
+            onChangeIndex={index => setCurrentImageIndex(index)}>
+            {images.map((item, index) => (
+              <div key={index}>{renderCard(210, item, { objectFit: 'contain', cursor: 'initial' })}</div>
+            ))}
+          </SwipeableViews>
+        )}
         {renderStepper()}
       </CustomCard>
 
@@ -68,10 +92,10 @@ const ImagesGallery = ({ images, breakpoint }) => {
             <CardMedia
               component="img"
               height={breakpoint ? 550 : 208}
-              sx={{ objectFit: 'contain' }}
+              sx={{ objectFit: 'contain', cursor: 'zoom-out' }}
               image={images.length > 0 ? images[currentImageIndex] : ''}
               alt={`Image ${currentImageIndex + 1}`}
-              onClick={() => handleOpen(currentImageIndex)}
+              onClick={toggleZoom}
             />
             {renderStepper()}
           </CustomDialogContent>
