@@ -20,20 +20,6 @@ export const getAllImages = async (id, images) => {
   return data && data.error ? (console.error('Помилка при отриманні даних:', data.error), null) : data;
 };
 
-export const getSearchProduct = searchValue => {
-  axiosClient
-    .get(getProductListEndpoint, {
-      params: {
-        search: searchValue,
-      },
-    })
-    .then(response => response.data)
-    .catch(error => {
-      // eslint-disable-next-line no-console
-      console.error('Search Error:', error);
-    });
-};
-
 export const getAllHotProducts = async limit => {
   const response = await axiosClient.get(getHotProductsEndpoint, {
     params: { limit },
