@@ -96,7 +96,6 @@ const ImagesGallery = ({ images, breakpoint }) => {
               image={images.length > 0 ? images[currentImageIndex] : ''}
               alt={`Image ${currentImageIndex + 1}`}
               onClick={toggleZoom}
-              // onClick={() => handleOpen(currentImageIndex)}
             />
             {renderStepper()}
           </CustomDialogContent>
