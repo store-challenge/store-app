@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { Select, MenuItem } from '@mui/material';
+import { FormControl, Select, MenuItem } from '@mui/material';
 
 const styles = {
   fontFamily: 'Montserrat',
@@ -9,26 +9,33 @@ const styles = {
   lineHeight: '130%',
 };
 
-export const CustomSelect = styled(Select)(({ theme }) => ({
-  ...styles,
-  padding: '8px 12px',
+export const CustomFormControl = styled(FormControl)(({ theme }) => ({
   width: '140px',
-  height: '29px',
-  border: '0.38px solid var(--mainColor)',
-  borderRadius: '8px',
-  '&.MuiInputBase-root': {
-    cursor: 'pointer',
-  },
   '& .MuiInputBase-input': {
-    padding: 0,
+    ...styles,
+    padding: '7px 22px',
+  },
+  '& .MuiOutlinedInput-notchedOutline': {
+    border: 'none',
   },
   [theme.breakpoints.up('xl')]: {
-    padding: '16px',
-    width: '368px',
-    height: '58px',
-    fontSize: '16px',
+    width: '370px',
+    '& .MuiInputBase-input': {
+      fontSize: '16px',
+      padding: '15.5px 28px',
+    },
+  },
+}));
+
+export const CustomSelect = styled(Select)(({ theme }) => ({
+  border: '0.38px solid var(--mainColor)',
+  borderRadius: '8px',
+  [theme.breakpoints.up('xl')]: {
     border: '1px solid var(--mainColor)',
     borderRadius: '20px',
+    '&.MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input': {
+      minHeight: 0,
+    },
   },
 }));
 

@@ -107,7 +107,7 @@ const SubcategoryPage = ({ desktop }) => {
               color: desktop ? 'var(--secondColor)' : 'var(--mainColor)',
               marginTop: desktop ? '50px' : '20px',
               '&.Mui-disabled': {
-                backgroundColor: '#6b4c7d40',
+                backgroundColor: 'var(--buttonDisabled)',
               },
             }}
             disabled={limit < 9 || products.length % 9 !== 0}
