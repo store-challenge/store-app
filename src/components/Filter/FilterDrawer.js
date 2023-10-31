@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import { Divider, Drawer } from '@mui/material';
-import { styled } from '@mui/material/styles';
 import { FilterContainer } from './Filter.styled';
 import FilterBrandList from './FilterBrandList';
 import FilterRangeSlider from './FilterRangeSlider';
@@ -35,7 +33,7 @@ export default function FilterDrawer({
             padding: '8px',
             '&:hover': {
               color: 'var(--secondColor)',
-              backgroundColor: 'var(--mainColor)',
+              backgroundColor: 'var(--buttonHoverColor)',
               borderColor: 'var(--secondColor)',
             },
           }}
@@ -52,7 +50,7 @@ export default function FilterDrawer({
             borderColor: 'var(--secondColor)',
             '&:hover': {
               color: 'var(--mainColor)',
-              backgroundColor: 'var(--secondColor)',
+              backgroundColor: 'var(--buttonHoverColor)',
             },
           }}
         />
