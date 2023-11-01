@@ -100,7 +100,7 @@ const SubcategoryPage = ({ desktop }) => {
           />
         )}
         <Stack maxWidth={'100%'} direction="column" alignItems={desktop ? 'flex-end' : 'center'}>
-          <CatalogList products={products} />
+          <CatalogList products={products} breakpoint={desktop} />
           <ButtonCustom
             sx={{
               backgroundColor: desktop ? 'var(--mainColor)' : 'var(--secondColor)',
