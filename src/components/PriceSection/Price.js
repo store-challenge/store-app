@@ -9,7 +9,7 @@ const Price = props => {
         variant="paragraph"
         style={{
           color: newPrice && newPrice !== price ? 'var(--priceTextColor)' : 'var(--textColor)',
-          fontSize: breakpoint ? '20px' : '15px',
+          fontSize: breakpoint ? '20px' : newPrice === price ? '13px' : '15px',
         }}>
         {newPrice && `${newPrice.toLocaleString()} ₴`}
       </Typography>
