@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/store-app/static/css/main.f61bef76.css",
-    "main.js": "/store-app/static/js/main.5ee484df.js",
-    "CatalogPage.css": "/store-app/static/css/CatalogPage.402b424d.chunk.css",
-    "CatalogPage.js": "/store-app/static/js/CatalogPage.312a3eca.chunk.js",
-    "CategoryPage.css": "/store-app/static/css/CategoryPage.6b431b96.chunk.css",
-    "CategoryPage.js": "/store-app/static/js/CategoryPage.b61bd16f.chunk.js",
-    "SubcategoryPage.css": "/store-app/static/css/SubcategoryPage.fe5bdf03.chunk.css",
-    "SubcategoryPage.js": "/store-app/static/js/SubcategoryPage.896413f4.chunk.js",
-    "ProductPage.js": "/store-app/static/js/ProductPage.80545916.chunk.js",
+    "main.css": "/store-app/static/css/main.79929c47.css",
+    "main.js": "/store-app/static/js/main.bc5659b8.js",
+    "CatalogPage.css": "/store-app/static/css/CatalogPage.043d3e08.chunk.css",
+    "CatalogPage.js": "/store-app/static/js/CatalogPage.c1719c77.chunk.js",
+    "CategoryPage.css": "/store-app/static/css/CategoryPage.951318fc.chunk.css",
+    "CategoryPage.js": "/store-app/static/js/CategoryPage.0d5a902d.chunk.js",
+    "SubcategoryPage.css": "/store-app/static/css/SubcategoryPage.0b6a34ee.chunk.css",
+    "SubcategoryPage.js": "/store-app/static/js/SubcategoryPage.f3d04646.chunk.js",
+    "ProductPage.js": "/store-app/static/js/ProductPage.b60c4c7e.chunk.js",
     "NotFoundPage.js": "/store-app/static/js/NotFoundPage.5f2f4ca5.chunk.js",
     "static/js/998.5763caac.chunk.js": "/store-app/static/js/998.5763caac.chunk.js",
     "static/js/889.d868c04b.chunk.js": "/store-app/static/js/889.d868c04b.chunk.js",
@@ -20,15 +20,15 @@
     "static/media/adv2.svg": "/store-app/static/media/adv2.9069f0eb15e10f428269acae1a26f974.svg",
     "static/media/logo.svg": "/store-app/static/media/logo.b3585c1dc456bd1304da7252a5843d67.svg",
     "index.html": "/store-app/index.html",
-    "main.f61bef76.css.map": "/store-app/static/css/main.f61bef76.css.map",
-    "main.5ee484df.js.map": "/store-app/static/js/main.5ee484df.js.map",
-    "CatalogPage.402b424d.chunk.css.map": "/store-app/static/css/CatalogPage.402b424d.chunk.css.map",
-    "CatalogPage.312a3eca.chunk.js.map": "/store-app/static/js/CatalogPage.312a3eca.chunk.js.map",
-    "CategoryPage.6b431b96.chunk.css.map": "/store-app/static/css/CategoryPage.6b431b96.chunk.css.map",
-    "CategoryPage.b61bd16f.chunk.js.map": "/store-app/static/js/CategoryPage.b61bd16f.chunk.js.map",
-    "SubcategoryPage.fe5bdf03.chunk.css.map": "/store-app/static/css/SubcategoryPage.fe5bdf03.chunk.css.map",
-    "SubcategoryPage.896413f4.chunk.js.map": "/store-app/static/js/SubcategoryPage.896413f4.chunk.js.map",
-    "ProductPage.80545916.chunk.js.map": "/store-app/static/js/ProductPage.80545916.chunk.js.map",
+    "main.79929c47.css.map": "/store-app/static/css/main.79929c47.css.map",
+    "main.bc5659b8.js.map": "/store-app/static/js/main.bc5659b8.js.map",
+    "CatalogPage.043d3e08.chunk.css.map": "/store-app/static/css/CatalogPage.043d3e08.chunk.css.map",
+    "CatalogPage.c1719c77.chunk.js.map": "/store-app/static/js/CatalogPage.c1719c77.chunk.js.map",
+    "CategoryPage.951318fc.chunk.css.map": "/store-app/static/css/CategoryPage.951318fc.chunk.css.map",
+    "CategoryPage.0d5a902d.chunk.js.map": "/store-app/static/js/CategoryPage.0d5a902d.chunk.js.map",
+    "SubcategoryPage.0b6a34ee.chunk.css.map": "/store-app/static/css/SubcategoryPage.0b6a34ee.chunk.css.map",
+    "SubcategoryPage.f3d04646.chunk.js.map": "/store-app/static/js/SubcategoryPage.f3d04646.chunk.js.map",
+    "ProductPage.b60c4c7e.chunk.js.map": "/store-app/static/js/ProductPage.b60c4c7e.chunk.js.map",
     "NotFoundPage.5f2f4ca5.chunk.js.map": "/store-app/static/js/NotFoundPage.5f2f4ca5.chunk.js.map",
     "998.5763caac.chunk.js.map": "/store-app/static/js/998.5763caac.chunk.js.map",
     "889.d868c04b.chunk.js.map": "/store-app/static/js/889.d868c04b.chunk.js.map",
@@ -37,7 +37,7 @@
     "877.c862c2f0.chunk.js.map": "/store-app/static/js/877.c862c2f0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f61bef76.css",
-    "static/js/main.5ee484df.js"
+    "static/css/main.79929c47.css",
+    "static/js/main.bc5659b8.js"
   ]
 }
