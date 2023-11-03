@@ -25,7 +25,7 @@ const PriceSection = props => {
       <Typography
         variant="paragraph"
         color={available ? 'var(--mainColor)' : 'var(--buttonDisabled)'}
-        sx={{ fontWeight: breakpoint && '300' }}>
+        sx={{ fontWeight: breakpoint && '300', fontSize: !breakpoint && '13px' }}>
         {available ? `В наявності ${available}` : 'Не в наявності'}
       </Typography>
       <Stack gap={'25px'}>

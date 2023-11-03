@@ -78,7 +78,7 @@ const ProductPage = ({ desktop }) => {
           <Title text={title} />
           <Grid container rowGap={!desktop && 2.5} justifyContent={'space-between'} width={'100%'}>
             <Box>
-              <InfoSection array={mainInfo} columnGap={0.5} sx={{ fontWeight: 300 }} breakpoint={desktop} />
+              <InfoSection array={mainInfo} columnGap={0.5} sx={{ fontWeight: desktop && 300 }} breakpoint={desktop} />
               <SubTitle text={'Характеристики:'} />
               <InfoSection array={characteristics} columnGap={2.5} breakpoint={desktop} />
             </Box>

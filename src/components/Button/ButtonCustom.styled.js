@@ -17,10 +17,10 @@ export const CustomButton = styled(Button)(({ theme }) => ({
     borderColor: 'var(--mainColor)',
     backgroundColor: 'transparent',
   },
-  '&:active': {
+  '&:active, &:focus-visible': {
     color: 'var(--secondColor)',
-    borderColor: 'var(--buttonClickColor)',
-    backgroundColor: 'var(--buttonClickColor)',
+    borderColor: 'var(--buttonHoverColor)',
+    backgroundColor: 'var(--buttonHoverColor)',
   },
   [theme.breakpoints.up('xl')]: {
     width: '177px',
@@ -30,9 +30,6 @@ export const CustomButton = styled(Button)(({ theme }) => ({
     '&:hover': {
       border: 'inherit',
       backgroundColor: 'var(--buttonHoverColor)',
-    },
-    '&:active,&:focus-visible': {
-      backgroundColor: 'var(--buttonClickColor)',
     },
   },
 }));
