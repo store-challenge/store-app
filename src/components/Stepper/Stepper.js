@@ -17,14 +17,18 @@ const Stepper = props => {
       activeStep={currentIndex}
       sx={{ maxWidth: 400, flexGrow: 1 }}
       nextButton={
-        <CustomIconButton onClick={handleNext} disabled={array.length <= 1}>
-          <Icon icon="iconamoon:arrow-right-2-duotone" color="var(--secondColor)" fontSize="20px" />
-        </CustomIconButton>
+        breakpoint && (
+          <CustomIconButton onClick={handleNext} disabled={array.length <= 1}>
+            <Icon icon="iconamoon:arrow-right-2-duotone" color="var(--secondColor)" fontSize="20px" />
+          </CustomIconButton>
+        )
       }
       backButton={
-        <CustomIconButton onClick={handlePrevious} disabled={array.length <= 1}>
-          <Icon icon="iconamoon:arrow-left-2-duotone" color="var(--secondColor)" fontSize="20px" />
-        </CustomIconButton>
+        breakpoint && (
+          <CustomIconButton onClick={handlePrevious} disabled={array.length <= 1}>
+            <Icon icon="iconamoon:arrow-left-2-duotone" color="var(--secondColor)" fontSize="20px" />
+          </CustomIconButton>
+        )
       }
     />
   );
