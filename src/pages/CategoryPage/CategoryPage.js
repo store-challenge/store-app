@@ -53,7 +53,7 @@ const CategoryPage = ({ desktop }) => {
         />
         <Title text="Топ продажів" />
         <Stack sx={{ alignItems: 'center' }}>
-          <CatalogList products={hotProducts} width={true} />
+          <CatalogList products={hotProducts} width={true} breakpoint={desktop} />
         </Stack>
       </Stack>
     </Stack>

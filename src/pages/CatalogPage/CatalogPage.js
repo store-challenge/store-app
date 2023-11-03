@@ -55,7 +55,7 @@ const CatalogPage = ({ desktop }) => {
         <Advertising advertising={advertising} />
         {!desktop && <CategoryListMobile array={allCategories} href={RoutesLinks.CATEGORY_PAGE} />}
         <Title text="Топ продажів" />
-        <CatalogList products={allHotProducts} />
+        <CatalogList products={allHotProducts} breakpoint={desktop} />
       </Stack>
     </Stack>
   );

@@ -1,10 +1,9 @@
 import { Grid } from '@mui/material';
 import Card from '../Card/Card';
 
-const CatalogList = ({ products, width }) => (
+const CatalogList = ({ products, width, breakpoint }) => (
   <Grid
     container
-    direction="row"
     alignItems={{ xs: 'center', xl: 'start' }}
     columns={{ xs: 6, md: 4 }}
     rowGap={{ xs: 2.5, xl: 6.25 }}
@@ -14,7 +13,7 @@ const CatalogList = ({ products, width }) => (
     justifyContent="center">
     {products.map(product => (
       <Grid item key={product.id}>
-        <Card product={product} />
+        <Card product={product} breakpoint={breakpoint} />
       </Grid>
     ))}
   </Grid>

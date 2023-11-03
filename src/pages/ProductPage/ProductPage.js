@@ -28,6 +28,7 @@ const ProductPage = ({ desktop }) => {
     subcategoryName,
     productAvailable,
     price,
+    discountPrice,
   } = productInfo;
   const [imagesGallery, setImagesGallery] = useState([]);
   const [description, setDescription] = useState('');
@@ -85,7 +86,8 @@ const ProductPage = ({ desktop }) => {
               selectedQuantity={selectedQuantity}
               setSelectedQuantity={setSelectedQuantity}
               available={productAvailable}
-              price={price}
+              price={price || 0}
+              newPrice={discountPrice && discountPrice}
               handleClick={handleBuyClick}
               breakpoint={desktop}
             />
