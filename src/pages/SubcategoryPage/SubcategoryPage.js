@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Stack } from '@mui/material';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { RoutesLinks } from '../../constant/constant';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import { Title } from '../../components/Title/Title';
@@ -15,7 +15,9 @@ import { getBrandsList } from '../../services/getBrands';
 
 const SubcategoryPage = ({ desktop }) => {
   const { subcategoryId } = useParams();
+  const location = useLocation();
   const navigate = useNavigate();
+  const queryParams = new URLSearchParams(location.search);
   const [limit, setLimit] = useState(9);
   const [products, setProducts] = useState([]);
   const [brands, setBrands] = useState([]);
@@ -31,7 +33,10 @@ const SubcategoryPage = ({ desktop }) => {
     { name: 'za', sortBy: 'product_title', orderBy: 'DESC' },
     { name: 'newest', sortBy: 'updated', orderBy: 'DESC' },
   ];
-  const [sort, setSort] = useState(sortOptions.length - 1);
+  const [sort, setSort] = useState(() => {
+    const savedSortName = queryParams.get('sort') || sortOptions.at(-1).name;
+    return sortOptions.find(option => option.name === savedSortName) || sortOptions.at(-1);
+  });
 
   const path = [
     { path: `${RoutesLinks.HOMEPAGE}`, name: 'Головна сторінка' },
@@ -56,7 +61,9 @@ const SubcategoryPage = ({ desktop }) => {
         console.error('Виникла помилка при отриманні даних:', error);
         return null;
       });
-    navigate(`${RoutesLinks.SUBCATEGORY_PAGE}/${subcategoryId}?sort=${sort.sortBy}&order=${sort.orderBy}`);
+    const updatedParams = new URLSearchParams(location.search);
+    updatedParams.set('sort', sort.name);
+    navigate(`?${updatedParams.toString()}`, { replace: true });
   }, [limit, subcategoryId, sort.sortBy, sort.orderBy]);
 
   const handleShowMore = () => {
