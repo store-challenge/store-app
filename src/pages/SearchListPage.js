@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Stack } from '@mui/material';
 
-import Loading from '../components/Loading/Loading';
 import { Info } from '../components/Info/Info';
 import CatalogList from '../components/CatalogList/CatalogList';
 import ButtonCustom from '../components/Button/ButtonCustom';
