@@ -24,7 +24,6 @@ const SearchListPage = ({ desktop }) => {
   const [brands, setBrands] = useState([]);
   const [priceRange, setPriceRange] = useState([0, 20_000]);
   const [selectedBrand, setSelectedBrand] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const sortOptions = [
     { name: 'asc', sortBy: 'product_price', orderBy: 'ASC' },
@@ -46,13 +45,11 @@ const SearchListPage = ({ desktop }) => {
     getProductList({ configProducts })
       .then(searchResult => {
         setSearchList(searchResult);
-        setLoading(false);
         return null;
       })
       .catch(error => {
         // eslint-disable-next-line no-console
         console.error('Виникла помилка при отриманні даних:', error);
-        setLoading(false);
         return null;
       });
 
@@ -80,9 +77,7 @@ const SearchListPage = ({ desktop }) => {
     sortOptions.map(element => element.name === selectedOption && setSort(element));
   };
 
-  return loading ? (
-    <Loading />
-  ) : (
+  return (
     <Stack>
       <Stack
         direction="row"
