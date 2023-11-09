@@ -21,14 +21,11 @@ const NotFoundPage = ({ desktop }) => {
         gap: { xs: '20px', md: '35px', lg: '50px' },
         marginY: '80px',
       }}>
-      <Info variant={'h1'} text={'404'} />
-      <Info variant={'h2'} text={'Page not found!'} />
-      <Info
-        variant={'p'}
-        text={
-          'Вибачте, але ми не змогли знайти сторінку, яку ви шукаєте. Схоже, що сталася помилка або сторінка була видалена.'
-        }
-      />
+      <Info variant={'h1'}>404</Info>
+      <Info variant={'h2'}>Page not found!</Info>
+      <Info variant={'p'}>
+        Вибачте, але ми не змогли знайти сторінку, яку ви шукаєте. Схоже, що сталася помилка або сторінка була видалена.
+      </Info>
       <ButtonCustom
         onClick={handleGoBack}
         text={'Назад'}

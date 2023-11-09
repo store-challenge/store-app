@@ -132,13 +132,13 @@ const SearchListPage = ({ desktop }) => {
             </Stack>
           ) : (
             <Stack width={'100%'} alignItems={'center'}>
-              <Info
-                variant={'p'}
-                text={`
-                За запитом
-                 "${productName}"
-                  нічого не знайдено.`}
-              />
+              <Info variant={'p'}>
+                За запитом{' '}
+                <big>
+                  <strong>"{productName}"</strong>
+                </big>{' '}
+                нічого не знайдено.
+              </Info>
             </Stack>
           )}
         </Stack>
