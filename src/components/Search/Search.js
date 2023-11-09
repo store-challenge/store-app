@@ -19,9 +19,7 @@ const Search = props => {
     const urlParams = new URLSearchParams(window.location.search);
     const storedSearchValue = urlParams.get('query') || '';
 
-    const sessionStorageSearchValue = sessionStorage.getItem('searchValue') || '';
-
-    setSearchValue(sessionStorageSearchValue || storedSearchValue);
+    setSearchValue(storedSearchValue);
   }, []);
 
   const handleInputChange = event => {
@@ -32,7 +30,6 @@ const Search = props => {
       return;
     }
 
-    sessionStorage.setItem('searchValue', value);
     setSearchValue(value);
   };
 
