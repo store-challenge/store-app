@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Stack } from '@mui/material';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { RoutesLinks } from '../../constant/constant';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import { Title } from '../../components/Title/Title';
@@ -15,6 +15,7 @@ import { getBrandsList } from '../../services/getBrands';
 
 const SubcategoryPage = ({ desktop }) => {
   const { subcategoryId } = useParams();
+  const navigate = useNavigate();
   const [limit, setLimit] = useState(9);
   const [products, setProducts] = useState([]);
   const [brands, setBrands] = useState([]);
@@ -39,7 +40,10 @@ const SubcategoryPage = ({ desktop }) => {
   ];
 
   useEffect(() => {
-    Promise.all([getProductList(limit, subcategoryId, sort.sortBy, sort.orderBy), getBrandsList(subcategoryId)])
+    const configProducts = { limit, subcategoryId, sortBy: sort.sortBy, orderBy: sort.orderBy };
+    const configBrands = { subcategoryId };
+
+    Promise.all([getProductList({ configProducts }), getBrandsList({ configBrands })])
       .then(([productsResult, brandsResult]) => {
         setProducts(productsResult);
         setBrands(brandsResult);
@@ -52,6 +56,7 @@ const SubcategoryPage = ({ desktop }) => {
         console.error('Виникла помилка при отриманні даних:', error);
         return null;
       });
+    navigate(`${RoutesLinks.SUBCATEGORY_PAGE}/${subcategoryId}?sort=${sort.sortBy}&order=${sort.orderBy}`);
   }, [limit, subcategoryId, sort.sortBy, sort.orderBy]);
 
   const handleShowMore = () => {
