@@ -3,9 +3,10 @@ import { useNavigate } from 'react-router-dom';
 
 import { InputBase, InputAdornment } from '@mui/material';
 import { Icon } from '@iconify/react';
-import { RoutesLinks } from '../../constant/constant';
 
 import s from './Search.module.css';
+
+import { RoutesLinks } from '../../constant/constant';
 
 import ButtonCustom from '../Button/ButtonCustom';
 
@@ -15,10 +16,12 @@ const Search = props => {
   const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
-    const storedSearchValue = localStorage.getItem('searchValue');
-    if (storedSearchValue) {
-      setSearchValue(storedSearchValue);
-    }
+    const urlParams = new URLSearchParams(window.location.search);
+    const storedSearchValue = urlParams.get('query') || '';
+
+    const sessionStorageSearchValue = sessionStorage.getItem('searchValue') || '';
+
+    setSearchValue(sessionStorageSearchValue || storedSearchValue);
   }, []);
 
   const handleInputChange = event => {
@@ -28,17 +31,29 @@ const Search = props => {
       setSearchValue('');
       return;
     }
+
+    sessionStorage.setItem('searchValue', value);
     setSearchValue(value);
-    localStorage.setItem('searchValue', value);
   };
 
   const handleFormSubmit = event => {
     event.preventDefault();
-    if (searchValue.trim() === '') {
-      navigate(RoutesLinks.HOMEPAGE);
+
+    const trimmedValue = searchValue.trim();
+
+    if (trimmedValue === '') {
+      // eslint-disable-next-line no-alert
+      alert('Будь ласка, введіть дані для пошуку.');
       return;
     }
-    navigate(`${RoutesLinks.SEARCH}?query=${searchValue}`);
+
+    if (!/^[\d\sA-Za-zА-я]+$/.test(trimmedValue)) {
+      // eslint-disable-next-line no-alert
+      alert('Будь ласка, введіть правильний запит для пошуку із літер або цифр.');
+      return;
+    }
+
+    navigate(`${RoutesLinks.SEARCH}?query=${encodeURIComponent(trimmedValue)}`);
   };
 
   const searchForm = () => (
