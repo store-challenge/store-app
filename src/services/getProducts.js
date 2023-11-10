@@ -11,29 +11,6 @@ export const getProductById = async id => {
   return data && data.error ? (console.error('Помилка при отриманні даних:', data.error), null) : data;
 };
 
-export const getAllImages = async (id, images) => {
-  const response = await axiosClient.get(`${getProductEndpoint}/${id}/`, {
-    params: { images },
-  });
-  const { data } = response;
-  // eslint-disable-next-line no-console
-  return data && data.error ? (console.error('Помилка при отриманні даних:', data.error), null) : data;
-};
-
-export const getSearchProduct = searchValue => {
-  axiosClient
-    .get(getProductListEndpoint, {
-      params: {
-        search: searchValue,
-      },
-    })
-    .then(response => response.data)
-    .catch(error => {
-      // eslint-disable-next-line no-console
-      console.error('Search Error:', error);
-    });
-};
-
 export const getAllHotProducts = async limit => {
   const response = await axiosClient.get(getHotProductsEndpoint, {
     params: { limit },
@@ -52,11 +29,10 @@ export const getHotProductsById = async (limit, categoryId) => {
   return data && data.error ? (console.error('Помилка при отриманні даних:', data.error), null) : data;
 };
 
-export const getProductList = async (limit, subcategoryId, sortBy, orderBy) => {
-  const response = await axiosClient.get(getProductListEndpoint, {
-    params: { limit, subcategoryId, sortBy, orderBy },
+export const getProductList = async ({ configProducts }) => {
+  const { data } = await axiosClient.get(getProductListEndpoint, {
+    params: configProducts,
   });
-  const { data } = response;
   // eslint-disable-next-line no-console
   return data && data.error ? (console.error('Помилка при отриманні даних:', data.error), null) : data;
 };
