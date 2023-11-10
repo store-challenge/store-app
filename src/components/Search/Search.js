@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import { InputBase, InputAdornment } from '@mui/material';
 import { Icon } from '@iconify/react';
 
-import s from './Search.module.css';
-
 import { RoutesLinks } from '../../constant/constant';
 
 import ButtonCustom from '../Button/ButtonCustom';
+
+import s from './Search.module.css';
 
 const Search = props => {
   const { breakpoint, isVisible, onClick } = props;
