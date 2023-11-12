@@ -1,6 +1,6 @@
 import axiosClient from './axiosClient';
 
-const getBrandsEndpoint = 'api/v1/brand/bySubcategory';
+const getBrandsEndpoint = 'api/v1/brand/list';
 
 export const getBrandsList = async subcategoryId => {
   const response = await axiosClient.get(getBrandsEndpoint, {
