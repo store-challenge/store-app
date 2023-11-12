@@ -2,7 +2,7 @@ import { styled } from '@mui/material/styles';
 import { Card, DialogContent, IconButton } from '@mui/material';
 
 export const CustomCard = styled(Card)(({ theme }) => ({
-  width: '264px',
+  width: '244px',
   height: '250px',
   padding: '20px',
   display: 'flex',

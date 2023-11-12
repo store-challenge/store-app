@@ -1,23 +1,56 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { InputBase, InputAdornment } from '@mui/material';
 import { Icon } from '@iconify/react';
 
-import ButtonCustom from '../Button/ButtonCustom';
-import s from './Search.module.css';
+import { RoutesLinks } from '../../constant/constant';
 
-import { getSearchProduct } from '../../services/getProducts';
+import ButtonCustom from '../Button/ButtonCustom';
+
+import s from './Search.module.css';
 
 const Search = props => {
   const { breakpoint, isVisible, onClick } = props;
+  const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState('');
 
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const storedSearchValue = urlParams.get('query') || '';
+
+    setSearchValue(storedSearchValue);
+  }, []);
+
   const handleInputChange = event => {
-    setSearchValue(event.target.value);
+    const { value } = event.target;
+
+    if (value === '') {
+      setSearchValue('');
+      return;
+    }
+
+    setSearchValue(value);
   };
+
   const handleFormSubmit = event => {
     event.preventDefault();
-    getSearchProduct(searchValue);
+
+    const trimmedValue = searchValue.trim();
+
+    if (trimmedValue === '') {
+      // eslint-disable-next-line no-alert
+      alert('Будь ласка, введіть дані для пошуку.');
+      return;
+    }
+
+    if (!/^[\d\sA-Za-zА-я]+$/.test(trimmedValue)) {
+      // eslint-disable-next-line no-alert
+      alert('Будь ласка, введіть правильний запит для пошуку із літер або цифр.');
+      return;
+    }
+
+    navigate(`${RoutesLinks.SEARCH}?query=${encodeURIComponent(trimmedValue)}`);
   };
 
   const searchForm = () => (
@@ -48,13 +81,18 @@ const Search = props => {
       />
       {breakpoint && (
         <ButtonCustom
-          text={'Пошук'}
-          type={'submit'}
+          text="Пошук"
+          variant="contained"
+          type="submit"
           onClick={handleFormSubmit}
           sx={{
             marginRight: '10px',
-            backgroundColor: breakpoint ? 'var(--mainColor)' : 'var(--secondColor)',
-            color: breakpoint ? 'var(--secondColor)' : 'var(--mainColor)',
+            backgroundColor: 'var(--mainColor)',
+            color: 'var(--secondColor)',
+            '&:hover': {
+              border: 'inherit',
+              backgroundColor: 'var(--buttonHoverColor)',
+            },
           }}
         />
       )}

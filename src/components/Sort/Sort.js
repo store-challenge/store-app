@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
-import { Icon } from '@iconify/react';
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import { Select } from '@mui/material';
+import { Icon } from '@iconify/react';
 
 import { CustomFormControl, CustomSelect, CustomMenuItem } from './Sort.styled';
 
 const Sort = ({ onSelect, breakpoint }) => {
-  const [sortOption, setSortOption] = useState('newest');
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const queryParams = new URLSearchParams(location.search);
+  const initialSortOption = queryParams.get('sort') || 'newest';
+
+  const [sortOption, setSortOption] = useState(initialSortOption);
 
   const valueOptions = [
     { value: 'asc', text: 'Від дешевих до дорогих' },
@@ -38,6 +44,8 @@ const Sort = ({ onSelect, breakpoint }) => {
     const selectedOption = event.target.value;
     onSelect(selectedOption);
     setSortOption(selectedOption);
+    queryParams.set('sort', selectedOption);
+    navigate(`${location.pathname}?${queryParams.toString()}`, { replace: true });
   };
 
   return (

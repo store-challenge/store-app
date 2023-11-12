@@ -28,6 +28,7 @@ const ProductPage = ({ desktop }) => {
     subcategoryName,
     productAvailable,
     price,
+    discountPrice,
   } = productInfo;
   const [imagesGallery, setImagesGallery] = useState([]);
   const [description, setDescription] = useState('');
@@ -77,7 +78,7 @@ const ProductPage = ({ desktop }) => {
           <Title text={title} />
           <Grid container rowGap={!desktop && 2.5} justifyContent={'space-between'} width={'100%'}>
             <Box>
-              <InfoSection array={mainInfo} columnGap={0.5} sx={{ fontWeight: 300 }} breakpoint={desktop} />
+              <InfoSection array={mainInfo} columnGap={0.5} sx={{ fontWeight: desktop && 300 }} breakpoint={desktop} />
               <SubTitle text={'Характеристики:'} />
               <InfoSection array={characteristics} columnGap={2.5} breakpoint={desktop} />
             </Box>
@@ -85,7 +86,8 @@ const ProductPage = ({ desktop }) => {
               selectedQuantity={selectedQuantity}
               setSelectedQuantity={setSelectedQuantity}
               available={productAvailable}
-              price={price}
+              price={price || 0}
+              newPrice={discountPrice && discountPrice}
               handleClick={handleBuyClick}
               breakpoint={desktop}
             />

@@ -1,6 +1,6 @@
 .wrapper {
-  height: 212px;
   width: 140px;
+  gap: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,7 +8,7 @@
 }
 
 .card {
-  height: 150px;
+  height: 143px;
   background: #ffffff;
   border: 2.36px solid var(--mainColor);
   transition: background-color 0.5s ease;
@@ -51,12 +51,7 @@
   -o-transform: scale(1.15);
 }
 
-.title {
-  margin-top: 2.5px;
-}
-
-.title h3,
-.priceUah {
+.title h3 {
   font-size: 13px;
   white-space: nowrap;
   overflow: hidden;
@@ -68,12 +63,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 0 15px;
-}
-
-.priceUah {
-  color: var(--priceTextColor);
 }
 
 .basket {
@@ -85,6 +76,7 @@
     background-color 0.5s ease,
     border-radius 0.5s ease;
   border-radius: 0;
+  cursor: pointer;
 }
 
 .basketIcon {
@@ -103,17 +95,17 @@
 }
 
 .basket:hover .basketIcon * {
-  stroke: white;
+  stroke: #ffffff;
 }
 
 @media only screen and (min-width: 630px) {
   .wrapper {
-    height: 314px;
     width: 206px;
+    gap: 15px;
   }
 
   .card {
-    height: 219px;
+    height: 210px;
     border: 3.18px solid var(--mainColor);
     border-radius: 22.5px;
     -webkit-border-radius: 22.5px;
@@ -135,12 +127,7 @@
     -o-transform: scale(1.18);
 }
 
-  .title {
-    margin-top: 20px;
-  }
-
-  .title h3,
-  .priceUah {
+  .title h3 {
     font-size: 16.5px;
   }
 
@@ -156,8 +143,8 @@
 
 @media only screen and (min-width: 1023px) {
   .wrapper {
-    height: 416px;
     width: 272px;
+    gap: 20px;
   }
 
   .card {
@@ -183,17 +170,12 @@
     -o-transform: scale(1.2);
 }
 
-  .title {
-    margin-top: 37px;
-  }
-
-  .title h3,
-  .priceUah {
+  .title h3 {
     font-size: 20px;
   }
 
   .info {
-    margin-top: 23px;
+    margin-top: 20px;
   }
 
   .basket {

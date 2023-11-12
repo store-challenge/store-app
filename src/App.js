@@ -13,6 +13,8 @@ import Footer from './components/Footer/Footer';
 
 const CatalogPage = lazy(() => import('./pages/CatalogPage/CatalogPage' /* webpackChunkName: "CatalogPage" */));
 
+const SearchListPage = lazy(() => import('./pages/SearchListPage' /* webpackChunkName: "SearchListPage" */));
+
 const CategoryPage = lazy(() => import('./pages/CategoryPage/CategoryPage' /* webpackChunkName: "CategoryPage" */));
 
 const SubcategoryPage = lazy(() =>
@@ -49,6 +51,7 @@ function App() {
                 <Suspense fallback={<Loading />}>
                   <Routes>
                     <Route path={RoutesLinks.HOMEPAGE} element={<CatalogPage desktop={desktop} />} />
+                    <Route path={RoutesLinks.SEARCH} element={<SearchListPage desktop={desktop} />} />
                     <Route
                       path={`${RoutesLinks.CATEGORY_PAGE}/:categoryId`}
                       element={<CategoryPage desktop={desktop} />}
