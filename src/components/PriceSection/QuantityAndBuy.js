@@ -1,14 +1,13 @@
-import { Typography, Box, Stack } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 
 import { useCart } from '../../providers/CartProvider';
-import Price from './Price';
 import Quantity from '../Quantity/Quantity';
 import ButtonCustom from '../Button/ButtonCustom';
 
-const PriceSection = props => {
-  const { selectedQuantity, setSelectedQuantity, available, price, newPrice, handleClick, breakpoint } = props;
+const QuantityAndBuy = props => {
+  const { selectedQuantity, setSelectedQuantity, available, handleClick, breakpoint, tablet } = props;
   const { id } = useParams();
   const { itemQuantities } = useCart();
 
@@ -22,14 +21,7 @@ const PriceSection = props => {
 
   return (
     <Grid container flexDirection={'column'} rowGap={breakpoint ? 6.25 : 2.5} maxWidth={'100%'}>
-      <Typography
-        variant="paragraph"
-        color={available ? 'var(--mainColor)' : 'var(--buttonDisabled)'}
-        sx={{ fontWeight: breakpoint && '300', fontSize: !breakpoint && '13px' }}>
-        {available ? `В наявності ${available}` : 'Не в наявності'}
-      </Typography>
       <Stack gap={'25px'}>
-        <Price price={price} newPrice={newPrice} breakpoint={breakpoint} />
         <Box display={'flex'} flexDirection={'column'} alignItems={'center'} rowGap={'20px'}>
           <Quantity
             currentQuantity={selectedQuantity}
@@ -41,12 +33,12 @@ const PriceSection = props => {
             onClick={handleBuyClick}
             text={'Купити'}
             sx={{
+              width: tablet ? '177px' : '288px',
               margin: 0,
               backgroundColor: 'var(--mainColor)',
               color: 'var(--secondColor)',
               '&:hover': {
-                border: 'inherit',
-                backgroundColor: 'var(--buttonHoverColor)',
+                backgroundColor: 'var(--mainColor)',
               },
               '&:disabled': {
                 backgroundColor: 'var(--buttonDisabled)',
@@ -59,4 +51,4 @@ const PriceSection = props => {
   );
 };
 
-export default PriceSection;
+export default QuantityAndBuy;
