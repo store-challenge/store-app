@@ -44,9 +44,11 @@ const Search = props => {
       return;
     }
 
-    if (!/^[\d\sA-Za-zА-я]+$/.test(trimmedValue)) {
+    const validInputPattern = /^[\d\s'A-Za-z°ЄІЇА-яєіїҐґ’]+$/;
+
+    if (!validInputPattern.test(trimmedValue)) {
       // eslint-disable-next-line no-alert
-      alert('Будь ласка, введіть правильний запит для пошуку із літер або цифр.');
+      alert('Будь ласка, введіть правильний запит для пошуку.');
       return;
     }
 
