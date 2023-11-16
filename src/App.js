@@ -39,6 +39,7 @@ const theme = createTheme({
 });
 
 function App() {
+  const tablet = useMediaQuery(theme.breakpoints.between('640', 'xl'));
   const desktop = useMediaQuery(theme.breakpoints.up('xl'));
   return (
     <ThemeProvider theme={theme}>
@@ -47,7 +48,7 @@ function App() {
           <BrowserRouter basename={RoutesLinks.MAINPAGE}>
             <CartProvider>
               <Header desktop={desktop} />
-              <Container breakpoint={desktop}>
+              <Container desktop={desktop} tablet={tablet}>
                 <Suspense fallback={<Loading />}>
                   <Routes>
                     <Route path={RoutesLinks.HOMEPAGE} element={<CatalogPage desktop={desktop} />} />
