@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Stack, Box, Typography } from '@mui/material';
-import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import parse from 'html-react-parser';
+import { useParams } from 'react-router-dom';
+import { Stack, Box, Typography, useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import Grid from '@mui/material/Unstable_Grid2/Grid2';
 
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import ImagesGallery from '../../components/ImagesGallery/ImagesGallery';
-import InfoSection from '../../components/InfoSection/InfoSection';
-import PriceSection from '../../components/PriceSection/PriceSection';
 import { Title, SubTitle } from '../../components/Title/Title';
+import InfoSection from '../../components/InfoSection/InfoSection';
+import Price from '../../components/PriceSection/Price';
+import QuantityAndBuy from '../../components/PriceSection/QuantityAndBuy';
 
 import { RoutesLinks } from '../../constant/constant';
 import { getProductById } from '../../services/getProducts';
@@ -16,6 +18,8 @@ import { getProductById } from '../../services/getProducts';
 import { useCart } from '../../providers/CartProvider';
 
 const ProductPage = ({ desktop }) => {
+  const theme = useTheme();
+  const tablet = useMediaQuery(theme.breakpoints.between('640', 'xl'));
   const { id } = useParams();
   const [productInfo, setProductInfo] = useState({});
   const {
@@ -69,41 +73,127 @@ const ProductPage = ({ desktop }) => {
     setSelectedQuantity(1);
   };
 
-  return (
-    <Stack>
-      <BreadCrumbs currentPath={path} breakpoint={desktop} />
-      <Grid container columnGap={13.75} flexWrap={desktop && 'nowrap'} justifyContent={'center'}>
-        <ImagesGallery images={imagesGallery} breakpoint={desktop} />
-        <Box width={'100%'}>
-          <Title text={title} />
-          <Grid container rowGap={!desktop && 2.5} justifyContent={'space-between'} width={'100%'}>
-            <Box>
-              <InfoSection array={mainInfo} columnGap={0.5} sx={{ fontWeight: desktop && 300 }} breakpoint={desktop} />
-              <SubTitle text={'Характеристики:'} />
-              <InfoSection array={characteristics} columnGap={2.5} breakpoint={desktop} />
-            </Box>
-            <PriceSection
-              selectedQuantity={selectedQuantity}
-              setSelectedQuantity={setSelectedQuantity}
-              available={productAvailable}
-              price={price || 0}
-              newPrice={discountPrice && discountPrice}
-              handleClick={handleBuyClick}
-              breakpoint={desktop}
-            />
-          </Grid>
-        </Box>
-      </Grid>
+  const Availability = () => (
+    <>
+      <Typography
+        variant="paragraph"
+        color={productAvailable ? 'var(--mainColor)' : 'var(--buttonDisabled)'}
+        sx={{ fontWeight: desktop && '300', fontSize: !desktop && '13px' }}>
+        {productAvailable ? `В наявності ${productAvailable}` : 'Не в наявності'}
+      </Typography>
+    </>
+  );
+
+  const Characteristics = () => (
+    <>
+      <SubTitle text={'Характеристики:'} />
+      <InfoSection array={characteristics} columnGap={2.5} breakpoint={desktop} />
+    </>
+  );
+
+  const Information = () => (
+    <>
+      <InfoSection array={mainInfo} columnGap={0.5} sx={{ fontWeight: desktop && 300 }} breakpoint={desktop} />
+    </>
+  );
+
+  const PriceSection = () => (
+    <>
+      <Price price={price || 0} newPrice={discountPrice && discountPrice} breakpoint={desktop} />
+    </>
+  );
+
+  const Purchase = () => (
+    <>
+      <QuantityAndBuy
+        selectedQuantity={selectedQuantity}
+        setSelectedQuantity={setSelectedQuantity}
+        available={productAvailable}
+        handleClick={handleBuyClick}
+        breakpoint={desktop}
+        tablet={tablet}
+      />
+    </>
+  );
+
+  const DesktopView = () => (
+    <>
+      <Stack>
+        <Information />
+        <Characteristics />
+      </Stack>
+
+      <Stack rowGap={5}>
+        <Availability />
+        <PriceSection />
+
+        <Purchase />
+      </Stack>
+    </>
+  );
+
+  const TabletView = () => (
+    <>
       <Box>
-        <SubTitle text={'Про товар'} />
-        <Typography
-          variant="paragraph"
-          color={'var(--mainColor)'}
-          fontSize={!desktop && '13px'}
-          fontWeight={desktop && '300px'}>
-          {parse(description)}
-        </Typography>
+        <Stack rowGap={2.5}>
+          <Availability />
+          <PriceSection />
+        </Stack>
+
+        <Stack>
+          <Information />
+          <Characteristics />
+        </Stack>
       </Box>
+
+      <Purchase />
+    </>
+  );
+
+  const MobileView = () => (
+    <>
+      <Stack rowGap={2.5}>
+        <Availability />
+        <PriceSection />
+        <Information />
+      </Stack>
+
+      <Purchase />
+
+      <Stack>
+        <Characteristics />
+      </Stack>
+    </>
+  );
+
+  return (
+    <Stack alignItems={'center'}>
+      <Stack maxWidth={'100%'} width={desktop ? '100%' : tablet ? '576px' : '288px'}>
+        <BreadCrumbs currentPath={path} breakpoint={desktop} />
+        <Grid
+          container
+          columnGap={tablet ? 3 : 13.75}
+          flexWrap={(tablet || desktop) && 'nowrap'}
+          justifyContent={'center'}>
+          <ImagesGallery images={imagesGallery} breakpoint={desktop} />
+          <Stack width={'100%'}>
+            <Title text={title} sx={{ justifyContent: 'start', fontWeight: !desktop && 500 }} />
+            <Grid container rowGap={!desktop && 2.5} justifyContent={'space-between'} width={'100%'}>
+              {desktop ? <DesktopView /> : tablet ? <TabletView /> : <MobileView />}
+            </Grid>
+          </Stack>
+        </Grid>
+        <Box>
+          <SubTitle text={'Про товар'} />
+          <Typography
+            variant="paragraph"
+            color={'var(--mainColor)'}
+            fontSize={!desktop && '13px'}
+            fontWeight={desktop && '300px'}>
+            {parse(description)}
+          </Typography>
+        </Box>
+      </Stack>
     </Stack>
   );
 };
