@@ -41,7 +41,8 @@ const QuantityAndBuy = props => {
                 backgroundColor: 'var(--mainColor)',
               },
               '&:active,&:focus-visible': {
-                backgroundColor: 'var(--buttonClickColor)',
+                borderColor: 'var(--buttonHoverColor)',
+                backgroundColor: 'var(--buttonHoverColor)',
               },
               '&:disabled': {
                 backgroundColor: 'var(--buttonDisabled)',
