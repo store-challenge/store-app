@@ -35,24 +35,7 @@ const Search = props => {
 
   const handleFormSubmit = event => {
     event.preventDefault();
-
-    const trimmedValue = searchValue.trim();
-
-    if (trimmedValue === '') {
-      // eslint-disable-next-line no-alert
-      alert('Будь ласка, введіть дані для пошуку.');
-      return;
-    }
-
-    const validInputPattern = /^[\d\s'A-Za-z°ЄІЇА-яєіїҐґ’]+$/;
-
-    if (!validInputPattern.test(trimmedValue)) {
-      // eslint-disable-next-line no-alert
-      alert('Будь ласка, введіть правильний запит для пошуку.');
-      return;
-    }
-
-    navigate(`${RoutesLinks.SEARCH}?query=${encodeURIComponent(trimmedValue)}`);
+    if (searchValue) navigate(`${RoutesLinks.SEARCH}?query=${encodeURIComponent(searchValue)}`);
   };
 
   const searchForm = () => (
