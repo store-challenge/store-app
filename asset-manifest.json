@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/store-app/static/css/main.79929c47.css",
-    "main.js": "/store-app/static/js/main.a5c89614.js",
+    "main.js": "/store-app/static/js/main.bc32300e.js",
     "CatalogPage.css": "/store-app/static/css/CatalogPage.043d3e08.chunk.css",
-    "CatalogPage.js": "/store-app/static/js/CatalogPage.73e17434.chunk.js",
+    "CatalogPage.js": "/store-app/static/js/CatalogPage.d4cd3888.chunk.js",
     "SearchListPage.css": "/store-app/static/css/SearchListPage.5c4cf7b2.chunk.css",
     "SearchListPage.js": "/store-app/static/js/SearchListPage.2f4a5921.chunk.js",
     "CategoryPage.css": "/store-app/static/css/CategoryPage.951318fc.chunk.css",
-    "CategoryPage.js": "/store-app/static/js/CategoryPage.4146711c.chunk.js",
+    "CategoryPage.js": "/store-app/static/js/CategoryPage.70b852e5.chunk.js",
     "SubcategoryPage.css": "/store-app/static/css/SubcategoryPage.5c4cf7b2.chunk.css",
-    "SubcategoryPage.js": "/store-app/static/js/SubcategoryPage.8b9abae3.chunk.js",
-    "ProductPage.js": "/store-app/static/js/ProductPage.196f194d.chunk.js",
+    "SubcategoryPage.js": "/store-app/static/js/SubcategoryPage.c70ad604.chunk.js",
+    "ProductPage.js": "/store-app/static/js/ProductPage.66e3c4e8.chunk.js",
     "NotFoundPage.js": "/store-app/static/js/NotFoundPage.17ebe5be.chunk.js",
     "static/js/889.d868c04b.chunk.js": "/store-app/static/js/889.d868c04b.chunk.js",
     "static/js/998.5763caac.chunk.js": "/store-app/static/js/998.5763caac.chunk.js",
@@ -24,16 +24,16 @@
     "static/media/logo.svg": "/store-app/static/media/logo.b3585c1dc456bd1304da7252a5843d67.svg",
     "index.html": "/store-app/index.html",
     "main.79929c47.css.map": "/store-app/static/css/main.79929c47.css.map",
-    "main.a5c89614.js.map": "/store-app/static/js/main.a5c89614.js.map",
+    "main.bc32300e.js.map": "/store-app/static/js/main.bc32300e.js.map",
     "CatalogPage.043d3e08.chunk.css.map": "/store-app/static/css/CatalogPage.043d3e08.chunk.css.map",
-    "CatalogPage.73e17434.chunk.js.map": "/store-app/static/js/CatalogPage.73e17434.chunk.js.map",
+    "CatalogPage.d4cd3888.chunk.js.map": "/store-app/static/js/CatalogPage.d4cd3888.chunk.js.map",
     "SearchListPage.5c4cf7b2.chunk.css.map": "/store-app/static/css/SearchListPage.5c4cf7b2.chunk.css.map",
     "SearchListPage.2f4a5921.chunk.js.map": "/store-app/static/js/SearchListPage.2f4a5921.chunk.js.map",
     "CategoryPage.951318fc.chunk.css.map": "/store-app/static/css/CategoryPage.951318fc.chunk.css.map",
-    "CategoryPage.4146711c.chunk.js.map": "/store-app/static/js/CategoryPage.4146711c.chunk.js.map",
+    "CategoryPage.70b852e5.chunk.js.map": "/store-app/static/js/CategoryPage.70b852e5.chunk.js.map",
     "SubcategoryPage.5c4cf7b2.chunk.css.map": "/store-app/static/css/SubcategoryPage.5c4cf7b2.chunk.css.map",
-    "SubcategoryPage.8b9abae3.chunk.js.map": "/store-app/static/js/SubcategoryPage.8b9abae3.chunk.js.map",
-    "ProductPage.196f194d.chunk.js.map": "/store-app/static/js/ProductPage.196f194d.chunk.js.map",
+    "SubcategoryPage.c70ad604.chunk.js.map": "/store-app/static/js/SubcategoryPage.c70ad604.chunk.js.map",
+    "ProductPage.66e3c4e8.chunk.js.map": "/store-app/static/js/ProductPage.66e3c4e8.chunk.js.map",
     "NotFoundPage.17ebe5be.chunk.js.map": "/store-app/static/js/NotFoundPage.17ebe5be.chunk.js.map",
     "889.d868c04b.chunk.js.map": "/store-app/static/js/889.d868c04b.chunk.js.map",
     "998.5763caac.chunk.js.map": "/store-app/static/js/998.5763caac.chunk.js.map",
@@ -44,6 +44,6 @@
   },
   "entrypoints": [
     "static/css/main.79929c47.css",
-    "static/js/main.a5c89614.js"
+    "static/js/main.bc32300e.js"
   ]
 }
