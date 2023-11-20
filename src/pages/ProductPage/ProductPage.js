@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import parse from 'html-react-parser';
 import { useParams } from 'react-router-dom';
-import { Stack, Box, Typography, useMediaQuery } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import Grid from '@mui/material/Unstable_Grid2/Grid2';
 
+import { Stack, Box, Typography, useMediaQuery } from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2/Grid2';
+import { useTheme } from '@mui/material/styles';
+
+import Notification from '../../components/Notification/Notification';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import ImagesGallery from '../../components/ImagesGallery/ImagesGallery';
 import { Title, SubTitle } from '../../components/Title/Title';
@@ -69,6 +71,7 @@ const ProductPage = ({ desktop }) => {
   }, [id]);
 
   const handleBuyClick = () => {
+    Notification();
     addToCart(productInfo, selectedQuantity);
     setSelectedQuantity(1);
   };

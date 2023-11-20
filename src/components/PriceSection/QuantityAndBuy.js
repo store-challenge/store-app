@@ -1,5 +1,6 @@
 import { Box, Stack } from '@mui/material';
 import { useParams } from 'react-router-dom';
+
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 
 import { useCart } from '../../providers/CartProvider';
@@ -38,9 +39,6 @@ const QuantityAndBuy = props => {
               backgroundColor: 'var(--mainColor)',
               color: 'var(--secondColor)',
               '&:hover': {
-                backgroundColor: 'var(--mainColor)',
-              },
-              '&:active,&:focus-visible': {
                 borderColor: 'var(--buttonHoverColor)',
                 backgroundColor: 'var(--buttonHoverColor)',
               },
