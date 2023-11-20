@@ -1,11 +1,14 @@
 import './App.css';
 import { useMediaQuery } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import { RoutesLinks } from './constant/constant';
 import LangProvider from './providers/LangProvider';
 import { CartProvider } from './providers/CartProvider';
+
 import Loading from './components/Loading/Loading';
 import Header from './components/Header/Header';
 import Container from './components/Container/Container';
