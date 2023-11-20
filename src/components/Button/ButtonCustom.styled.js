@@ -17,10 +17,10 @@ export const CustomButton = styled(Button)(({ theme }) => ({
     borderColor: 'var(--mainColor)',
     backgroundColor: 'transparent',
   },
-  '&:active, &:focus-visible': {
+  '&:active,&:focus-visible': {
     color: 'var(--secondColor)',
-    borderColor: 'var(--buttonHoverColor)',
-    backgroundColor: 'var(--buttonHoverColor)',
+    borderColor: 'var(--buttonClickColor)',
+    backgroundColor: 'var(--buttonClickColor)',
   },
   [theme.breakpoints.up('xl')]: {
     width: '177px',

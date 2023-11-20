@@ -1,11 +1,14 @@
 import './App.css';
 import { useMediaQuery } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import { RoutesLinks } from './constant/constant';
 import LangProvider from './providers/LangProvider';
 import { CartProvider } from './providers/CartProvider';
+
 import Loading from './components/Loading/Loading';
 import Header from './components/Header/Header';
 import Container from './components/Container/Container';
@@ -39,6 +42,7 @@ const theme = createTheme({
 });
 
 function App() {
+  const tablet = useMediaQuery(theme.breakpoints.between('640', 'xl'));
   const desktop = useMediaQuery(theme.breakpoints.up('xl'));
   return (
     <ThemeProvider theme={theme}>
@@ -47,7 +51,7 @@ function App() {
           <BrowserRouter basename={RoutesLinks.MAINPAGE}>
             <CartProvider>
               <Header desktop={desktop} />
-              <Container breakpoint={desktop}>
+              <Container desktop={desktop} tablet={tablet}>
                 <Suspense fallback={<Loading />}>
                   <Routes>
                     <Route path={RoutesLinks.HOMEPAGE} element={<CatalogPage desktop={desktop} />} />
