@@ -26,12 +26,9 @@ export const CustomTypographyTitle = styled(Typography)(({ theme }) => ({
 
 export const CustomTypographySubTitle = styled(Typography)(({ theme }) => ({
   ...styles,
-  marginTop: '20px',
-  marginBottom: '20px',
+  margin: 0,
   fontSize: '13px',
   [theme.breakpoints.up('xl')]: {
-    marginTop: '50px',
-    marginBottom: '50px',
     fontSize: '20px',
   },
 }));

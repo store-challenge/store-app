@@ -5,4 +5,5 @@ export const RoutesLinks = {
   CATEGORY_PAGE: '/category',
   SUBCATEGORY_PAGE: '/subcategory',
   PRODUCT_PAGE: '/product',
+  ORDER_PAGE: '/order',
 };
