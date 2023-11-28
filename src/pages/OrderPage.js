@@ -6,8 +6,8 @@ import Grid from '@mui/material/Unstable_Grid2/Grid2';
 
 import { SubTitle } from '../components/Title/Title';
 
-import Payment from '../components/OrderSections/Payment';
 import Comment from '../components/OrderSections/Comment';
+import Payment from '../components/OrderSections/Payment';
 
 const OrderPage = ({ desktop }) => {
   const theme = useTheme();
@@ -18,6 +18,7 @@ const OrderPage = ({ desktop }) => {
 
   const handlePaymentSubmit = data => {
     setPaymentData(data);
+  };
 
   const handleCommentSubmit = data => {
     setCommentData(data);
@@ -34,6 +35,11 @@ const OrderPage = ({ desktop }) => {
           <Payment
             userData={paymentData}
             onPaymentSubmit={handlePaymentSubmit}
+            breakpoint={desktop}
+            tabletBreakpoint={tablet}
+          />
+        </Grid>
+        <Grid xs={desktop ? 8 : 12}>
           <Comment
             userData={commentData}
             onCommentSubmit={handleCommentSubmit}
