@@ -7,15 +7,20 @@ import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import { SubTitle } from '../components/Title/Title';
 
 import Payment from '../components/OrderSections/Payment';
+import Comment from '../components/OrderSections/Comment';
 
 const OrderPage = ({ desktop }) => {
   const theme = useTheme();
   const tablet = useMediaQuery(theme.breakpoints.between('640', 'xl'));
 
   const [paymentData, setPaymentData] = useState({});
+  const [commentData, setCommentData] = useState({});
 
   const handlePaymentSubmit = data => {
     setPaymentData(data);
+
+  const handleCommentSubmit = data => {
+    setCommentData(data);
   };
 
   return (
@@ -29,6 +34,9 @@ const OrderPage = ({ desktop }) => {
           <Payment
             userData={paymentData}
             onPaymentSubmit={handlePaymentSubmit}
+          <Comment
+            userData={commentData}
+            onCommentSubmit={handleCommentSubmit}
             breakpoint={desktop}
             tabletBreakpoint={tablet}
           />
