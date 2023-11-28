@@ -26,6 +26,8 @@ const SubcategoryPage = lazy(() =>
 
 const ProductPage = lazy(() => import('./pages/ProductPage/ProductPage' /* webpackChunkName: "ProductPage" */));
 
+const OrderPage = lazy(() => import('./pages/OrderPage' /* webpackChunkName: "OrderPage" */));
+
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage' /* webpackChunkName: "NotFoundPage" */));
 
 const theme = createTheme({
@@ -65,6 +67,7 @@ function App() {
                       element={<SubcategoryPage desktop={desktop} />}
                     />
                     <Route path={`${RoutesLinks.PRODUCT_PAGE}/:id`} element={<ProductPage desktop={desktop} />} />
+                    <Route path={RoutesLinks.ORDER_PAGE} element={<OrderPage desktop={desktop} />} />
                     <Route path="*" element={<NotFoundPage desktop={desktop} />} />
                   </Routes>
                 </Suspense>
