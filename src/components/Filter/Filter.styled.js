@@ -14,13 +14,18 @@ import {
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/system';
 
-const styles = {
+const styles = ({ theme }) => ({
   fontFamily: 'Montserrat',
-  fontSize: '10px',
+  fontSize: '16px',
   fontStyle: 'normal',
   fontWeight: 300,
   lineHeight: '130%',
-};
+  color: 'var(--secondColor)',
+  [theme.breakpoints.up('xl')]: {
+    fontSize: '20px',
+    color: 'var(--textColor)',
+  },
+});
 
 export const FilterContainer = styled(Box)(({ theme }) => ({
   boxSizing: 'border-box',
@@ -42,38 +47,23 @@ export const FilterContainer = styled(Box)(({ theme }) => ({
 }));
 
 export const FilterTitle = styled(Typography)(({ theme }) => ({
-  fontFamily: 'Montserrat',
+  ...styles,
   fontSize: '15px',
-  fontStyle: 'normal',
   fontWeight: 500,
-  lineHeight: '130%',
   marginBottom: '20px',
-  color: 'var(--secondColor)',
   [theme.breakpoints.up('xl')]: {
-    fontSize: '20px',
     marginBottom: '50px',
-    color: 'var(--textColor)',
   },
 }));
 
 // Range Slider
 export const SliderTypography = styled(Typography)(({ theme }) => ({
-  fontFamily: 'Montserrat',
-  fontSize: '16px',
-  fontStyle: 'normal',
-  fontWeight: 300,
-  lineHeight: '130%',
-  color: 'var(--secondColor)',
-  [theme.breakpoints.up('xl')]: {
-    color: 'var(--textColor)',
-  },
+  ...styles,
 }));
 
 export const FilterSliderInputMin = styled(Input)(({ theme }) => ({
-  fontFamily: 'Montserrat',
-  fontSize: '16px',
+  ...styles,
   textDecoration: 'underline',
-  color: 'var(--secondColor)',
 
   '& .MuiInputBase-input': {
     textAlign: 'left',
@@ -85,17 +75,14 @@ export const FilterSliderInputMin = styled(Input)(({ theme }) => ({
     MozAppearance: 'textfield',
   },
   [theme.breakpoints.up('xl')]: {
-    fontSize: '20px',
     color: 'var(--mainColor)',
   },
 }));
 
 export const FilterSliderInputMax = styled(Input)(({ theme }) => ({
-  fontFamily: 'Montserrat',
-  fontSize: '16px',
+  ...styles,
   textDecoration: 'underline',
 
-  color: 'var(--secondColor)',
   '& .MuiInputBase-input': {
     textAlign: 'right',
   },
@@ -106,7 +93,6 @@ export const FilterSliderInputMax = styled(Input)(({ theme }) => ({
     MozAppearance: 'textfield',
   },
   [theme.breakpoints.up('xl')]: {
-    fontSize: '20px',
     color: 'var(--mainColor)',
   },
 }));
@@ -128,30 +114,51 @@ export const FilterSlider = styled(Slider)(({ theme }) => ({
 // FilterBrandList
 
 export const StyledFormControl = styled(FormControl)(({ theme }) => ({
-  boxSizing: 'border-box',
-  padding: '8px 20px',
-  width: '288px',
+  minHeight: '48px',
+  borderRadius: '15px',
   border: '0.38px solid var(--mainColor)',
-  borderRadius: '10px',
+  borderColor: 'var(--secondColor)',
   '& .MuiInputBase-input': {
+    padding: '8px 20px',
+  },
+  '& .MuiInputLabel-root': {
     ...styles,
-    // border: 0,
+    fontSize: '15px',
+    fontWeight: 500,
+    color: 'var(--secondColor)',
+    '&.Mui-focused': {
+      color: 'transparent',
+    },
+  },
+  '& .MuiOutlinedInput-notchedOutline': {
+    border: 'none',
   },
   [theme.breakpoints.up('xl')]: {
-    padding: '18px',
-    width: '100%',
+    minHeight: '55px',
     fontSize: '16px',
     border: '1px solid var(--mainColor)',
     borderRadius: '20px',
+    '& .MuiInputBase-input': {
+      ...styles,
+      padding: '18px 15px',
+    },
+    '& .MuiInputLabel-root': {
+      ...styles,
+      fontSize: '16px',
+      color: 'var(--mainColor)',
+      '&.Mui-focused': {
+        color: 'transparent',
+      },
+    },
   },
 }));
 
 export const CustomMenuItem = styled(MenuItem)(({ theme }) => ({
   ...styles,
-  // padding: '10px 16px',
   minHeight: '10px',
   fontSize: '8.371px',
   fontWeight: 500,
+  color: 'var(--mainColor)',
   '&.Mui-selected': {
     color: 'var(--textColor)',
     backgroundColor: 'var(--secondColor)',
