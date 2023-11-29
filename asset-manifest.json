@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/store-app/static/css/main.b064212c.css",
-    "main.js": "/store-app/static/js/main.74d7506f.js",
+    "main.js": "/store-app/static/js/main.d6f83b4d.js",
     "CatalogPage.css": "/store-app/static/css/CatalogPage.043d3e08.chunk.css",
     "CatalogPage.js": "/store-app/static/js/CatalogPage.45a8134f.chunk.js",
     "SearchListPage.css": "/store-app/static/css/SearchListPage.5c4cf7b2.chunk.css",
@@ -21,7 +21,7 @@
     "static/js/73.88a29cb1.chunk.js": "/store-app/static/js/73.88a29cb1.chunk.js",
     "static/js/50.28578ff7.chunk.js": "/store-app/static/js/50.28578ff7.chunk.js",
     "static/js/16.67157499.chunk.js": "/store-app/static/js/16.67157499.chunk.js",
-    "static/js/304.aa142d74.chunk.js": "/store-app/static/js/304.aa142d74.chunk.js",
+    "static/js/304.fd06449d.chunk.js": "/store-app/static/js/304.fd06449d.chunk.js",
     "static/media/adv1.svg": "/store-app/static/media/adv1.65e0388d5450456e4dff10b660e4b7b9.svg",
     "static/media/adv3.svg": "/store-app/static/media/adv3.6ea1222a56aed48a8e58574e88258b7f.svg",
     "static/media/adv2.svg": "/store-app/static/media/adv2.9069f0eb15e10f428269acae1a26f974.svg",
@@ -32,7 +32,7 @@
     "static/media/applepayIcon.svg": "/store-app/static/media/applepayIcon.462818521c13ac6ec6da3fb0c8e2d1e4.svg",
     "index.html": "/store-app/index.html",
     "main.b064212c.css.map": "/store-app/static/css/main.b064212c.css.map",
-    "main.74d7506f.js.map": "/store-app/static/js/main.74d7506f.js.map",
+    "main.d6f83b4d.js.map": "/store-app/static/js/main.d6f83b4d.js.map",
     "CatalogPage.043d3e08.chunk.css.map": "/store-app/static/css/CatalogPage.043d3e08.chunk.css.map",
     "CatalogPage.45a8134f.chunk.js.map": "/store-app/static/js/CatalogPage.45a8134f.chunk.js.map",
     "SearchListPage.5c4cf7b2.chunk.css.map": "/store-app/static/css/SearchListPage.5c4cf7b2.chunk.css.map",
@@ -52,10 +52,10 @@
     "73.88a29cb1.chunk.js.map": "/store-app/static/js/73.88a29cb1.chunk.js.map",
     "50.28578ff7.chunk.js.map": "/store-app/static/js/50.28578ff7.chunk.js.map",
     "16.67157499.chunk.js.map": "/store-app/static/js/16.67157499.chunk.js.map",
-    "304.aa142d74.chunk.js.map": "/store-app/static/js/304.aa142d74.chunk.js.map"
+    "304.fd06449d.chunk.js.map": "/store-app/static/js/304.fd06449d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b064212c.css",
-    "static/js/main.74d7506f.js"
+    "static/js/main.d6f83b4d.js"
   ]
 }
